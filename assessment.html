@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment & Grading - Math 140B Spring 2025</title>
+    <style>
+        :root {
+            --penn-state-navy: #001E44;
+            --penn-state-blue: #1E407C;
+            --penn-state-light-blue: #96BEE6;
+            --nittany-navy: #041E42;
+            --white: #FFFFFF;
+            --light-gray: #F5F5F5;
+            --text-gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-gray);
+            background-color: var(--white);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--penn-state-navy) 0%, var(--penn-state-blue) 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+        
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .breadcrumb {
+            background-color: var(--light-gray);
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--penn-state-blue);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .alert {
+            background-color: #FFF3CD;
+            border-left: 4px solid #FFC107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .alert-important {
+            background-color: #F8D7DA;
+            border-left: 4px solid #DC3545;
+        }
+        
+        .alert-success {
+            background-color: #D4EDDA;
+            border-left: 4px solid #28A745;
+        }
+        
+        h2 {
+            color: var(--penn-state-navy);
+            margin: 2rem 0 1rem 0;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--penn-state-light-blue);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: var(--penn-state-blue);
+            margin: 1.5rem 0 0.75rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th {
+            background-color: var(--penn-state-navy);
+            color: var(--white);
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tr:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+        
+        tr:hover {
+            background-color: #E8F4FF;
+        }
+        
+        .grade-table {
+            overflow-x: auto;
+        }
+        
+        .info-box {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .info-box h3 {
+            margin-top: 0;
+        }
+        
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--penn-state-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .nav-button:hover, .nav-button:focus {
+            background-color: var(--penn-state-navy);
+            outline: 2px solid var(--penn-state-blue);
+            outline-offset: 2px;
+        }
+        
+        .highlight {
+            background-color: #FFEB3B;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+        
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 0.5rem;
+            }
+        }
+        
+        @media print {
+            header {
+                background: none;
+                color: var(--text-gray);
+                border: 2px solid var(--penn-state-navy);
+            }
+            
+            .navigation-buttons {
+                display: none;
+            }
+            
+            table {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Assessment & Grading</h1>
+            <div class="subtitle">Math 140B Spring 2025</div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a> / Assessment & Grading
+        </nav>
+        
+        <section>
+            <div class="alert alert-important">
+                <strong>Important:</strong> Your final grade is determined by four factors:
+                <ul>
+                    <li>Number of Learning Targets marked as <strong>Demonstrated</strong> and <strong>Proficient</strong></li>
+                    <li>Number of written homework assignments that are <strong>Satisfactory</strong></li>
+                    <li>Number of lab assignments that are <strong>Satisfactory</strong></li>
+                    <li>Experience points (XP) earned through online work and participation</li>
+                </ul>
+                <p><strong>Your grade is not a percentage and you do not lose points by attempting assignments. Every assignment is a learning opportunity.</strong></p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Learning Target Quizzes</h2>
+            
+            <p>There are 25 Learning Targets in the course. You are assessed on these through weekly Learning Target Quiz Sessions every Tuesday beginning in Week 2.</p>
+            
+            <div class="info-box">
+                <h3>How Learning Target Quizzes Work</h3>
+                <ul>
+                    <li><strong>Grading:</strong> Success/Not Yet basis</li>
+                    <li><strong>Success:</strong> Free from conceptual errors with few or no minor computational errors</li>
+                    <li><strong>Not Yet:</strong> Shows that additional skill development or conceptual understanding is needed</li>
+                </ul>
+                
+                <p><strong>Demonstrated:</strong> Earn your first Success on a learning target<br>
+                <strong>Proficient:</strong> Earn a Success on a target you've already Demonstrated</p>
+            </div>
+            
+            <div class="alert">
+                <strong>Important for LT1-LT10:</strong> After a learning target is offered twice, you must visit LA or instructor office hours before additional attempts.
+            </div>
+        </section>
+        
+        <section>
+            <h2>Final Grade Determination</h2>
+            
+            <h3>Math 140B (4 credits)</h3>
+            <div class="grade-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Final Grade</th>
+                            <th>Demonstrated Targets</th>
+                            <th>Proficient Targets</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>A</strong></td>
+                            <td>24</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td><strong>A-</strong></td>
+                            <td>22</td>
+                            <td>18</td>
+                        </tr>
+                        <tr>
+                            <td><strong>B+</strong></td>
+                            <td>21</td>
+                            <td>16</td>
+                        </tr>
+                        <tr>
+                            <td><strong>B</strong></td>
+                            <td>20</td>
+                            <td>14</td>
+                        </tr>
+                        <tr>
+                            <td><strong>B-</strong></td>
+                            <td>19</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C+</strong></td>
+                            <td>18</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C</strong></td>
+                            <td>17</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td><strong>D</strong></td>
+                            <td>13</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td><strong>F</strong></td>
+                            <td colspan="2">If requirements for D are not met</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="alert">
+                <strong>Note:</strong> You must meet ALL requirements for a grade. For example, 24 Demonstrated with only 12 Proficient = B- (not A).
+            </div>
+        </section>
+        
+        <section>
+            <h2>Experience Points (XP) Modifications</h2>
+            
+            <p>XP can modify your final grade by increasing your count of Demonstrated targets, Proficient targets, or Satisfactory written homeworks.</p>
+            
+            <div class="info-box">
+                <h3>XP Modification Table</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>XP Earned</th>
+                            <th>Effect</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Less than 100 XP</td>
+                            <td>No modifications</td>
+                        </tr>
+                        <tr>
+                            <td>100-199 XP</td>
+                            <td>One modification</td>
+                        </tr>
+                        <tr>
+                            <td>200-299 XP</td>
+                            <td>Two modifications</td>
+                        </tr>
+                        <tr>
+                            <td>300+ XP</td>
+                            <td>Three modifications</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3>Earning XP (approximately 350 XP available)</h3>
+            <ul>
+                <li><strong>Online Homework:</strong> 10 XP for 80%+ (scaled for lower scores)</li>
+                <li><strong>Pre-lecture Assignments:</strong> 5 XP for 80%+ correct</li>
+                <li><strong>Weekly Check-in Surveys:</strong> 2 XP</li>
+                <li><strong>LA Office Hours:</strong> 10 XP per session attended</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Written Homeworks</h2>
+            
+            <p>10 assignments throughout the semester, graded Satisfactory/Not Yet/Incomplete</p>
+            
+            <div class="info-box">
+                <h3>Written Homework Grading</h3>
+                <ul>
+                    <li><strong>Satisfactory:</strong> Submitted on time, organized, correct notation, correct computations, complete sentences</li>
+                    <li><strong>Not Yet:</strong> Submitted on time with reasonable effort but missing some criteria - <span class="highlight">revision allowed</span></li>
+                    <li><strong>Incomplete:</strong> Not submitted on time or insufficient effort - no revision allowed</li>
+                </ul>
+                
+                <p><strong>Two exceptions allowed per semester</strong> via Google form in Canvas</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Lab Assignments</h2>
+            
+            <p>4 labs throughout the semester requiring in-class participation and written report</p>
+            
+            <div class="info-box">
+                <ul>
+                    <li>Must participate in class to receive credit</li>
+                    <li>Graded Satisfactory/Not Yet/Incomplete</li>
+                    <li>Revisions allowed for "Not Yet" submissions</li>
+                </ul>
+            </div>
+        </section>
+        
+        <div class="navigation-buttons">
+            <a href="index.html" class="nav-button">← Back to Home</a>
+            <a href="learning-targets.html" class="nav-button">View Learning Targets →</a>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Math 140B Spring 2025 | Penn State University | <a href="policies.html#accessibility">Accessibility Statement</a></p>
+    </footer>
+</body>
+</html>

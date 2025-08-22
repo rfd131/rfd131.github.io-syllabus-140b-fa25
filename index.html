@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 140B: Calculus and Biology I - Fall 2025 Syllabus</title>
+    <style>
+        :root {
+            --penn-state-navy: #001E44;
+            --penn-state-blue: #1E407C;
+            --penn-state-light-blue: #96BEE6;
+            --nittany-navy: #041E42;
+            --white: #FFFFFF;
+            --light-gray: #F5F5F5;
+            --text-gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-gray);
+            background-color: var(--white);
+        }
+        
+        /* Layout wrapper for sidebar version */
+        .page-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--penn-state-navy) 0%, var(--penn-state-blue) 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            border-radius: 0;
+        }
+        
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        /* Container for main content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* TOP NAVIGATION STYLES */
+        body.top-nav-layout header {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+        
+        body.top-nav-layout main {
+            padding-top: 0;
+        }
+        
+        .top-navigation {
+            background-color: var(--light-gray);
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--penn-state-blue);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .top-navigation .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .top-navigation h2 {
+            font-size: 1.1rem;
+            color: var(--penn-state-navy);
+            margin-bottom: 0.75rem;
+        }
+        
+        .top-navigation ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.5rem;
+            margin: 0;
+        }
+        
+        /* SIDEBAR NAVIGATION STYLES */
+        body.sidebar-nav-layout {
+            margin: 0;
+        }
+        
+        body.sidebar-nav-layout .page-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        body.sidebar-nav-layout header {
+            width: 100%;
+            margin-bottom: 0;
+        }
+        
+        body.sidebar-nav-layout .content-wrapper {
+            display: flex;
+            flex: 1;
+        }
+        
+        .sidebar-navigation {
+            width: 280px;
+            background-color: var(--light-gray);
+            padding: 2rem 1rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 2px solid var(--penn-state-blue);
+        }
+        
+        .sidebar-navigation h2 {
+            font-size: 1.1rem;
+            color: var(--penn-state-navy);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--penn-state-blue);
+        }
+        
+        .sidebar-navigation ul {
+            list-style: none;
+            margin: 0;
+        }
+        
+        /* Quick Links Sidebar */
+        .quick-links {
+            width: 280px;
+            background-color: var(--light-gray);
+            padding: 2rem 1rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            border-left: 2px solid var(--penn-state-blue);
+        }
+        
+        .quick-links h2 {
+            font-size: 1.1rem;
+            color: var(--penn-state-navy);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--penn-state-blue);
+        }
+        
+        .quick-links ul {
+            list-style: none;
+            margin: 0;
+        }
+        
+        .quick-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .quick-links a {
+            color: var(--penn-state-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            border-radius: 4px;
+            background-color: var(--white);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid #ddd;
+        }
+        
+        .quick-links a:hover {
+            background-color: var(--penn-state-blue);
+            color: var(--white);
+            transform: translateX(-4px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        
+        .quick-links .icon {
+            margin-right: 0.5rem;
+            font-size: 1.1em;
+        }
+        
+        body.sidebar-nav-layout main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        /* Shared Navigation Item Styles */
+        .nav-item {
+            position: relative;
+            margin-bottom: 0.25rem;
+        }
+        
+        .nav-item > a {
+            color: var(--penn-state-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .nav-item > a:hover, .nav-item > a:focus {
+            background-color: var(--white);
+            text-decoration: underline;
+            outline: 2px solid var(--penn-state-blue);
+            outline-offset: 2px;
+        }
+        
+        .dropdown-arrow {
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-item.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+        
+        /* Dropdown Menu Styles */
+        .dropdown-menu {
+            display: none;
+            background-color: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 4px;
+        }
+        
+        /* Top nav dropdown positioning */
+        .top-navigation .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 100;
+            min-width: 220px;
+        }
+        
+        /* Sidebar dropdown positioning */
+        .sidebar-navigation .dropdown-menu {
+            position: static;
+            margin-left: 0.5rem;
+            margin-top: 0.25rem;
+            box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+        }
+        
+        .nav-item.active .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text-gray);
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+            transition: background-color 0.2s ease;
+        }
+        
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-menu a:hover, .dropdown-menu a:focus {
+            background-color: var(--light-gray);
+            color: var(--penn-state-blue);
+        }
+        
+        /* Content Styles */
+        .welcome-section {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .overview-section {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+	.feedback-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .feedback-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .feedback-diagram {
+            flex: 0 0 auto;
+            text-align: center;
+        }
+        
+        .feedback-title {
+            color: var(--penn-state-navy);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .alert {
+            background-color: #FFF3CD;
+            border-left: 4px solid #FFC107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        h2 {
+            color: var(--penn-state-navy);
+            margin: 2rem 0 1rem 0;
+            font-size: 1.5rem;
+        }
+        
+        h3 {
+            color: var(--penn-state-blue);
+            margin: 1.5rem 0 0.75rem 0;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        nav ul {
+            margin-left: 0;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            margin-top: 3rem;
+            padding: 2rem;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #666;
+            background-color: var(--light-gray);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1400px) {
+            .quick-links {
+                width: 240px;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .sidebar-navigation {
+                width: 240px;
+            }
+            
+            /* Hide quick links on tablets */
+            .quick-links {
+                display: none;
+            }
+            
+            body.sidebar-nav-layout main {
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            /* Convert sidebar to top nav on mobile */
+            body.sidebar-nav-layout .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .sidebar-navigation {
+                width: 100%;
+                height: auto;
+                position: static;
+                border-right: none;
+                border-bottom: 2px solid var(--penn-state-blue);
+                padding: 1rem;
+            }
+            
+            .top-navigation ul {
+                grid-template-columns: 1fr;
+            }
+            
+            .dropdown-menu {
+                position: static !important;
+                margin-top: 0;
+                box-shadow: none;
+                border: none;
+                background-color: var(--light-gray);
+            }
+            
+            .nav-item.active .dropdown-menu {
+                margin-left: 1rem;
+                margin-top: 0.5rem;
+            }
+        }
+        
+        @media print {
+            .sidebar-navigation, .top-navigation, .quick-links {
+                display: none;
+            }
+            
+            body.sidebar-nav-layout .content-wrapper {
+                display: block;
+            }
+            
+            body.sidebar-nav-layout main {
+                padding: 0;
+            }
+            
+            header {
+                background: none;
+                color: var(--text-gray);
+                border: 2px solid var(--penn-state-navy);
+            }
+        }
+    </style>
+</head>
+
+<!-- Choose layout by changing the class: "top-nav-layout" or "sidebar-nav-layout" -->
+<body class="sidebar-nav-layout">
+    
+    <!-- For SIDEBAR LAYOUT -->
+    <div class="page-wrapper">
+        <header>
+            <div class="container">
+                <h1>Math 140B: Calculus and Biology I</h1>
+                <div class="subtitle">Fall 2025 Syllabus</div>
+            </div>
+        </header>
+        
+        <div class="content-wrapper">
+            <!-- Sidebar Navigation (only shows in sidebar-nav-layout) -->
+            <nav class="sidebar-navigation" role="navigation" aria-label="Syllabus sections">
+                <h2>Syllabus Sections</h2>
+                <ul>
+                    <li class="nav-item">
+                        <a href="#overview">Overview <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="#welcome">Welcome</a>
+                            <a href="#course-overview">Course Overview</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="instructors.html">Instructors <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+			  <a href="instructors.html">Course Instructors</a>
+                            <a href="instructors.html#russ-deforest">Russ deForest</a>
+                            <a href="instructors.html#sam-fuller">Sam Fuller</a>
+                            <a href="instructors.html#ashley-pallone">Ashley Pallone</a>
+                            <a href="instructors.html#jan-reimann">Jan Reimann</a>
+                            <a href="instructors.html#michael-steward">Michael Steward</a>
+                            <a href="instructors.html#sam-vancini">Sam Vancini</a>
+                            <a href="instructors.html#sharedoffice-hours">Office Hours</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="class-times.html">Class Times and Locations <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="class-times.html#mwf-classes">MWF Classes</a>
+                            <a href="class-times.html#tuesday-recitations">Tuesday Recitations</a>
+                            <a href="class-times.html#la-office-hours">LA Office Hours</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="materials.html">Course Materials <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="materials.html#textbooks">Textbooks</a>
+                            <a href="materials.html#online-resources">Online Resources</a>
+                            <a href="materials.html#canvas">Canvas Materials</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="learning-targets.html">Learning Targets <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="learning-targets.html">Learning Targets and Quiz Sessions</a>
+                            <a href="https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">List of Learning Targets</a>
+                            <a href="learning-targets.html#faq">Learning Target FAQ</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="writing-projects.html">Writing Projects <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="writing-projects.html#overview">Overview</a>
+                            <a href="writing-projects.html#schedule">Schedule</a>
+                            <a href="writing-projects.html#grading">Grading Criteria</a>
+                            <a href="writing-projects.html#revisions">Revisions</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="grading.html">How Your Grade is Determined <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="grading.html#overview">Grading Overview</a>
+                            <a href="grading.html#final-grades">Final Grade Table</a>
+                            <a href="grading.html#xp">Experience Points</a>
+                            <a href="grading.html#modifications">XP Modifications</a>
+                            <a href="grading.html#math197">Math 197 Option</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="policies.html">Course Policies <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="policies.html#academic-integrity">Academic Integrity</a>
+                            <a href="policies.html#attendance">Attendance</a>
+                            <a href="policies.html#makeup">Make-up Policy</a>
+                            <a href="policies.html#disability">Disability Accommodation</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="help.html">Getting Help! <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="help.html#office-hours">Instructor Office Hours</a>
+                            <a href="help.html#la-hours">LA Office Hours</a>
+                            <a href="help.html#tutoring">Free Tutoring</a>
+                            <a href="help.html#study-tips">Study Tips</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="resources.html">Student Resources <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="resources.html#counseling">Counseling Services</a>
+                            <a href="resources.html#academic-support">Academic Support</a>
+                            <a href="resources.html#technology">Technology Resources</a>
+                            <a href="resources.html#wellness">Health & Wellness</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            
+            <main>
+                <!-- Main Content -->
+                <section class="welcome-section" id="overview">
+                    <h2>Welcome to Math 140B!</h2>
+                    <p>Welcome to Calculus with Applications to Biology. Throughout the semester we will focus on developing and understanding the tools of calculus and applying these tools to problems in biology.</p>
+                    
+                    <div class="alert">
+                        <strong>Course Format:</strong> The Fall 2025 semester runs as a "3+1" hybrid course with 3 credits of in-person instruction (MWF) and 1 WEB credit corresponding to online asynchronous content.
+                    </div>
+
+            <div class="feedback-container">
+                <div class="feedback-text">
+                    <div class="alert">
+                        <strong>Specifications Grading:</strong> This course uses a specifications grading scheme. Your grade is NOT based on points or percentages, but on proficiency in learning objectives assessed through Learning Target Quizzes and Writing Projects.
+                    </div>
+                </div>
+
+                <div class="feedback-diagram">
+                    <div class="feedback-title">Feedback Loop of Learning</div>
+                    <svg width="350" height="300" viewBox="0 0 350 300" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Define arrow marker -->
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                                    refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#1E407C" />
+                            </marker>
+                        </defs>
+                        
+                        <!-- Circle nodes -->
+                        <g id="nodes">
+                            <!-- LT Quiz node (top) -->
+                            <circle cx="175" cy="60" r="45" fill="#96BEE6" stroke="#1E407C" stroke-width="2"/>
+                            <text x="175" y="55" text-anchor="middle" font-size="13" fill="#001E44">
+                                <tspan x="175" dy="0">LT Quiz</tspan>
+                                <tspan x="175" dy="15">(Re)-Attempt</tspan>
+                            </text>
+                            
+                            <!-- Instructor Feedback node (bottom right) -->
+                            <circle cx="260" cy="200" r="45" fill="#96BEE6" stroke="#1E407C" stroke-width="2"/>
+                            <text x="260" y="195" text-anchor="middle" font-size="13" fill="#001E44">
+                                <tspan x="260" dy="0">Instructor</tspan>
+                                <tspan x="260" dy="15">Feedback</tspan>
+                            </text>
+                            
+                            <!-- Reflection node (bottom left) -->
+                            <circle cx="90" cy="200" r="45" fill="#96BEE6" stroke="#1E407C" stroke-width="2"/>
+                            <text x="90" y="195" text-anchor="middle" font-size="13" fill="#001E44">
+                                <tspan x="90" dy="0">Reflection and</tspan>
+                                <tspan x="90" dy="15">Improvement</tspan>
+                            </text>
+                        </g>
+                        
+                        <!-- Curved arrows -->
+                        <g id="arrows">
+                            <!-- From Quiz to Feedback -->
+                            <path d="M 210 80 Q 250 130 245 160" 
+                                  fill="none" stroke="#1E407C" stroke-width="2" 
+                                  marker-end="url(#arrowhead)"/>
+                            
+                            <!-- From Feedback to Reflection -->
+                            <path d="M 220 210 Q 175 230 130 210" 
+                                  fill="none" stroke="#1E407C" stroke-width="2" 
+                                  marker-end="url(#arrowhead)"/>
+                            
+                            <!-- From Reflection to Quiz -->
+                            <path d="M 105 160 Q 100 100 140 80" 
+                                  fill="none" stroke="#1E407C" stroke-width="2" 
+                                  marker-end="url(#arrowhead)"/>
+                        </g>
+                        
+                        <!-- Description text -->
+                        <text x="175" y="270" text-anchor="middle" font-size="12" fill="#333">
+                            <tspan x="175" dy="0">Use feedback to improve and work</tspan>
+                            <tspan x="175" dy="15">toward proficiency in each Learning Target</tspan>
+                        </text>
+                    </svg>
+                </div>
+            </div>
+		    
+                </section>
+        <section id="course-structure">
+            <h2>Course Overview</h2>
+
+            <div class="overview-section" id="prerequisites">
+                <h3>Prerequisites</h3>
+                <ul>
+                    <li>Math 022, Math 026; or</li>
+                    <li>Math 040 or Math 041 or equivalent</li>
+                </ul>
+            </div>
+            
+            <div class="overview-section">
+                <h3>Class Structure</h3>
+                <ul>
+                    <li><strong>Class days (MWF):</strong> In-class days are interactive and include a mix of direct instruction, problem solving in groups, and review.</li>
+                    <li><strong>Tuesday Quiz Sessions:</strong> We have required weekly assessments on Tuesdays in Learning Target Quiz sessions.</li>
+                    <li><strong>Online:</strong> The asynchronous content includes online video lectures, pre-lecture assignments (PLAs), online homeworks, practice problems, and self-guided learning activities.</li>
+                </ul>
+            </div>
+
+            <div class="overview-section">
+                <h3>Assessment Components</h3>
+                <ul>
+                    <li>There are 25 Learning Targets assessed through LT Quiz Sessions. Most LTs have two parts: a Foundational quiz and an Advanced quiz.</li>
+                    <li>There are two evening midterm exams and a final exam. Each exam is essentially an extended quiz session with a larger packet of LT quizzes.
+                        <div class="alert">
+                            <strong>If you meet the requirements for an A in the course by the end of Week 15, then you will not have a final exam.</strong>
+                        </div>
+                    </li>
+                    <li>There are four Writing Projects.</li>
+                    <li>Experience points (XP) measure your engagement in Math 140B outside the classroom and contribute to your final letter grade through <strong>modifications</strong>. Participation in LA Community Learning Sessions, Completing Pre-lecture Assignments (PLAs), Online Homeworks, and Target Practice Assignments, and completing quiz sign ups and surveys all earn experience Points (XP).</li>
+                </ul>
+            </div>
+            
+            <div class="" id="gen-ed">
+                <h3>General Education</h3>
+                <p>Math 140B is part of Penn State's <strong>General Education</strong> curriculum and addresses the <strong>Key Literacies</strong> and <strong>Critical and Analytical Thinking</strong> general education objectives:</p>
+                <ul>
+                    <li>Key Literacies - the ability to identify, interpret, create, communicate and compute using materials in a variety of media and contexts. Literacy acquired in multiple areas, such as textual, quantitative, information/technology, health, intercultural, historical, aesthetic, linguistic (world languages), and scientific, enables individuals to achieve their goals, to develop their knowledge and potential, to lead healthy and productive lives, and to participate fully in their community and wider society.</li>
+                    <li>Critical and Analytical Thinking - the habit of mind characterized by comprehensive exploration of issues, ideas, artifacts, and events before accepting or formulating a conclusion. It is the intellectually disciplined process of conceptualizing, applying, analyzing, synthesizing, and/or evaluating information gathered from, or generated by, observation, experience, reflection, reasoning, or communication, as a guide to belief and action.</li>
+                </ul>
+            </div>
+        </section>
+
+            </main>
+            
+            <!-- Quick Links Sidebar -->
+            <aside class="quick-links" role="complementary" aria-label="Quick Links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li>
+                        <a href="grading.html">
+                            <span class="icon">📊</span>
+                            How Your Grade is Determined
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+                            <span class="icon">📋</span>
+                            Learning Target List
+                        </a>
+                    </li>
+                    <li>
+                        <a href="policies.html#makeup">
+                            <span class="icon">📝</span>
+                            Make-up Quiz Policy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="instructors.html#office-hours">
+                            <span class="icon">🕐</span>
+                            Shared Office Hours
+                        </a>
+                    </li>
+                    <li>
+                        <a href="help.html#la-hours">
+                            <span class="icon">👥</span>
+                            LA Community Learning Sessions
+                        </a>
+                    </li>
+                </ul>
+                
+                <div style="margin-top: 2rem; padding: 1rem; background-color: #FFF3CD; border-radius: 4px; border-left: 4px solid #FFC107;">
+                    <h3 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--penn-state-navy);">Important Dates</h3>
+                    <ul style="font-size: 0.9rem; margin: 0;">
+                        <li style="margin-bottom: 0.25rem;">First Day: Aug 25</li>
+                        <li style="margin-bottom: 0.25rem;">Midterm 1: Oct 2</li>
+                        <li style="margin-bottom: 0.25rem;">Midterm 2: Nov 6</li>
+                        <li style="margin-bottom: 0.25rem;">Final Exam: TBD</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Math 140B Fall 2025 | Penn State University | <a href="policies.html#disability">Accessibility Statement</a></p>
+    </footer>
+
+    <script>
+        // JavaScript for dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            navItems.forEach(item => {
+                const link = item.querySelector('a');
+                
+                link.addEventListener('click', function(e) {
+                    // Check if this link has a dropdown
+                    const dropdown = item.querySelector('.dropdown-menu');
+                    if (dropdown) {
+                        // If clicking on the main link, prevent default and toggle dropdown
+                        if (e.target === link || e.target.parentElement === link) {
+                            e.preventDefault();
+                            
+                            // Close other dropdowns
+                            navItems.forEach(otherItem => {
+                                if (otherItem !== item) {
+                                    otherItem.classList.remove('active');
+                                }
+                            });
+                            
+                            // Toggle current dropdown
+                            item.classList.toggle('active');
+                        }
+                    }
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.nav-item')) {
+                    navItems.forEach(item => {
+                        item.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Handle keyboard navigation
+            navItems.forEach(item => {
+                const link = item.querySelector('a');
+                link.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        const dropdown = item.querySelector('.dropdown-menu');
+                        if (dropdown) {
+                            e.preventDefault();
+                            item.classList.toggle('active');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

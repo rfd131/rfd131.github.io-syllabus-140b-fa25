@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructors - Math 140B: Fall 2025</title>
+    <style>
+        :root {
+            --penn-state-navy: #001E44;
+            --penn-state-blue: #1E407C;
+            --penn-state-light-blue: #96BEE6;
+            --nittany-navy: #041E42;
+            --white: #FFFFFF;
+            --light-gray: #F5F5F5;
+            --text-gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-gray);
+            background-color: var(--white);
+        }
+        
+        /* Layout wrapper */
+        .page-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--penn-state-navy) 0%, var(--penn-state-blue) 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            border-radius: 0;
+        }
+        
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        /* SIDEBAR LAYOUT */
+        body.sidebar-nav-layout {
+            margin: 0;
+        }
+        
+        body.sidebar-nav-layout .page-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        body.sidebar-nav-layout header {
+            width: 100%;
+            margin-bottom: 0;
+        }
+        
+        body.sidebar-nav-layout .content-wrapper {
+            display: flex;
+            flex: 1;
+        }
+        
+        .sidebar-navigation {
+            width: 280px;
+            background-color: var(--light-gray);
+            padding: 2rem 1rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 2px solid var(--penn-state-blue);
+        }
+        
+        .sidebar-navigation h2 {
+            font-size: 1.1rem;
+            color: var(--penn-state-navy);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--penn-state-blue);
+        }
+        
+        .sidebar-navigation ul {
+            list-style: none;
+            margin: 0;
+        }
+        
+        /* Quick Links Sidebar */
+        .quick-links {
+            width: 280px;
+            background-color: var(--light-gray);
+            padding: 2rem 1rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            border-left: 2px solid var(--penn-state-blue);
+        }
+        
+        .quick-links h2 {
+            font-size: 1.1rem;
+            color: var(--penn-state-navy);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--penn-state-blue);
+        }
+        
+        .quick-links ul {
+            list-style: none;
+            margin: 0;
+        }
+        
+        .quick-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .quick-links a {
+            color: var(--penn-state-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            border-radius: 4px;
+            background-color: var(--white);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid #ddd;
+        }
+        
+        .quick-links a:hover {
+            background-color: var(--penn-state-blue);
+            color: var(--white);
+            transform: translateX(-4px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        
+        .quick-links .icon {
+            margin-right: 0.5rem;
+            font-size: 1.1em;
+        }
+        
+        /* Navigation Item Styles */
+        .nav-item {
+            position: relative;
+            margin-bottom: 0.25rem;
+        }
+        
+        .nav-item > a {
+            color: var(--penn-state-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .nav-item > a:hover, .nav-item > a:focus {
+            background-color: var(--white);
+            text-decoration: underline;
+            outline: 2px solid var(--penn-state-blue);
+            outline-offset: 2px;
+        }
+        
+        .nav-item.current-page > a {
+            background-color: var(--penn-state-blue);
+            color: var(--white);
+        }
+        
+        .dropdown-arrow {
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-item.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+        
+        /* Dropdown Menu Styles */
+        .dropdown-menu {
+            display: none;
+            background-color: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 4px;
+            position: static;
+            margin-left: 0.5rem;
+            margin-top: 0.25rem;
+            box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+        }
+        
+        .nav-item.active .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text-gray);
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+            transition: background-color 0.2s ease;
+        }
+        
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-menu a:hover, .dropdown-menu a:focus {
+            background-color: var(--light-gray);
+            color: var(--penn-state-blue);
+        }
+        
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            color: var(--penn-state-navy);
+            margin: 2rem 0 1.5rem 0;
+            font-size: 1.8rem;
+            border-bottom: 3px solid var(--penn-state-blue);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: var(--penn-state-blue);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+        
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            background-color: var(--light-gray);
+            padding: 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--penn-state-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 0.5rem;
+            color: var(--text-gray);
+        }
+        
+        /* Instructor Cards */
+        .instructor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .instructor-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--penn-state-blue);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .instructor-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .instructor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+        
+        .instructor-name {
+            font-size: 1.3rem;
+            color: var(--penn-state-navy);
+            font-weight: bold;
+        }
+        
+        .instructor-title {
+            color: var(--penn-state-blue);
+            font-style: italic;
+            font-size: 1rem;
+        }
+        
+        .instructor-pronouns {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        
+        .instructor-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .detail-row {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: var(--penn-state-navy);
+            min-width: 100px;
+            margin-right: 1rem;
+        }
+        
+        .detail-content {
+            flex: 1;
+        }
+        
+        .detail-content a {
+            color: var(--penn-state-blue);
+            text-decoration: none;
+        }
+        
+        .detail-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .office-hours-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .office-hours-list li {
+            margin-bottom: 0.25rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .office-hours-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--penn-state-blue);
+        }
+        
+        /* Sections Info */
+        .sections-taught {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+        
+        .section-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+        
+        .section-badge {
+            background-color: var(--penn-state-blue);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Shared Office Hours Section */
+        .shared-hours-section {
+            background-color: #FFF3CD;
+            border-left: 4px solid #FFC107;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .shared-hours-title {
+            color: var(--penn-state-navy);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .hours-iframe {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: 3rem;
+            padding: 2rem;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #666;
+            background-color: var(--light-gray);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1400px) {
+            .quick-links {
+                width: 240px;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .sidebar-navigation {
+                width: 240px;
+            }
+            
+            /* Hide quick links on tablets */
+            .quick-links {
+                display: none;
+            }
+            
+            body.sidebar-nav-layout main {
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            /* Convert sidebar to top nav on mobile */
+            body.sidebar-nav-layout .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .sidebar-navigation {
+                width: 100%;
+                height: auto;
+                position: static;
+                border-right: none;
+                border-bottom: 2px solid var(--penn-state-blue);
+                padding: 1rem;
+            }
+            
+            .instructor-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .detail-row {
+                flex-direction: column;
+            }
+            
+            .detail-label {
+                margin-bottom: 0.25rem;
+            }
+            
+            .hours-iframe {
+                height: 400px;
+            }
+        }
+        
+        @media print {
+            .sidebar-navigation, .quick-links {
+                display: none;
+            }
+            
+            body.sidebar-nav-layout .content-wrapper {
+                display: block;
+            }
+            
+            body.sidebar-nav-layout main {
+                padding: 0;
+            }
+            
+            header {
+                background: none;
+                color: var(--text-gray);
+                border: 2px solid var(--penn-state-navy);
+            }
+            
+            .instructor-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="sidebar-nav-layout">
+    <div class="page-wrapper">
+        <header>
+            <div class="container">
+                <h1>Math 140B: Calculus and Biology I</h1>
+                <div class="subtitle">Fall 2025 - Instructors</div>
+            </div>
+        </header>
+        
+        <div class="content-wrapper">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar-navigation" role="navigation" aria-label="Syllabus sections">
+                <h2>Syllabus Sections</h2>
+                <ul>
+                    <li class="nav-item">
+                        <a href="index.html">Overview <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="index.html#welcome">Welcome</a>
+                            <a href="index.html#course-overview">Course Overview</a>
+                        </div>
+                    </li>
+                    <li class="nav-item current-page">
+                        <a href="instructors.html">Instructors <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="#russ-deforest">Russ deForest</a>
+                            <a href="#sam-fuller">Sam Fuller</a>
+                            <a href="#ashley-pallone">Ashley Pallone</a>
+                            <a href="#jan-reimann">Jan Reimann</a>
+                            <a href="#michael-steward">Michael Steward</a>
+                            <a href="#sam-vancini">Sam Vancini</a>
+                            <a href="#office-hours">Office Hours</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="class-times.html">Class Times and Locations <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="class-times.html#mwf-classes">MWF Classes</a>
+                            <a href="class-times.html#tuesday-recitations">Tuesday Recitations</a>
+                            <a href="class-times.html#la-office-hours">LA Office Hours</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="materials.html">Course Materials <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="materials.html#textbooks">Textbooks</a>
+                            <a href="materials.html#online-resources">Online Resources</a>
+                            <a href="materials.html#canvas">Canvas Materials</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="learning-targets.html">Learning Targets <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="learning-targets.html">Learning Targets and Quiz Sessions</a>
+                            <a href="https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">List of Learning Targets</a>
+                            <a href="learning-targets.html#faq">Learning Target FAQ</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="writing-projects.html">Writing Projects <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="writing-projects.html#overview">Overview</a>
+                            <a href="writing-projects.html#schedule">Schedule</a>
+                            <a href="writing-projects.html#grading">Grading Criteria</a>
+                            <a href="writing-projects.html#revisions">Revisions</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="grading.html">How Your Grade is Determined <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="grading.html#overview">Grading Overview</a>
+                            <a href="grading.html#final-grades">Final Grade Table</a>
+                            <a href="grading.html#xp">Experience Points</a>
+                            <a href="grading.html#modifications">XP Modifications</a>
+                            <a href="grading.html#math197">Math 197 Option</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="policies.html">Course Policies <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="policies.html#academic-integrity">Academic Integrity</a>
+                            <a href="policies.html#attendance">Attendance</a>
+                            <a href="policies.html#makeup">Make-up Policy</a>
+                            <a href="policies.html#disability">Disability Accommodation</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="help.html">Getting Help! <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="help.html#office-hours">Instructor Office Hours</a>
+                            <a href="help.html#la-hours">LA Office Hours</a>
+                            <a href="help.html#tutoring">Free Tutoring</a>
+                            <a href="help.html#study-tips">Study Tips</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="resources.html">Student Resources <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="resources.html#counseling">Counseling Services</a>
+                            <a href="resources.html#academic-support">Academic Support</a>
+                            <a href="resources.html#technology">Technology Resources</a>
+                            <a href="resources.html#wellness">Health & Wellness</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            
+            <main>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>›</span>
+                    <span aria-current="page">Instructors</span>
+                </nav>
+                
+                <h2>Course Instructors</h2>
+                
+                <div class="instructor-grid">
+                    <!-- Russ deForest -->
+                    <div class="instructor-card" id="russ-deforest">
+                        <div class="instructor-header">
+                            <div class="instructor-name">Russ deForest, PhD</div>
+                            <div class="instructor-title">Instructor, Course Coordinator</div>
+                        </div>
+                        <div class="instructor-pronouns">Pronouns: he/him</div>
+                        
+                        <div class="sections-taught">
+                            <div class="detail-label">Teaching Section:</div>
+                            <div class="section-badges">
+                                <span class="section-badge">Section 4 - MWF 11:15 AM - 12:05 PM, 105 Osmond</span>
+                            </div>
+                        </div>
+                        
+                        <div class="instructor-details" style="margin-top: 1rem;">
+                            <div class="detail-row">
+                                <span class="detail-label">Email:</span>
+                                <span class="detail-content"><a href="mailto:rfd131@psu.edu">rfd131@psu.edu</a></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Office:</span>
+                                <span class="detail-content">005 McAllister</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Office Hours:</span>
+                                <span class="detail-content">
+                                    <ul class="office-hours-list">
+                                        <li>Monday, 10:10 AM - 11:00 AM</li>
+                                        <li>Wednesday, 1:25 PM - 2:15 PM</li>
+                                        <li>Friday, 10:10 AM - 11:00 AM</li>
+                                        <li>By appointment</li>
+                                    </ul>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sam Fuller -->
+                    <div class="instructor-card" id="sam-fuller">
+                        <div class="instructor-header">
+                            <div class="instructor-name">Sam Fuller</div>
+                            <div class="instructor-title">Instructor</div>
+                        </div>
+                        <div class="instructor-pronouns">Pronouns: </div>
+                        
+                        <div class="sections-taught">
+                            <div class="detail-label">Teaching Sections:</div>
+                            <div class="section-badges">
+                                <span class="section-badge">Section 6 - MWF 12:20 - 1:10 PM, 108 Tyson</span>
+                                <span class="section-badge">Section 11 - MWF 3:35 - 4:25 PM, 306 Hammond</span>
+                            </div>
+                        </div>
+                        
+                        <div class="instructor-details" style="margin-top: 1rem;">
+                            <div class="detail-row">
+                                <span class="detail-label">Email:</span>
+                                <span class="detail-content"><a href="mailto:saf5132@psu.edu">saf5132@psu.edu</a></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Office:</span>
+                                <span class="detail-content">104L McAllister (inside Suite 104)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Office Hours:</span>
+                                <span class="detail-content">
+                                    <ul class="office-hours-list">
+                                        <li>Tuesday, 1:30 PM - 2:30 PM</li>
+                                        <li>Thursday, 3:00 PM - 4:00 PM</li>
+                                        <li>Friday, 2:00 PM - 3:00 PM</li>
+                                    </ul>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Ashley Pallone -->
+                    <div class="instructor-card" id="ashley-pallone">
+                        <div class="instructor-header">
+                            <div class="instructor-name">Ashley Pallone</div>
+                            <div class="instructor-title">Instructor</div>
+                        </div>
+                        <div class="instructor-pronouns">Pronouns: </div>
+                        
+                        <div class="sections-taught">
+                            <div class="detail-label">Teaching Sections:</div>
+                            <div class="section-badges">
+                                <span class="section-badge">Section 5 - MWF 11:15 - 12:05 PM, 216 Thomas</span>
+                                <span class="section-badge">Section 9 - MWF 3:35 - 4:25 PM, 103 Osmond</span>
+                            </div>
+                        </div>
+                        
+                        <div class="instructor-details" style="margin-top: 1rem;">
+                            <div class="detail-row">
+                                <span class="detail-label">Email:</span>
+                                <span class="detail-content"><a href="mailto:TBD@psu.edu">TBD@psu.edu</a></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Office:</span>
+                                <span class="detail-content">TBD</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Office Hours:</span>
+                                <span class="detail-content">To be announced</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Jan Reimann -->
+                    <div class="instructor-card" id="jan-reimann">
+                        <div class="instructor-header">
+                            <div class="instructor-name">Jan Reimann</div>
+                            <div class="instructor-title">Instructor</div>
+                        </div>
+                        <div class="instructor-pronouns">Pronouns: </div>
+                        
+                        <div class="sections-taught">
+                            <div class="detail-label">Teaching Section:</div>
+                            <div class="section-badges">
+                                <span class="section-badge">Section 3 - MWF 9:05 - 9:55 AM, 073 Willard</span>
+                            </div>
+                        </div>
+                        
+                        <div class="instructor-details" style="margin-top: 1rem;">
+                            <div class="detail-row">
+                                <span class="detail-label">Email:</span>
+                                <span class="detail-content"><a href="mailto:TBD@psu.edu">TBD@psu.edu</a></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Office:</span>
+                                <span class="detail-content">TBD</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Office Hours:</span>
+                                <span class="detail-content">To be announced</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Michael Steward -->
+                    <div class="instructor-card" id="michael-steward">
+                        <div class="instructor-header">
+                            <div class="instructor-name">Michael Steward</div>
+                            <div class="instructor-title">Instructor</div>
+                        </div>
+                        <div class="instructor-pronouns">Pronouns: </div>
+                        
+                        <div class="sections-taught">
+                            <div class="detail-label">Teaching Sections:</div>
+                            <div class="section-badges">
+                                <span class="section-badge">Section 8 - MWF 12:20 - 1:10 PM, EE West 225</span>
+                                <span class="section-badge">Section 10 - MWF 3:35 - 4:25 PM (M: 115 Music Bldg, WF: 210 Thomas)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="instructor-details" style="margin-top: 1rem;">
+                            <div class="detail-row">
+                                <span class="detail-label">Email:</span>
+                                <span class="detail-content"><a href="mailto:TBD@psu.edu">TBD@psu.edu</a></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Office:</span>
+                                <span class="detail-content">TBD</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Office Hours:</span>
+                                <span class="detail-content">To be announced</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sam Vancini -->
+                    <div class="instructor-card" id="sam-vancini">
+                        <div class="instructor-header">
+                            <div class="instructor-name">Sam Vancini</div>
+                            <div class="instructor-title">Instructor</div>
+                        </div>
+                        <div class="instructor-pronouns">Pronouns: </div>
+                        
+                        <div class="sections-taught">
+                            <div class="detail-label">Teaching Sections:</div>
+                            <div class="section-badges">
+                                <span class="section-badge">Section 1 - MWF 8:00 - 8:50 AM, 103 Osmond</span>
+                                <span class="section-badge">Section 2 - MWF 9:05 - 9:55 AM, 122 Thomas</span>
+                                <span class="section-badge">Section 7 - MWF 12:20 - 1:10 PM, 004 Business</span>
+                            </div>
+                        </div>
+                        
+                        <div class="instructor-details" style="margin-top: 1rem;">
+                            <div class="detail-row">
+                                <span class="detail-label">Email:</span>
+                                <span class="detail-content"><a href="mailto:TBD@psu.edu">TBD@psu.edu</a></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Office:</span>
+                                <span class="detail-content">TBD</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Office Hours:</span>
+                                <span class="detail-content">To be announced</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Shared Office Hours Section -->
+                <div class="shared-hours-section" id="office-hours">
+                    <div class="shared-hours-title">📍 Shared Office Hours Schedule</div>
+                    <p style="margin-bottom: 1rem;">The following office hours are open to students from all sections regardless of who teaches your section.</p>
+                    
+                    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSq2debJEzDtfhBesTfX9Uf5VCL97-3EDPANE1HMO5DJZP75mgsu1xjE5Uhvd8_sCYTYHchE0eQDQen/pubhtml?gid=256070434&amp;single=true&amp;widget=true&amp;headers=false" 
+                            class="hours-iframe"></iframe>
+                    
+                    <p style="margin-top: 1rem; font-style: italic;">Additional office hours for each instructor are shown above.</p>
+                </div>
+            </main>
+            
+            <!-- Quick Links Sidebar -->
+            <aside class="quick-links" role="complementary" aria-label="Quick Links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li>
+                        <a href="grading.html">
+                            <span class="icon">📊</span>
+                            How Your Grade is Determined
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+                            <span class="icon">📋</span>
+                            Learning Target List
+                        </a>
+                    </li>
+                    <li>
+                        <a href="policies.html#makeup">
+                            <span class="icon">📝</span>
+                            Make-up Quiz Policy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#office-hours">
+                            <span class="icon">🕐</span>
+                            Shared Office Hours
+                        </a>
+                    </li>
+                    <li>
+                        <a href="help.html#la-hours">
+                            <span class="icon">👥</span>
+                            LA Community Learning Sessions
+                        </a>
+                    </li>
+                </ul>
+                
+                <div style="margin-top: 2rem; padding: 1rem; background-color: #FFF3CD; border-radius: 4px; border-left: 4px solid #FFC107;">
+                    <h3 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--penn-state-navy);">Important Dates</h3>
+                    <ul style="font-size: 0.9rem; margin: 0;">
+                        <li style="margin-bottom: 0.25rem;">First Day: Aug 25</li>
+                        <li style="margin-bottom: 0.25rem;">Midterm 1: Oct 2</li>
+                        <li style="margin-bottom: 0.25rem;">Midterm 2: Nov 6</li>
+                        <li style="margin-bottom: 0.25rem;">Final Exam: TBD</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Math 140B Fall 2025 | Penn State University | <a href="index.html">Return to Syllabus Home</a></p>
+    </footer>
+
+    <script>
+        // JavaScript for dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            navItems.forEach(item => {
+                const link = item.querySelector('a');
+                
+                link.addEventListener('click', function(e) {
+                    // Check if this link has a dropdown
+                    const dropdown = item.querySelector('.dropdown-menu');
+                    if (dropdown) {
+                        // If clicking on the main link, prevent default and toggle dropdown
+                        if (e.target === link || e.target.parentElement === link) {
+                            e.preventDefault();
+                            
+                            // Close other dropdowns
+                            navItems.forEach(otherItem => {
+                                if (otherItem !== item) {
+                                    otherItem.classList.remove('active');
+                                }
+                            });
+                            
+                            // Toggle current dropdown
+                            item.classList.toggle('active');
+                        }
+                    }
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.nav-item')) {
+                    navItems.forEach(item => {
+                        item.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Handle keyboard navigation
+            navItems.forEach(item => {
+                const link = item.querySelector('a');
+                link.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        const dropdown = item.querySelector('.dropdown-menu');
+                        if (dropdown) {
+                            e.preventDefault();
+                            item.classList.toggle('active');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
