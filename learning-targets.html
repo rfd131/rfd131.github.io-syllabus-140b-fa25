@@ -45,7 +45,7 @@
             margin-right: 0.5rem;
         }
         
-        .demonstrated-badge {
+        .complete-badge {
             display: inline-block;
             background-color: var(--penn-state-light-blue);
             color: var(--penn-state-navy);
@@ -62,6 +62,38 @@
             padding: 0.25rem 0.75rem;
             border-radius: 4px;
             font-weight: bold;
+        }
+        
+        .foundational-badge {
+            display: inline-block;
+            background-color: #17A2B8;
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+        }
+        
+        .advanced-badge {
+            display: inline-block;
+            background-color: #6610F2;
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+        }
+        
+        .one-time-badge {
+            display: inline-block;
+            background-color: #FD7E14;
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.85rem;
         }
         
         /* Process Timeline */
@@ -354,11 +386,31 @@
                         <div style="margin: 1rem 0;">
                             <div style="margin-bottom: 1rem;">
                                 <span class="success-badge">Success!</span>
-                                The quiz is free from conceptual errors and contains few or no minor computational errors.
+                                Solutions for all problems are free from conceptual errors and contain few or no computational errors.
                             </div>
                             <div>
                                 <span class="not-yet-badge">Not Yet</span>
-                                The quiz attempt shows that some additional skill development or conceptual understanding is needed. This is an opportunity to learn and improve!
+                                The quiz attempt shows that additional skill development or conceptual understanding is needed. This is an opportunity to learn and improve!
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lt-overview-card">
+                        <h3>Quiz Types</h3>
+                        <p>There are three main types of Learning Target quizzes:</p>
+                        
+                        <div style="margin: 1rem 0;">
+                            <div style="margin-bottom: 1rem;">
+                                <span class="foundational-badge">Foundational (F)</span>
+                                Cover introductory concepts and foundational skills for a related set of learning objectives.
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="advanced-badge">Advanced (Adv)</span>
+                                Cover advanced concepts and skills, often requiring application of foundational skills to problems.
+                            </div>
+                            <div>
+                                <span class="one-time-badge">One-Time Proficiency (OT)</span>
+                                Counted as both Complete and Proficient after one success. May involve both foundational and advanced skills.
                             </div>
                         </div>
                     </div>
@@ -367,12 +419,12 @@
                         <div class="timeline-step">
                             <div class="step-number">1</div>
                             <div class="step-title">First Success</div>
-                            <div class="step-description">Earn "Demonstrated"</div>
+                            <div class="step-description">Earn "Complete" (F or Adv)</div>
                         </div>
                         <div class="timeline-step">
                             <div class="step-number">2</div>
-                            <div class="step-title">Second Success</div>
-                            <div class="step-description">Earn "Proficient"</div>
+                            <div class="step-title">Both Successes</div>
+                            <div class="step-description">Earn "Proficient" (F and Adv)</div>
                         </div>
                         <div class="timeline-step">
                             <div class="step-number">3</div>
@@ -383,10 +435,10 @@
                     
                     <div class="lt-overview-card">
                         <h3>Achievement Levels</h3>
-                        <p><span class="demonstrated-badge">Demonstrated</span> You earn this when you get your first <strong>Success!</strong> on a learning target quiz.</p>
-                        <p><span class="proficient-badge">Proficient</span> You earn this when you get a <strong>Success!</strong> on a Learning Target you have already Demonstrated.</p>
+                        <p><span class="complete-badge">Complete</span> You earn this when you get a <strong>Success!</strong> on either the Foundational (F) or Advanced (Adv) quiz version. Once you earn a Success in an LT Quiz Version, you do not attempt that version again.</p>
+                        <p><span class="proficient-badge">Proficient</span> You earn this when you get a <strong>Success!</strong> on both the Foundational (F) and Advanced (Adv) quiz versions for the same Learning Target.</p>
                         
-                        <p style="margin-top: 1rem;"><strong>Note:</strong> Some learning targets are labeled as "one-time proficiency". These targets count as both Demonstrated and Proficient as soon as you earn one Success!</p>
+                        <p style="margin-top: 1rem;"><strong>Note:</strong> For One-Time Proficiency targets, one success counts as both Complete and Proficient. You don't need to earn a success in the Foundational version before attempting the Advanced version.</p>
                     </div>
                 </section>
                 
@@ -401,9 +453,11 @@
                     
                     <div class="lt-overview-card">
                         <h3>Retaking Learning Target Quizzes</h3>
-                        <p>If a learning target is marked <strong>Not Yet</strong>, you'll have another opportunity to earn a <strong>Success!</strong> on that target. Use the feedback provided on Gradescope to understand what material needs further review before re-attempting.</p>
+                        <p>If a learning target quiz is marked <strong>Not Yet</strong>, you'll have another opportunity to earn a <strong>Success!</strong> on that target. Use the feedback provided on Gradescope to understand what material needs further review before re-attempting.</p>
                         
-                        <p style="margin-top: 1rem;"><strong>For Learning Targets 1-10:</strong> If you are not able to earn Demonstrated on these LTs during the first two times they are offered, you will need to visit an LA office hour or instructor office hour for help reviewing important ideas before you are allowed to re-attempt that learning target.</p>
+                        <p style="margin-top: 1rem;"><strong>Important Requirement:</strong> Students must attempt at least one of the newest LT quizzes that become available each week, even if not fully prepared. This helps maintain momentum and provides valuable practice.</p>
+                        
+                        <p style="margin-top: 1rem;"><strong>For Learning Targets 1-10:</strong> If you are not able to earn Complete on these LTs during the first two times they are offered, you will need to visit an LA office hour or instructor office hour for help reviewing important ideas before you are allowed to re-attempt that learning target.</p>
                     </div>
                 </section>
                 
@@ -422,7 +476,7 @@
                             <div class="target-badge">LT13*</div>
                             <div class="target-badge">LT14*</div>
                         </div>
-                        <p style="margin-top: 1rem; font-size: 0.9rem;">These targets are essential for students considering the Math 197 (2-credit) option. For a grade of C or above in Math 197, all 8 essential targets must be demonstrated, and at least 6 must be proficient.</p>
+                        <p style="margin-top: 1rem; font-size: 0.9rem;">These targets are essential for students considering the Math 197 (2-credit) option. For a grade of C or above in Math 197, all 8 essential targets must be completed, and at least 6 must be proficient.</p>
                     </div>
                 </section>
                 
@@ -444,7 +498,7 @@
                     
                     <div class="faq-item">
                         <div class="faq-question">Q: How many times can I attempt each Learning Target?</div>
-                        <div class="faq-answer">Most learning targets will be available 4-5 times throughout the semester according to a schedule that will be posted on Canvas. You can attempt a target each time it's offered until you achieve Proficient status.</div>
+                        <div class="faq-answer">Most learning targets will be available 4-5 times throughout the semester according to a schedule that will be posted on Canvas. You can attempt a target each time it's offered until you achieve Proficient status (both F and Adv successes, or one success for One-Time targets).</div>
                     </div>
                     
                     <div class="faq-item">
@@ -453,8 +507,13 @@
                     </div>
                     
                     <div class="faq-item">
-                        <div class="faq-question">Q: What's the difference between 'a' and 'b' components?</div>
-                        <div class="faq-answer">Most learning targets have an 'a' and a 'b' component. The 'a' component is taken to earn the Demonstrated mark and the 'b' component is taken to earn the Proficient mark. This allows you to demonstrate proficiency on some skills for the learning target and reassess on related, usually more advanced skills, for the same target at a later time.</div>
+                        <div class="faq-question">Q: What's the difference between Foundational and Advanced quiz versions?</div>
+                        <div class="faq-answer">Foundational (F) quizzes cover introductory concepts and basic skills for a learning target. Advanced (Adv) quizzes cover more complex concepts and often require applying foundational skills to application problems. To be Proficient, you need Success on both versions (unless it's a One-Time Proficiency target).</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: Can I attempt the Advanced version before the Foundational version?</div>
+                        <div class="faq-answer">Yes! You don't need to earn a success in the Foundational version before attempting the Advanced version. You can attempt them in any order based on your preparation and confidence level.</div>
                     </div>
                     
                     <div class="faq-item">
@@ -465,6 +524,16 @@
                     <div class="faq-item">
                         <div class="faq-question">Q: Can I choose which Learning Targets to attempt during a quiz session?</div>
                         <div class="faq-answer">You will typically attempt all Learning Targets offered during a session, but the specific details will be explained during the first Tuesday session and posted on Canvas.</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: What are One-Time Proficiency targets?</div>
+                        <div class="faq-answer">Some Learning Targets are marked as "One-Time Proficiency" (OT). These count as both Complete and Proficient after just one success. Earlier OT targets typically involve foundational skills that will be repeatedly applied throughout the course. Later OT targets are one-time due to time constraints near the end of the semester.</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: Is there a group quiz component?</div>
+                        <div class="faq-answer">Yes, there will be a group Learning Target quiz (LT25) during the last week of the semester covering Optimization. This is a formative assessment of problem-solving skills that are difficult to assess in traditional exam formats and encourages attendance during the final week of classes.</div>
                     </div>
                     
                     <div class="faq-item">
