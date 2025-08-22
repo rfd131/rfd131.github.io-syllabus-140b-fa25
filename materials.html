@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Materials - Math 140B: Fall 2025</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Page-specific styles -->
+    <style>
+        /* Resource Cards */
+        .resource-card {
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--penn-state-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .resource-title {
+            font-size: 1.2rem;
+            color: var(--penn-state-navy);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .resource-subtitle {
+            color: var(--penn-state-blue);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .resource-description {
+            margin-bottom: 1rem;
+        }
+        
+        .resource-link {
+            display: inline-block;
+            background-color: var(--penn-state-blue);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .resource-link:hover {
+            background-color: var(--penn-state-navy);
+        }
+        
+        .free-badge {
+            display: inline-block;
+            background-color: #28A745;
+            color: var(--white);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+        
+        .recommended-badge {
+            display: inline-block;
+            background-color: #FFC107;
+            color: var(--penn-state-navy);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+        
+        /* Textbook List */
+        .textbook-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .textbook-list li {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .textbook-list li:before {
+            content: "📚";
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Canvas Materials Section */
+        .canvas-section {
+            background-color: var(--info-blue);
+            border-left: 4px solid var(--penn-state-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .canvas-list {
+            list-style: none;
+            margin: 1rem 0 0 0;
+            padding: 0;
+        }
+        
+        .canvas-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .canvas-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--penn-state-blue);
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="sidebar-nav-layout">
+    <div class="page-wrapper">
+        <header>
+            <div class="container">
+                <h1><a href="index.html">Math 140B: Calculus and Biology I</a></h1>
+                <div class="subtitle">Fall 2025 - Course Materials</div>
+            </div>
+        </header>
+        
+        <div class="content-wrapper">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar-navigation" role="navigation" aria-label="Syllabus sections">
+                <h2>Syllabus Sections</h2>
+                <ul>
+                    <li class="nav-item">
+                        <a href="index.html">Overview <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="index.html#welcome">Welcome</a>
+                            <a href="index.html#course-overview">Course Overview</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="instructors.html">Instructors <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="instructors.html#russ-deforest">Russ deForest</a>
+                            <a href="instructors.html#sam-fuller">Sam Fuller</a>
+                            <a href="instructors.html#ashley-pallone">Ashley Pallone</a>
+                            <a href="instructors.html#jan-reimann">Jan Reimann</a>
+                            <a href="instructors.html#michael-steward">Michael Steward</a>
+                            <a href="instructors.html#sam-vancini">Sam Vancini</a>
+                            <a href="instructors.html#office-hours">Office Hours</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="class-times.html">Class Times and Locations <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="class-times.html#mwf-classes">MWF Classes</a>
+                            <a href="class-times.html#tuesday-recitations">Tuesday Recitations</a>
+                            <a href="class-times.html#la-office-hours">LA Office Hours</a>
+                        </div>
+                    </li>
+                    <li class="nav-item current-page">
+                        <a href="materials.html">Course Materials <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="#textbooks">Textbooks</a>
+                            <a href="#online-resources">Online Resources</a>
+                            <a href="#canvas">Canvas Materials</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="learning-targets.html">Learning Targets <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="learning-targets.html">Learning Targets and Quiz Sessions</a>
+                            <a href="https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">List of Learning Targets</a>
+                            <a href="learning-targets.html#faq">Learning Target FAQ</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="homework.html">Written Homeworks & Labs <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="homework.html#written-hw">Written Homeworks</a>
+                            <a href="homework.html#labs">Lab Assignments</a>
+                            <a href="homework.html#revisions">Revision Policy</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="grading.html">How Your Grade is Determined <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="grading.html#overview">Grading Overview</a>
+                            <a href="grading.html#final-grades">Final Grade Table</a>
+                            <a href="grading.html#xp">Experience Points</a>
+                            <a href="grading.html#modifications">XP Modifications</a>
+                            <a href="grading.html#math197">Math 197 Option</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="policies.html">Course Policies <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="policies.html#academic-integrity">Academic Integrity</a>
+                            <a href="policies.html#attendance">Attendance</a>
+                            <a href="policies.html#makeup">Make-up Policy</a>
+                            <a href="policies.html#disability">Disability Accommodation</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="help.html">Getting Help! <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="help.html#office-hours">Instructor Office Hours</a>
+                            <a href="help.html#la-hours">LA Office Hours</a>
+                            <a href="help.html#tutoring">Free Tutoring</a>
+                            <a href="help.html#study-tips">Study Tips</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="resources.html">Student Resources <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="resources.html#counseling">Counseling Services</a>
+                            <a href="resources.html#academic-support">Academic Support</a>
+                            <a href="resources.html#technology">Technology Resources</a>
+                            <a href="resources.html#wellness">Health & Wellness</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            
+            <main>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>›</span>
+                    <span aria-current="page">Course Materials</span>
+                </nav>
+                
+                <h2>Course Materials</h2>
+                
+                <p>We provide video lectures, online homework problems, handouts and lecture notes for in-class activities, self-guided activities associated with each Learning Target, and other resources through Canvas. It is still helpful to have a calculus textbook as a reference and a source of additional practice problems.</p>
+                
+                <section id="textbooks">
+                    <h3>Free Online Textbooks</h3>
+                    
+                    <div class="resource-card">
+                        <div class="resource-title">Calculus for Biological Scientists
+                            <span class="free-badge">FREE</span>
+                            <span class="recommended-badge">PRIMARY TEXT</span>
+                        </div>
+                        <div class="resource-subtitle">by Jeff Shriner</div>
+                        <div class="resource-description">
+                            This online interactive textbook is based on <em>Modeling the Dynamics of Life</em> by Fred Adler. It is an excellent source for definitions, interactive examples, and additional practice problems with solutions. Our course is well-aligned with this textbook, but the text does not include all topics that we will cover.
+                        </div>
+                        <a href="https://jshriner6.github.io/bio-calc1/root-1-2.html" target="_blank" rel="noopener noreferrer" class="resource-link">Access Textbook →</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-title">Differential Calculus for the Life Sciences
+                            <span class="free-badge">FREE</span>
+                        </div>
+                        <div class="resource-subtitle">by Leah Edelstein-Keshet (2019)</div>
+                        <div class="resource-description">
+                            An excellent open source textbook that overlaps significantly with our course but does not include all topics that we will cover. This is another great source of practice problems and interesting applications. Available both as a PDF and through LibreText.
+                        </div>
+                        <a href="http://www.math.ubc.ca/~keshet/OpenBook.pdf" target="_blank" rel="noopener noreferrer" class="resource-link">Download PDF →</a>
+                        <a href="https://math.libretexts.org/Bookshelves/Calculus/Differential_Calculus_for_the_Life_Sciences_(Edelstein-Keshet)" target="_blank" rel="noopener noreferrer" class="resource-link">View on LibreText →</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-title">Calculus
+                            <span class="free-badge">FREE</span>
+                        </div>
+                        <div class="resource-subtitle">by Gilbert Strang, Wellesley-Cambridge Press (1991)</div>
+                        <div class="resource-description">
+                            Available through MIT OpenCourseWare. The first 7 chapters of this text overlap with topics we cover in Math 140B. It is an excellent source of problems for additional practice. It does not focus on biology, but does include some biological applications. You can download a PDF of this text at the link below. Also available on Canvas.
+                        </div>
+			<a href="https://ocw.mit.edu/courses/res-18-001-calculus-fall-2023/resources/mitres_18_001_f17_full_book_pdf/" target="_blank" rel="noopener noreferrer" class="resource-link">Download PDF →</a>
+                        <a href="https://ocw.mit.edu/courses/res-18-001-calculus-fall-2023/" target="_blank" rel="noopener noreferrer" class="resource-link">View on MIT OCW →</a>
+                    </div>
+                </section>
+                
+                <section id="optional-textbooks">
+                    <h3>Optional Hardcover Textbooks</h3>
+                    
+                    <p>If you prefer to have a hardcover Calculus text for reference, the following textbooks available through online sellers are all good choices for reference or as a source for more practice problems:</p>
+                    
+                    <ul class="textbook-list">
+                        <li><strong>Calculus for Biology and Medicine</strong> by Claudia Neuhauser<br>
+                            <em>Comprehensive coverage with biological applications throughout</em></li>
+                        <li><strong>Modeling the Dynamics of Life</strong> by Fred Adler<br>
+                            <em>The basis for the Shriner online textbook, with extensive biological modeling</em></li>
+                        <li><strong>Calculus for the Life Sciences</strong> by Sebastian Schreiber et al.<br>
+                            <em>Modern approach with contemporary biological examples</em></li>
+                    </ul>
+                </section>
+                                
+                <section id="canvas">
+                    <div class="canvas-section">
+                        <h3 style="margin-top: 0;">Canvas Materials</h3>
+                        <p>The following materials are provided through Canvas:</p>
+                        
+                        <ul class="canvas-list">
+                            <li>Video lectures for each topic. </li>
+                            <li>Pre-lecture assignments (PLAs) due before each class</li>
+                            <li>Online homework problems (due weekly on Mondays)</li>
+                            <li>Self-guided activities for each Learning Target with additional practice problems</li>
+                            <li>Handouts and lecture notes for in-class activities, with solutions posted after class</li>
+                            <li>Online practice problems for each Learing Target</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Access Canvas:</strong> <a href="https://canvas.psu.edu" target="_blank" rel="noopener noreferrer">canvas.psu.edu</a></p>
+                    </div>
+                </section>
+            </main>
+            
+            <!-- Quick Links Sidebar -->
+            <aside class="quick-links" role="complementary" aria-label="Quick Links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li>
+                        <a href="grading.html">
+                            <span class="icon">📊</span>
+                            How Your Grade is Determined
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+                            <span class="icon">📋</span>
+                            Learning Target List
+                        </a>
+                    </li>
+                    <li>
+                        <a href="policies.html#makeup">
+                            <span class="icon">📝</span>
+                            Make-up Quiz Policy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="instructors.html#office-hours">
+                            <span class="icon">🕐</span>
+                            Shared Office Hours
+                        </a>
+                    </li>
+                    <li>
+                        <a href="help.html#la-hours">
+                            <span class="icon">👥</span>
+                            LA Community Learning Sessions
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="important-dates-box">
+                    <h3>Important Dates</h3>
+                    <ul>
+                        <li>First Day: Aug 25</li>
+                        <li>Drop Deadline: Aug 30</li>
+                        <li>Late Drop: Nov 14</li>
+                        <li>Finals Week: Dec 15-19</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Math 140B Fall 2025 | Penn State University | <a href="index.html">Return to Syllabus Home</a></p>
+    </footer>
+
+    <!-- External JavaScript for navigation -->
+    <script src="navigation.js"></script>
+    
+    <!-- Initialize navigation functionality -->
+    <script>
+        // Since we're using static HTML navigation, we just need the dropdown functionality
+        // The navigation.js file's initializeNavigation() function will handle this
+        if (typeof initializeNavigation === 'function') {
+            initializeNavigation();
+        }
+    </script>
+</body>
+</html>

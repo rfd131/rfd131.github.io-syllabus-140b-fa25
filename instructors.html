@@ -4,281 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instructors - Math 140B: Fall 2025</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Page-specific styles -->
     <style>
-        :root {
-            --penn-state-navy: #001E44;
-            --penn-state-blue: #1E407C;
-            --penn-state-light-blue: #96BEE6;
-            --nittany-navy: #041E42;
-            --white: #FFFFFF;
-            --light-gray: #F5F5F5;
-            --text-gray: #333333;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-gray);
-            background-color: var(--white);
-        }
-        
-        /* Layout wrapper */
-        .page-wrapper {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, var(--penn-state-navy) 0%, var(--penn-state-blue) 100%);
-            color: var(--white);
-            padding: 2rem 0;
-            border-radius: 0;
-        }
-        
-        header .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        header .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.95;
-        }
-        
-        /* SIDEBAR LAYOUT */
-        body.sidebar-nav-layout {
-            margin: 0;
-        }
-        
-        body.sidebar-nav-layout .page-wrapper {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        body.sidebar-nav-layout header {
-            width: 100%;
-            margin-bottom: 0;
-        }
-        
-        body.sidebar-nav-layout .content-wrapper {
-            display: flex;
-            flex: 1;
-        }
-        
-        .sidebar-navigation {
-            width: 280px;
-            background-color: var(--light-gray);
-            padding: 2rem 1rem;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            overflow-y: auto;
-            border-right: 2px solid var(--penn-state-blue);
-        }
-        
-        .sidebar-navigation h2 {
-            font-size: 1.1rem;
-            color: var(--penn-state-navy);
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--penn-state-blue);
-        }
-        
-        .sidebar-navigation ul {
-            list-style: none;
-            margin: 0;
-        }
-        
-        /* Quick Links Sidebar */
-        .quick-links {
-            width: 280px;
-            background-color: var(--light-gray);
-            padding: 2rem 1rem;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            overflow-y: auto;
-            border-left: 2px solid var(--penn-state-blue);
-        }
-        
-        .quick-links h2 {
-            font-size: 1.1rem;
-            color: var(--penn-state-navy);
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--penn-state-blue);
-        }
-        
-        .quick-links ul {
-            list-style: none;
-            margin: 0;
-        }
-        
-        .quick-links li {
-            margin-bottom: 0.75rem;
-        }
-        
-        .quick-links a {
-            color: var(--penn-state-blue);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            padding: 0.75rem;
-            border-radius: 4px;
-            background-color: var(--white);
-            transition: all 0.3s ease;
-            font-weight: 500;
-            font-size: 0.95rem;
-            border: 1px solid #ddd;
-        }
-        
-        .quick-links a:hover {
-            background-color: var(--penn-state-blue);
-            color: var(--white);
-            transform: translateX(-4px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
-        
-        .quick-links .icon {
-            margin-right: 0.5rem;
-            font-size: 1.1em;
-        }
-        
-        /* Navigation Item Styles */
-        .nav-item {
-            position: relative;
-            margin-bottom: 0.25rem;
-        }
-        
-        .nav-item > a {
-            color: var(--penn-state-blue);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.5rem;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-        
-        .nav-item > a:hover, .nav-item > a:focus {
-            background-color: var(--white);
-            text-decoration: underline;
-            outline: 2px solid var(--penn-state-blue);
-            outline-offset: 2px;
-        }
-        
-        .nav-item.current-page > a {
-            background-color: var(--penn-state-blue);
-            color: var(--white);
-        }
-        
-        .dropdown-arrow {
-            font-size: 0.8em;
-            transition: transform 0.3s ease;
-        }
-        
-        .nav-item.active .dropdown-arrow {
-            transform: rotate(180deg);
-        }
-        
-        /* Dropdown Menu Styles */
-        .dropdown-menu {
-            display: none;
-            background-color: var(--white);
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-top: 4px;
-            position: static;
-            margin-left: 0.5rem;
-            margin-top: 0.25rem;
-            box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
-        }
-        
-        .nav-item.active .dropdown-menu {
-            display: block;
-        }
-        
-        .dropdown-menu a {
-            display: block;
-            padding: 0.5rem 1rem;
-            color: var(--text-gray);
-            text-decoration: none;
-            border-bottom: 1px solid #eee;
-            font-size: 0.9rem;
-            transition: background-color 0.2s ease;
-        }
-        
-        .dropdown-menu a:last-child {
-            border-bottom: none;
-        }
-        
-        .dropdown-menu a:hover, .dropdown-menu a:focus {
-            background-color: var(--light-gray);
-            color: var(--penn-state-blue);
-        }
-        
-        /* Main Content */
-        main {
-            flex: 1;
-            padding: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        h2 {
-            color: var(--penn-state-navy);
-            margin: 2rem 0 1.5rem 0;
-            font-size: 1.8rem;
-            border-bottom: 3px solid var(--penn-state-blue);
-            padding-bottom: 0.5rem;
-        }
-        
-        h3 {
-            color: var(--penn-state-blue);
-            margin: 1.5rem 0 1rem 0;
-            font-size: 1.3rem;
-        }
-        
-        /* Breadcrumb Navigation */
-        .breadcrumb {
-            background-color: var(--light-gray);
-            padding: 0.75rem;
-            border-radius: 4px;
-            margin-bottom: 1.5rem;
-        }
-        
-        .breadcrumb a {
-            color: var(--penn-state-blue);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-        
-        .breadcrumb span {
-            margin: 0 0.5rem;
-            color: var(--text-gray);
-        }
-        
         /* Instructor Cards */
         .instructor-grid {
             display: grid;
@@ -400,8 +131,8 @@
         
         /* Shared Office Hours Section */
         .shared-hours-section {
-            background-color: #FFF3CD;
-            border-left: 4px solid #FFC107;
+            background-color: var(--warning-yellow);
+            border-left: 4px solid var(--warning-border);
             border-radius: 8px;
             padding: 1.5rem;
             margin: 2rem 0;
@@ -422,53 +153,8 @@
             margin-top: 1rem;
         }
         
-        /* Footer */
-        footer {
-            margin-top: 3rem;
-            padding: 2rem;
-            border-top: 1px solid #ddd;
-            text-align: center;
-            color: #666;
-            background-color: var(--light-gray);
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 1400px) {
-            .quick-links {
-                width: 240px;
-            }
-        }
-        
-        @media (max-width: 1024px) {
-            .sidebar-navigation {
-                width: 240px;
-            }
-            
-            /* Hide quick links on tablets */
-            .quick-links {
-                display: none;
-            }
-            
-            body.sidebar-nav-layout main {
-                max-width: 100%;
-            }
-        }
-        
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            /* Convert sidebar to top nav on mobile */
-            body.sidebar-nav-layout .content-wrapper {
-                flex-direction: column;
-            }
-            
-            .sidebar-navigation {
-                width: 100%;
-                height: auto;
-                position: static;
-                border-right: none;
-                border-bottom: 2px solid var(--penn-state-blue);
-                padding: 1rem;
-            }
-            
             .instructor-grid {
                 grid-template-columns: 1fr;
             }
@@ -487,24 +173,6 @@
         }
         
         @media print {
-            .sidebar-navigation, .quick-links {
-                display: none;
-            }
-            
-            body.sidebar-nav-layout .content-wrapper {
-                display: block;
-            }
-            
-            body.sidebar-nav-layout main {
-                padding: 0;
-            }
-            
-            header {
-                background: none;
-                color: var(--text-gray);
-                border: 2px solid var(--penn-state-navy);
-            }
-            
             .instructor-card {
                 break-inside: avoid;
                 page-break-inside: avoid;
@@ -512,11 +180,12 @@
         }
     </style>
 </head>
+
 <body class="sidebar-nav-layout">
     <div class="page-wrapper">
         <header>
             <div class="container">
-                <h1>Math 140B: Calculus and Biology I</h1>
+                <h1><a href="index.html">Math 140B: Calculus and Biology I</a></h1>
                 <div class="subtitle">Fall 2025 - Instructors</div>
             </div>
         </header>
@@ -570,12 +239,11 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a href="writing-projects.html">Writing Projects <span class="dropdown-arrow">▼</span></a>
+                        <a href="homework.html">Written Homeworks & Labs <span class="dropdown-arrow">▼</span></a>
                         <div class="dropdown-menu">
-                            <a href="writing-projects.html#overview">Overview</a>
-                            <a href="writing-projects.html#schedule">Schedule</a>
-                            <a href="writing-projects.html#grading">Grading Criteria</a>
-                            <a href="writing-projects.html#revisions">Revisions</a>
+                            <a href="homework.html#written-hw">Written Homeworks</a>
+                            <a href="homework.html#labs">Lab Assignments</a>
+                            <a href="homework.html#revisions">Revision Policy</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -833,6 +501,10 @@
                     </div>
                 </div>
                 
+                <div class="alert" style="margin-top: 2rem;">
+                    <strong>Note:</strong> Please feel free to meet with either instructor, regardless of who teaches your section.
+                </div>
+                
                 <!-- Shared Office Hours Section -->
                 <div class="shared-hours-section" id="office-hours">
                     <div class="shared-hours-title">📍 Shared Office Hours Schedule</div>
@@ -881,13 +553,13 @@
                     </li>
                 </ul>
                 
-                <div style="margin-top: 2rem; padding: 1rem; background-color: #FFF3CD; border-radius: 4px; border-left: 4px solid #FFC107;">
-                    <h3 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--penn-state-navy);">Important Dates</h3>
-                    <ul style="font-size: 0.9rem; margin: 0;">
-                        <li style="margin-bottom: 0.25rem;">First Day: Aug 25</li>
-                        <li style="margin-bottom: 0.25rem;">Midterm 1: Oct 2</li>
-                        <li style="margin-bottom: 0.25rem;">Midterm 2: Nov 6</li>
-                        <li style="margin-bottom: 0.25rem;">Final Exam: TBD</li>
+                <div class="important-dates-box">
+                    <h3>Important Dates</h3>
+                    <ul>
+                        <li>First Day: Aug 25</li>
+                        <li>Drop Deadline: Aug 30</li>
+                        <li>Late Drop: Nov 14</li>
+                        <li>Finals Week: Dec 15-19</li>
                     </ul>
                 </div>
             </aside>
@@ -898,59 +570,16 @@
         <p>Math 140B Fall 2025 | Penn State University | <a href="index.html">Return to Syllabus Home</a></p>
     </footer>
 
+    <!-- External JavaScript for navigation -->
+    <script src="navigation.js"></script>
+    
+    <!-- Initialize navigation functionality -->
     <script>
-        // JavaScript for dropdown functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const navItems = document.querySelectorAll('.nav-item');
-            
-            navItems.forEach(item => {
-                const link = item.querySelector('a');
-                
-                link.addEventListener('click', function(e) {
-                    // Check if this link has a dropdown
-                    const dropdown = item.querySelector('.dropdown-menu');
-                    if (dropdown) {
-                        // If clicking on the main link, prevent default and toggle dropdown
-                        if (e.target === link || e.target.parentElement === link) {
-                            e.preventDefault();
-                            
-                            // Close other dropdowns
-                            navItems.forEach(otherItem => {
-                                if (otherItem !== item) {
-                                    otherItem.classList.remove('active');
-                                }
-                            });
-                            
-                            // Toggle current dropdown
-                            item.classList.toggle('active');
-                        }
-                    }
-                });
-            });
-            
-            // Close dropdowns when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.nav-item')) {
-                    navItems.forEach(item => {
-                        item.classList.remove('active');
-                    });
-                }
-            });
-            
-            // Handle keyboard navigation
-            navItems.forEach(item => {
-                const link = item.querySelector('a');
-                link.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        const dropdown = item.querySelector('.dropdown-menu');
-                        if (dropdown) {
-                            e.preventDefault();
-                            item.classList.toggle('active');
-                        }
-                    }
-                });
-            });
-        });
+        // Since we're using static HTML navigation, we just need the dropdown functionality
+        // The navigation.js file's initializeNavigation() function will handle this
+        if (typeof initializeNavigation === 'function') {
+            initializeNavigation();
+        }
     </script>
 </body>
 </html>
