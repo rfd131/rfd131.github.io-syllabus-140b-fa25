@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructors - Math 140B: Fall 2025</title>
+    <style>
+        :root {
+            --penn-state-navy: #001E44;
+            --penn-state-blue: #1E407C;
+            --penn-state-light-blue: #96BEE6;
+            --nittany-navy: #041E42;
+            --white: #FFFFFF;
+            --light-gray: #F5F5F5;
+            --text-gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-gray);
+            background-color: var(--white);
+        }
+        
+        /* Layout wrapper */
+        .page-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--penn-state-navy) 0%, var(--penn-state-blue) 100%);
+            color: var(--white);
+            padding: 2rem 0;
+        }
+        
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            background-color: var(--light-gray);
+            padding: 1rem;
+            border-bottom: 2px solid var(--penn-state-blue);
+        }
+        
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .breadcrumb a {
+            color: var(--penn-state-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 0.5rem;
+            color: var(--text-gray);
+        }
+        
+        /* Main Content */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 20px;
+            width: 100%;
+        }
+        
+        h2 {
+            color: var(--penn-state-navy);
+            margin: 2rem 0 1.5rem 0;
+            font-size: 1.8rem;
+            border-bottom: 3px solid var(--penn-state-blue);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: var(--penn-state-blue);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+        
+        /* Instructor Cards */
+        .instructor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .instructor-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--penn-state-blue);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .instructor-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .instructor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+        
+        .instructor-name {
+            font-size: 1.3rem;
+            color: var(--penn-state-navy);
+            font-weight: bold;
+        }
+        
+        .instructor-title {
+            color: var(--penn-state-blue);
+            font-style: italic;
+            font-size: 1rem;
+        }
+        
+        .instructor-pronouns {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        
+        .instructor-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .detail-row {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: var(--penn-state-navy);
+            min-width: 100px;
+            margin-right: 1rem;
+        }
+        
+        .detail-content {
+            flex: 1;
+        }
+        
+        .detail-content a {
+            color: var(--penn-state-blue);
+            text-decoration: none;
+        }
+        
+        .detail-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .office-hours-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .office-hours-list li {
+            margin-bottom: 0.25rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .office-hours-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--penn-state-blue);
+        }
+        
+        /* Sections Info */
+        .sections-taught {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+        
+        .section-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+        
+        .section-badge {
+            background-color: var(--penn-state-blue);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Shared Office Hours Section */
+        .shared-hours-section {
+            background-color: #FFF3CD;
+            border-left: 4px solid #FFC107;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .shared-hours-title {
+            color: var(--penn-state-navy);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .hours-table {
+            width: 100%;
+            background-color: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+        
+        .hours-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .hours-table th {
+            background-color: var(--penn-state-navy);
+            color: var(--white);
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .hours-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .hours-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .hours-table tr:hover {
+            background-color: var(--light-gray);
+        }
+        
+        /* LA Section */
+        .la-section {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .la-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .la-card {
+            background-color: var(--white);
+            padding: 1rem;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        
+        .la-name {
+            font-weight: bold;
+            color: var(--penn-state-navy);
+            margin-bottom: 0.25rem;
+        }
+        
+        .la-role {
+            font-size: 0.9rem;
+            color: var(--penn-state-blue);
+            margin-bottom: 0.25rem;
+        }
+        
+        .la-section {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: 3rem;
+            padding: 2rem;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #666;
+            background-color: var(--light-gray);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .instructor-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .detail-row {
+                flex-direction: column;
+            }
+            
+            .detail-label {
+                margin-bottom: 0.25rem;
+            }
+            
+            .hours-table {
+                overflow-x: auto;
+            }
+            
+            .la-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media print {
+            header {
+                background: none;
+                color: var(--text-gray);
+                border-bottom: 2px solid var(--penn-state-navy);
+            }
+            
+            .breadcrumb {
+                display: none;
+            }
+            
+            .instructor-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <div class="container">
+                <h1>Math 140B: Calculus and Biology I</h1>
+                <div class="subtitle">Fall 2025 - Instructors</div>
+            </div>
+        </header>
+        
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="breadcrumb-container">
+                <a href="index.html">Home</a>
+                <span>›</span>
+                <span aria-current="page">Instructors</span>
+            </div>
+        </nav>
+        
+        <main>
+            <h2>Course Instructors</h2>
+            
+            <div class="instructor-grid">
+                <!-- Russ deForest -->
+                <div class="instructor-card" id="russ-deforest">
+                    <div class="instructor-header">
+                        <div class="instructor-name">Russ deForest, PhD</div>
+                        <div class="instructor-title">Instructor, Course Coordinator</div>
+                    </div>
+                    <div class="instructor-pronouns">Pronouns: he/him</div>
+                    
+                    <div class="sections-taught">
+                        <div class="detail-label">Teaching Section:</div>
+                        <div class="section-badges">
+                            <span class="section-badge">Section 4 - MWF 11:15 AM - 12:05 PM, 105 Osmond</span>
+                        </div>
+                    </div>
+                    
+                    <div class="instructor-details" style="margin-top: 1rem;">
+                        <div class="detail-row">
+                            <span class="detail-label">Email:</span>
+                            <span class="detail-content"><a href="mailto:rfd131@psu.edu">rfd131@psu.edu</a></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Office:</span>
+                            <span class="detail-content">005 McAllister</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Office Hours:</span>
+                            <span class="detail-content">
+                                <ul class="office-hours-list">
+                                    <li>Monday, 10:10 AM - 11:00 AM</li>
+                                    <li>Wednesday, 1:25 PM - 2:15 PM</li>
+                                    <li>Friday, 10:10 AM - 11:00 AM</li>
+                                    <li>By appointment</li>
+                                </ul>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sam Fuller -->
+                <div class="instructor-card" id="sam-fuller">
+                    <div class="instructor-header">
+                        <div class="instructor-name">Sam Fuller</div>
+                        <div class="instructor-title">Instructor</div>
+                    </div>
+                    <div class="instructor-pronouns">Pronouns: </div>
+                    
+                    <div class="sections-taught">
+                        <div class="detail-label">Teaching Sections:</div>
+                        <div class="section-badges">
+                            <span class="section-badge">Section 6 - MWF 12:20 - 1:10 PM, 108 Tyson</span>
+                            <span class="section-badge">Section 11 - MWF 3:35 - 4:25 PM, 306 Hammond</span>
+                        </div>
+                    </div>
+                    
+                    <div class="instructor-details" style="margin-top: 1rem;">
+                        <div class="detail-row">
+                            <span class="detail-label">Email:</span>
+                            <span class="detail-content"><a href="mailto:saf5132@psu.edu">saf5132@psu.edu</a></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Office:</span>
+                            <span class="detail-content">104L McAllister (inside Suite 104)</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Office Hours:</span>
+                            <span class="detail-content">
+                                <ul class="office-hours-list">
+                                    <li>Tuesday, 1:30 PM - 2:30 PM</li>
+                                    <li>Thursday, 3:00 PM - 4:00 PM</li>
+                                    <li>Friday, 2:00 PM - 3:00 PM</li>
+                                </ul>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ashley Pallone -->
+                <div class="instructor-card" id="ashley-pallone">
+                    <div class="instructor-header">
+                        <div class="instructor-name">Ashley Pallone</div>
+                        <div class="instructor-title">Instructor</div>
+                    </div>
+                    <div class="instructor-pronouns">Pronouns: </div>
+                    
+                    <div class="sections-taught">
+                        <div class="detail-label">Teaching Sections:</div>
+                        <div class="section-badges">
+                            <span class="section-badge">Section 5 - MWF 11:15 - 12:05 PM, 216 Thomas</span>
+                            <span class="section-badge">Section 9 - MWF 3:35 - 4:25 PM, 103 Osmond</span>
+                        </div>
+                    </div>
+                    
+                    <div class="instructor-details" style="margin-top: 1rem;">
+                        <div class="detail-row">
+                            <span class="detail-label">Email:</span>
+                            <span class="detail-content"><a href="mailto:TBD@psu.edu">TBD@psu.edu</a></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Office:</span>
+                            <span class="detail-content">TBD</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Office Hours:</span>
+                            <span class="detail-content">To be announced</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Jan Reimann -->
+                <div class="instructor-card" id="jan-reimann">
+                    <div class="instructor-header">
+                        <div class="instructor-name">Jan Reimann</div>
+                        <div class="instructor-title">Instructor</div>
+                    </div>
+                    <div class="instructor-pronouns">Pronouns: </div>
+                    
+                    <div class="sections-taught">
+                        <div class="detail-label">Teaching Section:</div>
+                        <div class="section-badges">
+                            <span class="section-badge">Section 3 - MWF 9:05 - 9:55 AM, 073 Willard</span>
+                        </div>
+                    </div>
+                    
+                    <div class="instructor-details" style="margin-top: 1rem;">
+                        <div class="detail-row">
+                            <span class="detail-label">Email:</span>
+                            <span class="detail-content"><a href="mailto:TBD@psu.edu">TBD@psu.edu</a></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Office:</span>
+                            <span class="detail-content">TBD</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Office Hours:</span>
+                            <span class="detail-content">To be announced</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Michael Steward -->
+                <div class="instructor-card" id="michael-steward">
+                    <div class="instructor-header">
+                        <div class="instructor-name">Michael Steward</div>
+                        <div class="instructor-title">Instructor</div>
+                    </div>
+                    <div class="instructor-pronouns">Pronouns: </div>
+                    
+                    <div class="sections-taught">
+                        <div class="detail-label">Teaching Sections:</div>
+                        <div class="section-badges">
+                            <span class="section-badge">Section 8 - MWF 12:20 - 1:10 PM, EE West 225</span>
+                            <span class="section-badge">Section 10 - MWF 3:35 - 4:25 PM (M: 115 Music Bldg, WF: 210 Thomas)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="instructor-details" style="margin-top: 1rem;">
+                        <div class="detail-row">
+                            <span class="detail-label">Email:</span>
+                            <span class="detail-content"><a href="mailto:TBD@psu.edu">TBD@psu.edu</a></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Office:</span>
+                            <span class="detail-content">TBD</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Office Hours:</span>
+                            <span class="detail-content">To be announced</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sam Vancini -->
+                <div class="instructor-card" id="sam-vancini">
+                    <div class="instructor-header">
+                        <div class="instructor-name">Sam Vancini</div>
+                        <div class="instructor-title">Instructor</div>
+                    </div>
+                    <div class="instructor-pronouns">Pronouns: </div>
+                    
+                    <div class="sections-taught">
+                        <div class="detail-label">Teaching Sections:</div>
+                        <div class="section-badges">
+                            <span class="section-badge">Section 1 - MWF 8:00 - 8:50 AM, 103 Osmond</span>
+                            <span class="section-badge">Section 2 - MWF 9:05 - 9:55 AM, 122 Thomas</span>
+                            <span class="section-badge">Section 7 - MWF 12:20 - 1:10 PM, 004 Business</span>
+                        </div>
+                    </div>
+                    
+                    <div class="instructor-details" style="margin-top: 1rem;">
+                        <div class="detail-row">
+                            <span class="detail-label">Email:</span>
+                            <span class="detail-content"><a href="mailto:TBD@psu.edu">TBD@psu.edu</a></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Office:</span>
+                            <span class="detail-content">TBD</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Office Hours:</span>
+                            <span class="detail-content">To be announced</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Shared Office Hours Section -->
+            <div class="shared-hours-section" id="office-hours">
+                <div class="shared-hours-title">📍 Shared Office Hours Schedule</div>
+                <p style="margin-bottom: 1rem;">Feel free to meet with any instructor, regardless of who teaches your section. All office hours are open to all Math 140B students.</p>
+                
+                <div class="hours-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Instructor</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monday</td>
+                                <td>10:10 AM - 11:00 AM</td>
+                                <td>Russ deForest</td>
+                                <td>005 McAllister</td>
+                            </tr>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td>1:30 PM - 2:30 PM</td>
+                                <td>Sam Fuller</td>
+                                <td>104L McAllister</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td>1:25 PM - 2:15 PM</td>
+                                <td>Russ deForest</td>
+                                <td>005 McAllister</td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td>3:00 PM - 4:00 PM</td>
+                                <td>Sam Fuller</td>
+                                <td>104L McAllister</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>10:10 AM - 11:00 AM</td>
+                                <td>Russ deForest</td>
+                                <td>005 McAllister</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>2:00 PM - 3:00 PM</td>
+                                <td>Sam Fuller</td>
+                                <td>104L McAllister</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <p style="margin-top: 1rem; font-style: italic;">Additional office hours by appointment - email your instructor to schedule.</p>
+            </div>
+            
+            <!-- Learning Assistants Section -->
+            <div class="la-section">
+                <h2>Course Learning Assistants (LAs) and Teaching Assistants (TAs)</h2>
+                <p>We have 2 undergraduate peer learning assistants (LAs) and 3 undergraduate teaching assistants (TAs) assisting with Math 140B. These are students who have excelled in Math 140B or Math 141B in the past and are ready to help you succeed.</p>
+                
+                <div class="la-grid">
+                    <div class="la-card">
+                        <div class="la-name">Alyssa Montalvo</div>
+                        <div class="la-role">Teaching Assistant</div>
+                        <div class="la-section">Section 1</div>
+                    </div>
+                    
+                    <div class="la-card">
+                        <div class="la-name">Kayra Gokce</div>
+                        <div class="la-role">Teaching Assistant</div>
+                        <div class="la-section">Section 2</div>
+                    </div>
+                    
+                    <div class="la-card">
+                        <div class="la-name">Shreshty Budakoti</div>
+                        <div class="la-role">Learning Assistant</div>
+                        <div class="la-section">Section 2</div>
+                    </div>
+                    
+                    <div class="la-card">
+                        <div class="la-name">Fatou Thioune</div>
+                        <div class="la-role">Teaching Assistant</div>
+                        <div class="la-section">Section 3</div>
+                    </div>
+                    
+                    <div class="la-card">
+                        <div class="la-name">Angelica Schmidt</div>
+                        <div class="la-role">Learning Assistant</div>
+                        <div class="la-section">Section 3</div>
+                    </div>
+                </div>
+                
+                <div style="background-color: #E8F4FD; padding: 1rem; border-radius: 4px; margin-top: 1.5rem; border-left: 4px solid var(--penn-state-blue);">
+                    <h3 style="color: var(--penn-state-navy); margin-top: 0;">LA Community Learning Sessions</h3>
+                    <p>Learning Assistants hold evening office hours on Tuesday, Wednesday, and Thursday evenings. These sessions provide peer support and collaborative learning opportunities. Locations to be announced on Canvas.</p>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Math 140B Fall 2025 | Penn State University | <a href="index.html">Return to Syllabus Home</a></p>
+        </footer>
+    </div>
+</body>
+</html>
