@@ -10,6 +10,49 @@
     
     <!-- Page-specific styles -->
     <style>
+        /* Quick Navigation Menu */
+        .quick-nav {
+            background-color: var(--white);
+            border: 2px solid var(--penn-state-blue);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .quick-nav h3 {
+            margin: 0 0 0.75rem 0;
+            color: var(--penn-state-navy);
+            font-size: 1.1rem;
+        }
+        
+        .quick-nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .quick-nav-links a {
+            background-color: var(--light-gray);
+            color: var(--penn-state-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .quick-nav-links a:hover {
+            background-color: var(--penn-state-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
         /* Policy Section Cards */
         .policy-card {
             background-color: var(--light-gray);
@@ -34,7 +77,6 @@
             margin: 2rem 0;
         }
 
-	
         .important-policy h4 {
             color: var(--penn-state-navy);
             margin-top: 0;
@@ -203,6 +245,35 @@
             background-color: var(--light-gray);
         }
         
+        /* Make-up Days Box */
+        .makeup-days-box {
+            background-color: #E8F4FD;
+            border: 2px solid var(--penn-state-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .makeup-days-box h4 {
+            color: var(--penn-state-navy);
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .makeup-day {
+            background-color: var(--white);
+            border-left: 3px solid var(--penn-state-blue);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+        
+        .makeup-day-title {
+            font-weight: bold;
+            color: var(--penn-state-navy);
+            margin-bottom: 0.5rem;
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .usage-grid {
@@ -215,6 +286,20 @@
             
             .attendance-table table {
                 min-width: 500px;
+            }
+            
+            .quick-nav {
+                position: relative;
+                top: 0;
+            }
+            
+            .quick-nav-links {
+                flex-direction: column;
+            }
+            
+            .quick-nav-links a {
+                width: 100%;
+                text-align: center;
             }
         }
     </style>
@@ -337,6 +422,23 @@
                 
                 <h2>Course Policies</h2>
                 
+                <!-- Quick Navigation Menu -->
+                <div class="quick-nav">
+                    <h3>Quick Navigation</h3>
+                    <div class="quick-nav-links">
+                        <a href="#academic-integrity">Academic Integrity</a>
+                        <a href="#ai-policy">AI Policy</a>
+                        <a href="#attendance">Attendance</a>
+                        <a href="#makeup-quiz">Make-up Quizzes</a>
+                        <a href="#makeup-exam">Make-up Exams</a>
+                        <a href="#late-work">Late Work</a>
+                        <a href="#disability">Disability</a>
+                        <a href="#nondiscrimination">Nondiscrimination</a>
+                        <a href="#educational-equity">Educational Equity</a>
+                        <a href="#counseling">Counseling Services</a>
+                    </div>
+                </div>
+                
                 <section id="academic-integrity">
                     <div class="important-policy">
                         <h4>Academic Integrity</h4>
@@ -360,7 +462,7 @@
                     </div>
                 </section>
                 
-  <section id="ai-policy">
+                <section id="ai-policy">
                     <div class="ai-policy-section">
                         <h3>Generative AI Policy</h3>
                         
@@ -400,13 +502,14 @@
                         <p style="margin-top: 1rem;"><strong>If you're unsure:</strong> Please ask your instructor before using AI tools for any course-related work. We're happy to clarify what is and isn't appropriate.</p>
                     </div>
                 </section>              
+                
                 <section id="attendance">
                     <div class="policy-card">
                         <h3>Attendance Policy</h3>
                         
-                        <p><strong>In-Person Classes (MWF):</strong> While attendance is strongly encouraged and contributes to your success, it is not directly graded. However, active participation and engagement during class will help you master the material.</p>
+                        <p><strong>In-Person Classes (MWF):</strong> While attendance is strongly encouraged and contributes to your success, it is not directly graded. However, active participation and engagement during class will help you become proficient in the material.</p>
                         
-                        <p style="margin-top: 1rem;"><strong>Tuesday Learning Target Quiz Sessions:</strong> Attendance is <strong>REQUIRED</strong>. These sessions are essential assessment opportunities. Missing quiz sessions will directly impact your ability to demonstrate proficiency on Learning Targets.</p>
+                        <p style="margin-top: 1rem;"><strong>Tuesday Learning Target Quiz Sessions:</strong> Attendance is <strong>REQUIRED</strong>. These sessions are the primary way you demonstrate proficiency on Learning Targets, which directly determines your grade. <strong>Consistent attendance at Tuesday quiz sessions is essential for passing the course.</strong></p>
                         
                         <div class="attendance-table">
                             <table>
@@ -426,7 +529,7 @@
                                     <tr>
                                         <td><strong>Tuesday Quiz Sessions</strong></td>
                                         <td>Required</td>
-                                        <td>Lose opportunity to attempt Learning Targets</td>
+                                        <td>Lose opportunity to attempt Learning Targets (directly affects grade)</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Exams</strong></td>
@@ -443,7 +546,7 @@
                         </div>
                         
                         <div class="warning-box" style="margin-top: 1rem;">
-                            <strong>Important:</strong> Missing more than 2-3 Tuesday quiz sessions during the semester will likely be detrimental to your grade in the course.
+                            <strong>Critical:</strong> Since your grade is based on successfully completing Learning Targets through Tuesday quiz sessions, missing these sessions directly impacts your ability to pass the course. Missing more than 2-3 Tuesday sessions will likely result in an inability to earn enough Learning Target completions for a passing grade.
                         </div>
                     </div>
                 </section>
@@ -452,33 +555,44 @@
                     <div class="policy-card">
                         <h3>Make-up Quiz Policy</h3>
                         
-                        <p>Tuesday Learning Target Quiz sessions are essential to your success in the course. Make-up quizzes are only available under specific circumstances.</p>
+                        <p>Tuesday Learning Target Quiz sessions are essential to your success in the course. If you must miss a Tuesday session, we have two designated make-up opportunities each week.</p>
                         
-                        <h4 style="margin-top: 1.5rem;">Excused Absences</h4>
-                        <p>Make-up quiz opportunities are available for:</p>
-                        <ul>
-                            <li>Documented illness (requires health provider documentation)</li>
-                            <li>University-sanctioned activities (requires advance notice and documentation)</li>
-                            <li>Religious observances (requires advance notice)</li>
-                            <li>Family emergencies (requires documentation)</li>
-                            <li>Military obligations (requires documentation)</li>
-                        </ul>
-                        
-                        <div class="process-box">
-                            <h4>Make-up Quiz Request Process</h4>
-                            <ol class="process-steps">
-                                <li><strong>Notify your instructor</strong> as soon as possible (preferably before the missed session)</li>
-                                <li><strong>Submit documentation</strong> within 48 hours of the missed session</li>
-                                <li><strong>Complete the Make-up Quiz Request Form</strong> on Canvas</li>
-                                <li><strong>Attend the scheduled make-up session</strong> (typically Thursday evenings during Quiz Hours)</li>
-                            </ol>
+                        <div class="makeup-days-box">
+                            <h4>Weekly Make-up Quiz Sessions</h4>
+                            
+                            <div class="makeup-day">
+                                <div class="makeup-day-title">Thursday Quiz Hours</div>
+                                <p>Time: Various times throughout the day<br>
+                                Location: Posted on Canvas<br>
+                                <strong>For:</strong> Students who missed Tuesday's quiz session or need additional attempts</p>
+                            </div>
+                            
+                            <div class="makeup-day">
+                                <div class="makeup-day-title">Friday Practice Quiz Time</div>
+                                <p>Time: During regular class period<br>
+                                Location: Your regular classroom<br>
+                                <strong>For:</strong> Additional Learning Target attempts if you missed Tuesday</p>
+                            </div>
                         </div>
+                        
+                        <h4 style="margin-top: 1.5rem;">How to Request a Make-up</h4>
+                        <ol class="process-steps">
+                            <li><strong>Notify your instructor</strong> as soon as you know you'll miss Tuesday's session</li>
+                            <li><strong>Sign up</strong> for Thursday Quiz Hours or indicate you'll use Friday's session</li>
+                            <li><strong>Attend</strong> the make-up session you signed up for</li>
+                        </ol>
                         
                         <div class="warning-box">
-                            <strong>Note:</strong> Make-up quizzes are offered at limited times and may not include all Learning Targets that were available during the regular session. Students are responsible for all material regardless of absences.
+                            <strong>Important Notes:</strong>
+                            <ul style="margin: 0.5rem 0 0 0;">
+                                <li>Make-up sessions may not offer all the same Learning Targets as the regular Tuesday session</li>
+                                <li>Space in Thursday Quiz Hours is limited - sign up early</li>
+                                <li>Friday make-up time reduces your in-class instruction time</li>
+                                <li>Documentation may be required for repeated absences</li>
+                            </ul>
                         </div>
                         
-                        <p style="margin-top: 1rem;"><strong>Unexcused Absences:</strong> If you miss a Tuesday quiz session without an excused absence, you will need to wait until the next time those Learning Targets are offered (according to the schedule posted on Canvas).</p>
+                        <p style="margin-top: 1rem;"><strong>Best Practice:</strong> Attend every Tuesday session if possible. The make-up opportunities are designed as a safety net, not a regular alternative.</p>
                     </div>
                 </section>
                 
@@ -486,26 +600,35 @@
                     <div class="policy-card">
                         <h3>Make-up Exam Policy</h3>
                         
-                        <p>Exams are scheduled well in advance and students are expected to be present. Make-up exams are only available for documented, excusable absences.</p>
+                        <p>We have two midterm exams and a final exam in Math 140B. Each exam provides additional opportunities to complete Learning Targets.</p>
                         
-                        <h4 style="margin-top: 1.5rem;">Exam Make-up Eligibility</h4>
-                        <p>Same as quiz make-up policy (see above), with additional consideration for:</p>
-                        <ul>
-                            <li>Conflicts with other final exams (requires advance notice and approval)</li>
-                            <li>Three or more exams scheduled on the same day</li>
-                        </ul>
-                        
-                        <div class="important-policy" style="background-color: var(--warning-yellow); border-left-color: var(--warning-border);">
-                            <h4>Important Exam Policies</h4>
-                            <ul style="margin: 0;">
-                                <li><strong>Advance Notice Required:</strong> For any foreseeable absence (university activities, religious observances), you must notify your instructor at least <strong>one week before</strong> the exam.</li>
-                                <li><strong>Emergency Situations:</strong> Contact your instructor as soon as possible. Documentation must be provided within 72 hours.</li>
-                                <li><strong>Format May Differ:</strong> Make-up exams may have a different format or questions than the original exam.</li>
-                                <li><strong>Single Opportunity:</strong> Only one make-up opportunity per exam will be provided.</li>
+                        <h4 style="margin-top: 1.5rem;">Midterm Exams</h4>
+                        <div class="process-box">
+                            <h4>Midterm Make-up Process</h4>
+                            <p>If you miss a midterm exam:</p>
+                            <ul style="margin-top: 0.5rem;">
+                                <li><strong>The make-up is integrated into the next exam.</strong> Learning Targets from the missed midterm will be available on the subsequent exam (either the next midterm or the final exam).</li>
+                                <li>You don't take a separate make-up exam - you simply have those Learning Targets available at the next testing opportunity.</li>
+                                <li>Documentation is required for the absence (illness, emergency, university-sanctioned activity).</li>
                             </ul>
                         </div>
                         
-                        <p style="margin-top: 1rem;"><strong>Travel Plans:</strong> Personal travel plans (including early departure for breaks) are NOT considered excused absences. Please plan accordingly.</p>
+                        <h4 style="margin-top: 1.5rem;">Final Exam</h4>
+                        <div class="important-policy" style="background-color: var(--warning-yellow); border-left-color: var(--warning-border);">
+                            <h4>Final Exam Policy</h4>
+                            <ul style="margin: 0;">
+                                <li>The final exam is <strong>comprehensive</strong> - all Learning Targets are available</li>
+                                <li>If you miss the final exam, you must follow University policies for incomplete grades</li>
+                                <li>Make-up final exams are only given in extreme circumstances with extensive documentation</li>
+                                <li>Conflicts with other finals should be resolved through the University's final exam conflict resolution process</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box" style="margin-top: 1rem;">
+                            <strong>Travel Plans:</strong> Personal travel plans (including early departure for breaks) are NOT considered excused absences for exams. The final exam schedule is published at the beginning of the semester - please plan accordingly.
+                        </div>
+                        
+                        <p style="margin-top: 1rem;"><strong>Documentation Required:</strong> All exam absences require documentation (medical note, emergency documentation, or advance approval for university activities).</p>
                     </div>
                 </section>
                 
