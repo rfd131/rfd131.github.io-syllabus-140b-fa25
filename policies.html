@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Policies - Math 140B: Fall 2025</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Page-specific styles -->
+    <style>
+        /* Policy Section Cards */
+        .policy-card {
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--penn-state-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .policy-card h3 {
+            margin-top: 0;
+            color: var(--penn-state-navy);
+            font-size: 1.3rem;
+        }
+        
+        /* Important Policy Box */
+        .important-policy {
+            background-color: #F8D7DA;
+            border-left: 4px solid #DC3545;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .important-policy h4 {
+            color: var(--penn-state-navy);
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        /* Warning Box */
+        .warning-box {
+            background-color: var(--warning-yellow);
+            border-left: 4px solid var(--warning-border);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .warning-box strong {
+            color: var(--penn-state-navy);
+        }
+        
+        /* Policy List */
+        .policy-list {
+            list-style: none;
+            margin: 1rem 0;
+            padding: 0;
+        }
+        
+        .policy-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .policy-list li:before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: var(--penn-state-blue);
+            font-size: 0.8rem;
+        }
+        
+        /* Step Process Box */
+        .process-box {
+            background-color: var(--info-blue);
+            border: 2px solid var(--penn-state-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .process-box h4 {
+            color: var(--penn-state-navy);
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .process-steps {
+            counter-reset: step-counter;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .process-steps li {
+            counter-increment: step-counter;
+            margin-bottom: 1rem;
+            padding-left: 2.5rem;
+            position: relative;
+        }
+        
+        .process-steps li:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: var(--penn-state-navy);
+            color: var(--white);
+            width: 1.75rem;
+            height: 1.75rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        /* AI Policy Section */
+        .ai-policy-section {
+            background-color: #E8F4FD;
+            border-left: 4px solid #17A2B8;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .ai-policy-section h3 {
+            color: var(--penn-state-navy);
+            margin-top: 0;
+        }
+        
+        /* Permitted/Not Permitted Lists */
+        .usage-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .permitted-box, .not-permitted-box {
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .permitted-box {
+            background-color: #D4EDDA;
+            border: 2px solid #28A745;
+        }
+        
+        .not-permitted-box {
+            background-color: #F8D7DA;
+            border: 2px solid #DC3545;
+        }
+        
+        .permitted-box h4 {
+            color: #155724;
+            margin-top: 0;
+        }
+        
+        .not-permitted-box h4 {
+            color: #721C24;
+            margin-top: 0;
+        }
+        
+        /* Attendance Section */
+        .attendance-table {
+            width: 100%;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .attendance-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .attendance-table th {
+            background-color: var(--penn-state-navy);
+            color: var(--white);
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .attendance-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .attendance-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .attendance-table tr:hover {
+            background-color: var(--light-gray);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .usage-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .attendance-table {
+                overflow-x: auto;
+            }
+            
+            .attendance-table table {
+                min-width: 500px;
+            }
+        }
+    </style>
+</head>
+
+<body class="sidebar-nav-layout">
+    <div class="page-wrapper">
+        <header>
+            <div class="container">
+                <h1><a href="index.html">Math 140B: Calculus and Biology I</a></h1>
+                <div class="subtitle">Fall 2025 - Course Policies</div>
+            </div>
+        </header>
+        
+        <div class="content-wrapper">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar-navigation" role="navigation" aria-label="Syllabus sections">
+                <h2>Syllabus Sections</h2>
+                <ul>
+                    <li class="nav-item">
+                        <a href="index.html">Overview <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="index.html#welcome">Welcome</a>
+                            <a href="index.html#course-overview">Course Overview</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="instructors.html">Instructors <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="instructors.html#russ-deforest">Russ deForest</a>
+                            <a href="instructors.html#sam-fuller">Sam Fuller</a>
+                            <a href="instructors.html#ashley-pallone">Ashley Pallone</a>
+                            <a href="instructors.html#jan-reimann">Jan Reimann</a>
+                            <a href="instructors.html#michael-steward">Michael Steward</a>
+                            <a href="instructors.html#sam-vancini">Sam Vancini</a>
+                            <a href="instructors.html#office-hours">Office Hours</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="class-times.html">Class Times and Locations <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="class-times.html#mwf-classes">MWF Classes</a>
+                            <a href="class-times.html#tuesday-recitations">Tuesday Recitations</a>
+                            <a href="class-times.html#la-office-hours">LA Office Hours</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="materials.html">Course Materials <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="materials.html#textbooks">Textbooks</a>
+                            <a href="materials.html#online-resources">Online Resources</a>
+                            <a href="materials.html#canvas">Canvas Materials</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="learning-targets.html">Learning Targets <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="learning-targets.html">Learning Targets and Quiz Sessions</a>
+                            <a href="https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">List of Learning Targets</a>
+                            <a href="learning-targets.html#faq">Learning Target FAQ</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="writing-projects.html">Writing Projects <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="writing-projects.html#overview">Overview</a>
+                            <a href="writing-projects.html#schedule">Schedule</a>
+                            <a href="writing-projects.html#grading">Grading Criteria</a>
+                            <a href="writing-projects.html#revisions">Revisions</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="grading.html">How Your Grade is Determined <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="grading.html#overview">Grading Overview</a>
+                            <a href="grading.html#final-grades">Final Grade Table</a>
+                            <a href="grading.html#xp">Experience Points</a>
+                            <a href="grading.html#modifications">XP Modifications</a>
+                            <a href="grading.html#math197">Math 197 Option</a>
+                        </div>
+                    </li>
+                    <li class="nav-item current-page">
+                        <a href="policies.html">Course Policies <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="#academic-integrity">Academic Integrity</a>
+                            <a href="#ai-policy">Generative AI Policy</a>
+                            <a href="#attendance">Attendance</a>
+                            <a href="#makeup-quiz">Make-up Quiz Policy</a>
+                            <a href="#makeup-exam">Make-up Exam Policy</a>
+                            <a href="#disability">Disability Accommodation</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="help.html">Getting Help! <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="help.html#office-hours">Instructor Office Hours</a>
+                            <a href="help.html#la-hours">LA Office Hours</a>
+                            <a href="help.html#tutoring">Free Tutoring</a>
+                            <a href="help.html#study-tips">Study Tips</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="resources.html">Student Resources <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="resources.html#counseling">Counseling Services</a>
+                            <a href="resources.html#academic-support">Academic Support</a>
+                            <a href="resources.html#technology">Technology Resources</a>
+                            <a href="resources.html#wellness">Health & Wellness</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            
+            <main>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>›</span>
+                    <span aria-current="page">Course Policies</span>
+                </nav>
+                
+                <h2>Course Policies</h2>
+                
+                <section id="academic-integrity">
+                    <div class="important-policy">
+                        <h4>Academic Integrity</h4>
+                        
+                        <p>All <a href="http://www.psu.edu/ufs/policies" target="_blank" rel="noopener noreferrer">Penn State Policies</a> regarding ethics and academic integrity apply to this course. Academic integrity is the pursuit of scholarly activity free from fraud and deception and is an educational objective of this institution.</p>
+                        
+                        <p style="margin-top: 1rem;">Academic dishonesty includes, but is not limited to:</p>
+                        <ul>
+                            <li>Cheating</li>
+                            <li>Plagiarizing</li>
+                            <li>Fabricating of information or citations</li>
+                            <li>Facilitating acts of academic dishonesty by others</li>
+                            <li>Having unauthorized possession of examinations</li>
+                            <li>Submitting work of another person or work previously used without informing the instructor</li>
+                            <li>Tampering with the academic work of other students</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Important:</strong> For any material or ideas obtained from other sources, such as text or things you see on the web, in the library, etc., a source reference must be given. Direct quotes from any source must be identified as such. All exam and quiz answers must be your own, and you must not provide any assistance to other students during exams or quizzes.</p>
+                        
+                        <p style="margin-top: 1rem;">Any instances of academic dishonesty WILL be pursued under the <a href="http://www.psu.edu/ufs/policies" target="_blank" rel="noopener noreferrer">University</a> and <a href="http://science.psu.edu/current-students/Integrity/index.html" target="_blank" rel="noopener noreferrer">Eberly College of Science</a> regulations concerning academic integrity.</p>
+                    </div>
+                </section>
+                
+                <section id="ai-policy">
+                    <div class="ai-policy-section">
+                        <h3>Generative AI Policy</h3>
+                        
+                        <p>The use of generative AI tools (such as ChatGPT, Claude, Copilot, etc.) in this course is limited and must follow these guidelines:</p>
+                        
+                        <div class="usage-grid">
+                            <div class="permitted-box">
+                                <h4>✓ Permitted Uses</h4>
+                                <ul>
+                                    <li>Clarifying mathematical concepts after class</li>
+                                    <li>Generating additional practice problems for self-study</li>
+                                    <li>Checking your understanding of definitions and theorems</li>
+                                    <li>Getting help with study strategies</li>
+                                    <li>Understanding error messages in approved software</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="not-permitted-box">
+                                <h4>✗ Not Permitted</h4>
+                                <ul>
+                                    <li>Using AI to complete any graded assignments</li>
+                                    <li>Generating solutions for homework or writing projects</li>
+                                    <li>Creating or checking quiz/exam solutions</li>
+                                    <li>Having AI write any portion of writing projects</li>
+                                    <li>Using AI during Learning Target Quiz sessions</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <strong>Academic Integrity Violation:</strong> Using generative AI to complete graded work constitutes academic dishonesty and will be treated as such. This includes both direct copying and substantial paraphrasing of AI-generated content.
+                        </div>
+                        
+                        <p style="margin-top: 1rem;"><strong>Why this policy?</strong> Learning calculus requires developing your own problem-solving skills and mathematical intuition. Using AI to complete assignments prevents you from developing these essential skills and undermines the learning objectives of the course.</p>
+                        
+                        <p style="margin-top: 1rem;"><strong>If you're unsure:</strong> Please ask your instructor before using AI tools for any course-related work. We're happy to clarify what is and isn't appropriate.</p>
+                    </div>
+                </section>
+                
+                <section id="attendance">
+                    <div class="policy-card">
+                        <h3>Attendance Policy</h3>
+                        
+                        <p><strong>In-Person Classes (MWF):</strong> While attendance is strongly encouraged and contributes to your success, it is not directly graded. However, active participation and engagement during class will help you master the material.</p>
+                        
+                        <p style="margin-top: 1rem;"><strong>Tuesday Learning Target Quiz Sessions:</strong> Attendance is <strong>REQUIRED</strong>. These sessions are essential assessment opportunities. Missing quiz sessions will directly impact your ability to demonstrate proficiency on Learning Targets.</p>
+                        
+                        <div class="attendance-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Session Type</th>
+                                        <th>Attendance Requirement</th>
+                                        <th>Impact of Missing</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>MWF Classes</strong></td>
+                                        <td>Strongly Encouraged</td>
+                                        <td>Miss valuable instruction and practice opportunities</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Tuesday Quiz Sessions</strong></td>
+                                        <td>Required</td>
+                                        <td>Lose opportunity to attempt Learning Targets</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Exams</strong></td>
+                                        <td>Required</td>
+                                        <td>See Make-up Exam Policy</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>LA Office Hours</strong></td>
+                                        <td>Optional</td>
+                                        <td>Miss XP earning opportunity</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="warning-box" style="margin-top: 1rem;">
+                            <strong>Important:</strong> Missing more than 2-3 Tuesday quiz sessions during the semester will likely be detrimental to your grade in the course.
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="makeup-quiz">
+                    <div class="policy-card">
+                        <h3>Make-up Quiz Policy</h3>
+                        
+                        <p>Tuesday Learning Target Quiz sessions are essential to your success in the course. Make-up quizzes are only available under specific circumstances.</p>
+                        
+                        <h4 style="margin-top: 1.5rem;">Excused Absences</h4>
+                        <p>Make-up quiz opportunities are available for:</p>
+                        <ul>
+                            <li>Documented illness (requires health provider documentation)</li>
+                            <li>University-sanctioned activities (requires advance notice and documentation)</li>
+                            <li>Religious observances (requires advance notice)</li>
+                            <li>Family emergencies (requires documentation)</li>
+                            <li>Military obligations (requires documentation)</li>
+                        </ul>
+                        
+                        <div class="process-box">
+                            <h4>Make-up Quiz Request Process</h4>
+                            <ol class="process-steps">
+                                <li><strong>Notify your instructor</strong> as soon as possible (preferably before the missed session)</li>
+                                <li><strong>Submit documentation</strong> within 48 hours of the missed session</li>
+                                <li><strong>Complete the Make-up Quiz Request Form</strong> on Canvas</li>
+                                <li><strong>Attend the scheduled make-up session</strong> (typically Thursday evenings during Quiz Hours)</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <strong>Note:</strong> Make-up quizzes are offered at limited times and may not include all Learning Targets that were available during the regular session. Students are responsible for all material regardless of absences.
+                        </div>
+                        
+                        <p style="margin-top: 1rem;"><strong>Unexcused Absences:</strong> If you miss a Tuesday quiz session without an excused absence, you will need to wait until the next time those Learning Targets are offered (according to the schedule posted on Canvas).</p>
+                    </div>
+                </section>
+                
+                <section id="makeup-exam">
+                    <div class="policy-card">
+                        <h3>Make-up Exam Policy</h3>
+                        
+                        <p>Exams are scheduled well in advance and students are expected to be present. Make-up exams are only available for documented, excusable absences.</p>
+                        
+                        <h4 style="margin-top: 1.5rem;">Exam Make-up Eligibility</h4>
+                        <p>Same as quiz make-up policy (see above), with additional consideration for:</p>
+                        <ul>
+                            <li>Conflicts with other final exams (requires advance notice and approval)</li>
+                            <li>Three or more exams scheduled on the same day</li>
+                        </ul>
+                        
+                        <div class="important-policy" style="background-color: var(--warning-yellow); border-left-color: var(--warning-border);">
+                            <h4>Important Exam Policies</h4>
+                            <ul style="margin: 0;">
+                                <li><strong>Advance Notice Required:</strong> For any foreseeable absence (university activities, religious observances), you must notify your instructor at least <strong>one week before</strong> the exam.</li>
+                                <li><strong>Emergency Situations:</strong> Contact your instructor as soon as possible. Documentation must be provided within 72 hours.</li>
+                                <li><strong>Format May Differ:</strong> Make-up exams may have a different format or questions than the original exam.</li>
+                                <li><strong>Single Opportunity:</strong> Only one make-up opportunity per exam will be provided.</li>
+                            </ul>
+                        </div>
+                        
+                        <p style="margin-top: 1rem;"><strong>Travel Plans:</strong> Personal travel plans (including early departure for breaks) are NOT considered excused absences. Please plan accordingly.</p>
+                    </div>
+                </section>
+                
+                <section id="late-work">
+                    <div class="policy-card">
+                        <h3>Late Work Policy</h3>
+                        
+                        <h4>Writing Projects</h4>
+                        <ul>
+                            <li>Writing projects submitted late receive a grade of <strong>Incomplete</strong></li>
+                            <li>Incomplete projects are NOT eligible for revision</li>
+                            <li>Extensions may be granted for documented emergencies only</li>
+                        </ul>
+                        
+                        <h4 style="margin-top: 1.5rem;">Online Homework & PLAs</h4>
+                        <ul>
+                            <li>Due dates are firm to maintain course pacing</li>
+                            <li>Late submissions receive 0 XP</li>
+                            <li>System allows multiple attempts before the deadline</li>
+                        </ul>
+                        
+                        <div class="warning-box">
+                            <strong>Technical Issues:</strong> Technical problems with personal computers or internet connections are not considered valid excuses for late work. Start assignments early and use campus computer labs if needed.
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="disability">
+                    <div class="policy-card">
+                        <h3>Disability Accommodation Statement</h3>
+                        
+                        <p>Penn State welcomes students with disabilities into the University's educational programs. Every Penn State campus has an office for students with disabilities. The <a href="http://equity.psu.edu/sdr/" target="_blank" rel="noopener noreferrer">Student Disability Resources (SDR)</a> website provides contact information for every Penn State campus.</p>
+                        
+                        <p style="margin-top: 1rem;">For further information, please visit the <a href="http://equity.psu.edu/sdr/" target="_blank" rel="noopener noreferrer">Student Disability Resources website</a>.</p>
+                        
+                        <div class="process-box">
+                            <h4>To Receive Consideration for Reasonable Accommodations</h4>
+                            <ol class="process-steps">
+                                <li>Contact the disability services office at your campus</li>
+                                <li>Participate in an intake interview</li>
+                                <li>Provide documentation (<a href="http://equity.psu.edu/sdr/guidelines" target="_blank" rel="noopener noreferrer">See documentation guidelines</a>)</li>
+                                <li>Share your accommodation letter with instructors</li>
+                                <li>Discuss accommodations with instructors as early as possible</li>
+                            </ol>
+                        </div>
+                        
+                        <p style="margin-top: 1rem;"><strong>Important:</strong> You must follow this process for every semester that you request accommodations.</p>
+                    </div>
+                </section>
+                
+                <section id="nondiscrimination">
+                    <div class="policy-card">
+                        <h3>Nondiscrimination Policy</h3>
+                        
+                        <p>The University is committed to equal access to programs, facilities, admission and employment for all persons. It is the policy of the University to maintain an environment free of harassment and free of discrimination against any person because of age, race, color, ancestry, national origin, religion, creed, service in the uniformed services (as defined in state and federal law), veteran status, sex, sexual orientation, marital or family status, pregnancy, pregnancy-related conditions, physical or mental disability, gender, perceived gender, gender identity, genetic information or political ideas.</p>
+                        
+                        <p style="margin-top: 1rem;">Direct all inquiries regarding the nondiscrimination policy to:</p>
+                        <div style="margin-left: 2rem; margin-top: 0.5rem;">
+                            Dr. Kenneth Lehrman III<br>
+                            Vice Provost for Affirmative Action<br>
+                            Affirmative Action Office<br>
+                            The Pennsylvania State University<br>
+                            328 Boucke Building<br>
+                            University Park, PA 16802-5901<br>
+                            Email: <a href="mailto:kfl2@psu.edu">kfl2@psu.edu</a><br>
+                            Tel: (814) 863-0471
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="educational-equity">
+                    <div class="policy-card">
+                        <h3>Reporting Educational Equity Concerns</h3>
+                        
+                        <p>Penn State takes great pride to foster a diverse and inclusive environment for students, faculty, and staff. Acts of intolerance, discrimination, or harassment due to age, ancestry, color, disability, gender, gender identity, national origin, race, religious belief, sexual orientation, or veteran status are not tolerated and can be reported through Educational Equity via the Report Bias webpage.</p>
+                        
+                        <p style="margin-top: 1rem;"><a href="http://equity.psu.edu/reportbias/" target="_blank" rel="noopener noreferrer" class="resource-link" style="display: inline-block; background-color: var(--penn-state-blue); color: var(--white); padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none;">Report Bias</a></p>
+                    </div>
+                </section>
+                
+                <section id="counseling">
+                    <div class="policy-card">
+                        <h3>Counseling and Psychological Services</h3>
+                        
+                        <p>Many students at Penn State face personal challenges or have psychological needs that may interfere with their academic progress, social development, or emotional wellbeing. The university offers a variety of confidential services to help you through difficult times, including individual and group counseling, crisis intervention, consultations, online chats, and mental health screenings. These services are provided by staff who welcome all students and embrace a philosophy respectful of clients' cultural and religious backgrounds, and sensitive to differences in race, ability, gender identity and sexual orientation.</p>
+                        
+                        <ul style="margin-top: 1rem;">
+                            <li><strong>Counseling and Psychological Services at University Park (CAPS)</strong><br>
+                                <a href="http://studentaffairs.psu.edu/counseling/" target="_blank" rel="noopener noreferrer">http://studentaffairs.psu.edu/counseling/</a><br>
+                                814-863-0395</li>
+                            <li style="margin-top: 0.5rem;"><strong>Penn State Crisis Line (24 hours/7 days/week):</strong> 877-229-6400</li>
+                            <li style="margin-top: 0.5rem;"><strong>Crisis Text Line (24 hours/7 days/week):</strong> Text LIONS to 741741</li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+            
+            <!-- Quick Links Sidebar -->
+            <aside class="quick-links" role="complementary" aria-label="Quick Links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li>
+                        <a href="grading.html">
+                            <span class="icon">📊</span>
+                            How Your Grade is Determined
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+                            <span class="icon">📋</span>
+                            Learning Target List
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#makeup-quiz">
+                            <span class="icon">📝</span>
+                            Make-up Quiz Policy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="instructors.html#office-hours">
+                            <span class="icon">🕐</span>
+                            Shared Office Hours
+                        </a>
+                    </li>
+                    <li>
+                        <a href="help.html#la-hours">
+                            <span class="icon">👥</span>
+                            LA Community Learning Sessions
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="important-dates-box">
+                    <h3>Important Dates</h3>
+                    <ul>
+                        <li>First Day: Aug 25</li>
+                        <li>Drop Deadline: Aug 30</li>
+                        <li>Late Drop: Nov 14</li>
+                        <li>Finals Week: Dec 15-19</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Math 140B Fall 2025 | Penn State University | <a href="index.html">Return to Syllabus Home</a></p>
+    </footer>
+
+    <!-- External JavaScript for navigation -->
+    <script src="navigation.js"></script>
+    
+    <!-- Initialize navigation functionality -->
+    <script>
+        // Since we're using static HTML navigation, we just need the dropdown functionality
+        // The navigation.js file's initializeNavigation() function will handle this
+        if (typeof initializeNavigation === 'function') {
+            initializeNavigation();
+        }
+    </script>
+</body>
+</html>
