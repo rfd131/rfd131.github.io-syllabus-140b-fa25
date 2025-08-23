@@ -1,4 +1,432 @@
-<div class="xp-section">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Your Grade is Determined - Math 140B: Fall 2025</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Page-specific styles -->
+    <style>
+        /* Grade Tables */
+        .grade-table-container {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .grade-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .grade-table th {
+            background-color: var(--penn-state-navy);
+            color: var(--white);
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .grade-table th:last-child {
+            border-right: none;
+        }
+        
+        .grade-table td {
+            padding: 0.875rem 1rem;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            border-right: 1px solid #eee;
+        }
+        
+        .grade-table td:last-child {
+            border-right: none;
+        }
+        
+        .grade-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .grade-table tr:hover {
+            background-color: var(--light-gray);
+        }
+        
+        .letter-grade {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--penn-state-navy);
+        }
+        
+        /* Overview Cards */
+        .overview-card {
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--penn-state-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .overview-card h3 {
+            margin-top: 0;
+            color: var(--penn-state-navy);
+        }
+        
+        /* Important Box */
+        .important-box {
+            background-color: #F8D7DA;
+            border-left: 4px solid #DC3545;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .important-box h4 {
+            color: var(--penn-state-navy);
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        /* XP Section */
+        .xp-section {
+            background-color: var(--info-blue);
+            border-left: 4px solid var(--penn-state-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .xp-section h3 {
+            color: var(--penn-state-navy);
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .xp-table {
+            width: 100%;
+            background-color: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .xp-table th {
+            background-color: var(--penn-state-blue);
+            color: var(--white);
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .xp-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .xp-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Math 197 Section */
+        .math197-section {
+            background-color: #FFF3CD;
+            border-left: 4px solid #FFC107;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .math197-section h3 {
+            color: var(--penn-state-navy);
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        /* Alert Boxes */
+        .alert {
+            background-color: var(--warning-yellow);
+            border-left: 4px solid var(--warning-border);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .alert-success {
+            background-color: #D4EDDA;
+            border-left: 4px solid #28A745;
+        }
+        
+        /* Essential Targets List */
+        .essential-targets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .target-badge {
+            background-color: var(--penn-state-blue);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        /* Grade Example Box */
+        .example-box {
+            background-color: #E8F4FD;
+            border: 2px dashed var(--penn-state-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .example-box h4 {
+            color: var(--penn-state-navy);
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .grade-table-container {
+                overflow-x: auto;
+            }
+            
+            .grade-table {
+                min-width: 500px;
+            }
+            
+            .grade-table th, .grade-table td {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="sidebar-nav-layout">
+    <div class="page-wrapper">
+        <header>
+            <div class="container">
+                <h1><a href="index.html">Math 140B: Calculus and Biology I</a></h1>
+                <div class="subtitle">Fall 2025 - How Your Grade is Determined</div>
+            </div>
+        </header>
+        
+        <div class="content-wrapper">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar-navigation" role="navigation" aria-label="Syllabus sections">
+                <h2>Syllabus Sections</h2>
+                <ul>
+                    <li class="nav-item">
+                        <a href="index.html">Overview <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="index.html#welcome">Welcome</a>
+                            <a href="index.html#course-overview">Course Overview</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="instructors.html">Instructors <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="instructors.html#russ-deforest">Russ deForest</a>
+                            <a href="instructors.html#sam-fuller">Sam Fuller</a>
+                            <a href="instructors.html#ashley-pallone">Ashley Pallone</a>
+                            <a href="instructors.html#jan-reimann">Jan Reimann</a>
+                            <a href="instructors.html#michael-steward">Michael Steward</a>
+                            <a href="instructors.html#sam-vancini">Sam Vancini</a>
+                            <a href="instructors.html#office-hours">Office Hours</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="class-times.html">Class Times and Locations <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="class-times.html#mwf-classes">MWF Classes</a>
+                            <a href="class-times.html#tuesday-recitations">Tuesday Recitations</a>
+                            <a href="class-times.html#la-office-hours">LA Office Hours</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="materials.html">Course Materials <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="materials.html#textbooks">Textbooks</a>
+                            <a href="materials.html#online-resources">Online Resources</a>
+                            <a href="materials.html#canvas">Canvas Materials</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="learning-targets.html">Learning Targets <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="learning-targets.html">Learning Targets and Quiz Sessions</a>
+                            <a href="https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">List of Learning Targets</a>
+                            <a href="learning-targets.html#faq">Learning Target FAQ</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="writing-projects.html">Writing Projects <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="writing-projects.html#overview">Overview</a>
+                            <a href="writing-projects.html#schedule">Schedule</a>
+                            <a href="writing-projects.html#grading">Grading Criteria</a>
+                            <a href="writing-projects.html#revisions">Revisions</a>
+                        </div>
+                    </li>
+                    <li class="nav-item current-page">
+                        <a href="grading.html">How Your Grade is Determined <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="#overview">Grading Overview</a>
+                            <a href="#final-grades">Final Grade Table</a>
+                            <a href="#xp">Experience Points</a>
+                            <a href="#modifications">XP Modifications</a>
+                            <a href="#math197">Math 197 Option</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="policies.html">Course Policies <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="policies.html#academic-integrity">Academic Integrity</a>
+                            <a href="policies.html#attendance">Attendance</a>
+                            <a href="policies.html#makeup">Make-up Policy</a>
+                            <a href="policies.html#disability">Disability Accommodation</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="help.html">Getting Help! <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="help.html#office-hours">Instructor Office Hours</a>
+                            <a href="help.html#la-hours">LA Office Hours</a>
+                            <a href="help.html#tutoring">Free Tutoring</a>
+                            <a href="help.html#study-tips">Study Tips</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="resources.html">Student Resources <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="resources.html#counseling">Counseling Services</a>
+                            <a href="resources.html#academic-support">Academic Support</a>
+                            <a href="resources.html#technology">Technology Resources</a>
+                            <a href="resources.html#wellness">Health & Wellness</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            
+            <main>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>›</span>
+                    <span aria-current="page">How Your Grade is Determined</span>
+                </nav>
+                
+                <h2 id="overview">Grading Overview</h2>
+                
+                <div class="alert alert-success">
+                    <strong>Specifications Grading:</strong> Your grade is NOT based on points or percentages. Instead, your grade is determined by demonstrating proficiency in learning objectives through Learning Target Quizzes and Writing Projects, with modifications possible through Experience Points (XP).
+                </div>
+                
+                <div class="overview-card">
+                    <h3>Your final grade is determined by:</h3>
+                    <ul>
+                        <li>The number of <strong>Learning Targets</strong> marked as <strong>Complete</strong> (at least one part successful)</li>
+                        <li>The number of <strong>Learning Targets</strong> marked as <strong>Proficient</strong> (all parts successful)</li>
+                        <li>The number of <strong>Writing Projects</strong> that are <strong>Satisfactory</strong></li>
+                        <li>Experience points (XP) earned through online work and participation</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Important:</strong> You do not lose points by attempting assignments. Every assignment is a learning opportunity!</p>
+                </div>
+                
+                <section id="final-grades">
+                    <h3>Final Grade Determination</h3>
+                    
+                    <h4>Math 140B (4 credits)</h4>
+                    
+                    <div class="grade-table-container">
+                        <table class="grade-table">
+                            <thead>
+                                <tr>
+                                    <th>Letter Grade</th>
+                                    <th>Learning Targets<br>Complete<br>(Success on one part)</th>
+                                    <th>Learning Targets<br>Proficient<br>(Success on all parts)</th>
+                                    <th>Writing Projects<br>Satisfactory</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="letter-grade">A</td>
+                                    <td>25</td>
+                                    <td>21</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td class="letter-grade">A-</td>
+                                    <td>23</td>
+                                    <td>19</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td class="letter-grade">B+</td>
+                                    <td>22</td>
+                                    <td>17</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td class="letter-grade">B</td>
+                                    <td>21</td>
+                                    <td>15</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td class="letter-grade">B-</td>
+                                    <td>20</td>
+                                    <td>13</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td class="letter-grade">C+</td>
+                                    <td>19</td>
+                                    <td>11</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td class="letter-grade">C</td>
+                                    <td>18</td>
+                                    <td>9</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td class="letter-grade">D</td>
+                                    <td>14</td>
+                                    <td>—</td>
+                                    <td>—</td>
+                                </tr>
+                                <tr>
+                                    <td class="letter-grade">F</td>
+                                    <td colspan="3">If requirements for D are not met</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="important-box">
+                        <h4>⚠️ Important Note</h4>
+                        <p>You must meet ALL requirements to receive the corresponding letter grade. For example:</p>
+                        <ul>
+                            <li>If you have 25 Complete targets, 15 Proficient targets, and 3 Satisfactory projects, your final grade would be <strong>B</strong> (not A)</li>
+                            <li>If you have 23 Complete targets, 19 Proficient targets, and 2 Satisfactory projects, your final grade would be <strong>B+</strong> (not A-)</li>
+                        </ul>
+                        <p style="margin-top: 1rem;">Modifications earned through XP can help you meet these thresholds (see below).</p>
+                    </div>
+                </section>
+                
+                <section id="xp">
+                    <h3>Experience Points (XP)</h3>
+                    
+ <div class="xp-section">
                         <h3>Earning Experience Points</h3>
                         
                         <p>There are approximately <strong>870 XP</strong> available throughout the semester. You earn XP through:</p>
@@ -43,4 +471,263 @@
                         </table>
                         
                         <p style="margin-top: 1rem;"><strong>Note:</strong> Course engagement at a satisfactory level typically corresponds to earning about 500-600 XP (enough for 2 modifications).</p>
+                    </div>               </section>
+                
+                <section id="modifications">
+                    <h3>XP Modifications</h3>
+                    
+                    <div class="overview-card">
+                        <h3>How Modifications Work</h3>
+                        
+                        <p>The number of learning targets Complete or Proficient, or the number of writing projects counted as Satisfactory, may be modified by experience points (XP) earned during the course.</p>
+                        
+                        <p style="margin-top: 1rem;"><strong>Each modification</strong> earned will:</p>
+                        <ul>
+                            <li>Increase the number of Complete targets by one, <strong>OR</strong></li>
+                            <li>Increase the number of Proficient targets by one, <strong>OR</strong></li>
+                            <li>Increase the number of Satisfactory writing projects by one</li>
+                        </ul>
+                        
+                        <table class="xp-table" style="margin-top: 1.5rem;">
+                            <thead>
+                                <tr>
+                                    <th>XP Earned</th>
+                                    <th>Effect</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Less than 200 XP</td>
+                                    <td>No modifications</td>
+                                </tr>
+                                <tr>
+                                    <td>200-399 XP</td>
+                                    <td>One modification</td>
+                                </tr>
+                                <tr>
+                                    <td>400-599 XP</td>
+                                    <td>Two modifications</td>
+                                </tr>
+                                <tr>
+                                    <td>600 or more XP</td>
+                                    <td>Three modifications (maximum)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <p style="margin-top: 1.5rem;"><strong>Important:</strong> Modifications are automatically applied at the end of the course in the way that will best benefit your final grade.</p>
                     </div>
+                    
+                    <div class="example-box">
+                        <h4>💡 Example</h4>
+                        <p>A student finishes the semester with:</p>
+                        <ul>
+                            <li>22 Complete Learning Targets</li>
+                            <li>16 Proficient Learning Targets</li>
+                            <li>2 Satisfactory Writing Projects</li>
+                            <li>450 XP earned (= 2 modifications)</li>
+                        </ul>
+                        <p style="margin-top: 1rem;">The 2 modifications could be applied to increase Proficient targets from 16 to 18, resulting in a final grade of <strong>A-</strong> (meeting the requirements of 22 Complete, 18 Proficient, and 2 Projects).</p>
+                    </div>
+                    
+                    <div class="alert">
+                        <strong>Note:</strong> Modifications are NOT applied to specific targets. For example, you cannot use one modification on a One-Time Proficiency target to increase both Complete and Proficient counts by one.
+                    </div>
+                </section>
+                
+                <section id="math197">
+                    <h3>Math 197 Option (2 Credits)</h3>
+                    
+                    <div class="math197-section">
+                        <h3>Math 197: Differential Calculus with Applications to Biology</h3>
+                        
+                        <p>Prior to the late drop date (<strong>Friday, November 14, Week 12</strong>), you have the option to change enrollment to Math 197, a 2-credit course.</p>
+                        
+                        <p style="margin-top: 1rem;">Passing grades in both Math 197 and the follow-on two-credit course Math 198 (Topics in Calculus with Applications to Biology) are together equivalent to a passing grade in the 4-credit Math 140B.</p>
+                        
+                        <h4 style="margin-top: 1.5rem;">Math 197 Grade Requirements</h4>
+                        
+                        <div class="grade-table-container">
+                            <table class="grade-table">
+                                <thead>
+                                    <tr>
+                                        <th>Letter Grade</th>
+                                        <th>Learning Targets<br>Complete</th>
+                                        <th>Learning Targets<br>Proficient</th>
+                                        <th>Writing Projects<br>Satisfactory</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="letter-grade">A</td>
+                                        <td>14</td>
+                                        <td>12</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="letter-grade">A-</td>
+                                        <td>14</td>
+                                        <td>11</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="letter-grade">B+</td>
+                                        <td>13</td>
+                                        <td>10</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="letter-grade">B</td>
+                                        <td>12</td>
+                                        <td>10</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="letter-grade">B-</td>
+                                        <td>12</td>
+                                        <td>9</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="letter-grade">C+</td>
+                                        <td>11</td>
+                                        <td>8</td>
+                                        <td>—</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="letter-grade">C</td>
+                                        <td>10</td>
+                                        <td>8</td>
+                                        <td>—</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="letter-grade">D</td>
+                                        <td>8</td>
+                                        <td>—</td>
+                                        <td>—</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="letter-grade">F</td>
+                                        <td colspan="3">If requirements for D are not met</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <h4 style="margin-top: 1.5rem;">Additional Notes for Math 197</h4>
+                        <ul>
+                            <li>Targets Complete and Proficient must be from among Learning Targets 1-17 only</li>
+                            <li>The essential learning targets (marked with * in the Learning Target list) are:
+                                <div class="essential-targets">
+                                    <span class="target-badge">LT1</span>
+                                    <span class="target-badge">LT2</span>
+                                    <span class="target-badge">LT3</span>
+                                    <span class="target-badge">LT9</span>
+                                    <span class="target-badge">LT11</span>
+                                    <span class="target-badge">LT12</span>
+                                    <span class="target-badge">LT13</span>
+                                    <span class="target-badge">LT14</span>
+                                </div>
+                            </li>
+                            <li style="margin-top: 1rem;">For a final grade of C or above in Math 197:
+                                <ul>
+                                    <li>All 8 essential Learning Targets must be Complete, AND</li>
+                                    <li>At least 6 of the 8 essential Learning Targets must be Proficient</li>
+                                </ul>
+                            </li>
+                            <li>XP modifications for Math 197 work exactly as in Math 140B</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section>
+                    <h3>Understanding Learning Target Achievement</h3>
+                    
+                    <div class="overview-card">
+                        <h3>Complete vs. Proficient</h3>
+                        
+                        <p><strong>To Complete a Learning Target:</strong></p>
+                        <ul>
+                            <li>Earn a Success on either the Foundational (F) Quiz Version OR the Advanced (Adv) Quiz Version</li>
+                            <li>For One-Time Proficiency Targets, one success counts as both Complete and Proficient</li>
+                            <li>Once you earn a Success in an LT Quiz Version, you do not attempt that version again</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>To be Proficient in a Learning Target:</strong></p>
+                        <ul>
+                            <li>Earn a Success on BOTH the Foundational (F) Quiz Version AND the Advanced (Adv) Quiz Version</li>
+                            <li>For One-Time Proficiency Targets, one success counts as both Complete and Proficient</li>
+                            <li>You don't need to earn a success in the Foundational version before attempting the Advanced version</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;">See the <a href="learning-targets.html">Learning Targets page</a> for more details about the quiz system.</p>
+                    </div>
+                </section>
+            </main>
+            
+            <!-- Quick Links Sidebar -->
+            <aside class="quick-links" role="complementary" aria-label="Quick Links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li>
+                        <a href="grading.html">
+                            <span class="icon">📊</span>
+                            How Your Grade is Determined
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+                            <span class="icon">📋</span>
+                            Learning Target List
+                        </a>
+                    </li>
+                    <li>
+                        <a href="policies.html#makeup">
+                            <span class="icon">📝</span>
+                            Make-up Quiz Policy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="instructors.html#office-hours">
+                            <span class="icon">🕐</span>
+                            Shared Office Hours
+                        </a>
+                    </li>
+                    <li>
+                        <a href="help.html#la-hours">
+                            <span class="icon">👥</span>
+                            LA Community Learning Sessions
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="important-dates-box">
+                    <h3>Important Dates</h3>
+                    <ul>
+                        <li>First Day: Aug 25</li>
+                        <li>Drop Deadline: Aug 30</li>
+                        <li>Late Drop: Nov 14</li>
+                        <li>Finals Week: Dec 15-19</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Math 140B Fall 2025 | Penn State University | <a href="index.html">Return to Syllabus Home</a></p>
+    </footer>
+
+    <!-- External JavaScript for navigation -->
+    <script src="navigation.js"></script>
+    
+    <!-- Initialize navigation functionality -->
+    <script>
+        // Since we're using static HTML navigation, we just need the dropdown functionality
+        // The navigation.js file's initializeNavigation() function will handle this
+        if (typeof initializeNavigation === 'function') {
+            initializeNavigation();
+        }
+    </script>
+</body>
+</html>
