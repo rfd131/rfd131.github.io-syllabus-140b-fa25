@@ -93,7 +93,7 @@ const navigationData = {
         { title: "Class Times & Locations", href: "class-times.html" },
         { title: "Course Materials", href: "materials.html" },
         { title: "Learning Targets", href: "learning-targets.html" },
-        { title: "Grading", href: "grading.html" },
+        { title: "How Your Grade is Determined", href: "grading.html" },
         { title: "Course Policies", href: "policies.html" },
         { title: "Getting Help", href: "help.html" },
         { title: "Student Resources", href: "resources.html" }

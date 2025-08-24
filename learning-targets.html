@@ -3,20 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning Targets - Math 140B: Fall 2025</title>
-    
-    <!-- External CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <title>Learning Targets - Math 140B Fall 2025</title>
     
     <!-- Page-specific styles -->
     <style>
-        /* Learning Target Overview Cards */
+        /* CSS Variables for consistent theming */
+        :root {
+            --penn-state-blue: #001e44;
+            --penn-state-navy: #041e42;
+            --light-blue: #1e407c;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --gray: #666;
+            --border-gray: #ddd;
+            --success-green: #4CAF50;
+            --warning-yellow: #FFF9C4;
+            --warning-border: #FFC107;
+            --info-blue: #E8F4FD;
+        }
+        
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-gray);
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--penn-state-blue) 0%, var(--light-blue) 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        
+        header .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            opacity: 0.95;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--penn-state-navy);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-item > a {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-item:hover > a,
+        .nav-item.current-page > a {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .dropdown-arrow {
+            font-size: 0.8em;
+            margin-left: 0.3rem;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            min-width: 250px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+        }
+        
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--penn-state-navy);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+        }
+        
+        /* Main Content Area */
+        .page-wrapper {
+            min-height: calc(100vh - 200px);
+            background-color: var(--white);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        
+        /* Main content */
+        main {
+            flex: 1;
+            background-color: var(--white);
+        }
+        
+        main h2 {
+            color: var(--penn-state-navy);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--penn-state-blue);
+        }
+        
+        main h3 {
+            color: var(--penn-state-navy);
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* LT Overview Cards */
         .lt-overview-card {
             background-color: var(--light-gray);
-            border-left: 4px solid var(--penn-state-blue);
             border-radius: 8px;
             padding: 1.5rem;
             margin: 1.5rem 0;
+            border-left: 4px solid var(--penn-state-blue);
         }
         
         .lt-overview-card h3 {
@@ -24,113 +182,42 @@
             color: var(--penn-state-navy);
         }
         
-        /* Success/Not Yet Badges */
-        .success-badge {
-            display: inline-block;
-            background-color: #28A745;
-            color: var(--white);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-        
-        .not-yet-badge {
-            display: inline-block;
-            background-color: #6C757D;
-            color: var(--white);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-        
-        .complete-badge {
-            display: inline-block;
-            background-color: var(--penn-state-light-blue);
-            color: var(--penn-state-navy);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-        
-        .proficient-badge {
-            display: inline-block;
-            background-color: var(--penn-state-navy);
-            color: var(--white);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-        
-        .foundational-badge {
-            display: inline-block;
-            background-color: #17A2B8;
-            color: var(--white);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 0.85rem;
-            margin-right: 0.5rem;
-        }
-        
-        .advanced-badge {
-            display: inline-block;
-            background-color: #6610F2;
-            color: var(--white);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 0.85rem;
-            margin-right: 0.5rem;
-        }
-        
-        .one-time-badge {
-            display: inline-block;
-            background-color: #FD7E14;
-            color: var(--white);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 0.85rem;
-        }
-        
         /* Process Timeline */
         .process-timeline {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
             margin: 2rem 0;
-            padding: 2rem 1rem;
+            padding: 2rem;
             background-color: var(--light-gray);
             border-radius: 8px;
         }
         
         .timeline-step {
-            flex: 1;
             text-align: center;
             position: relative;
+            flex: 1;
         }
         
         .timeline-step:not(:last-child)::after {
             content: "→";
             position: absolute;
             right: -20px;
-            top: 35%;
-            font-size: 1.5rem;
+            top: 25px;
+            font-size: 2rem;
             color: var(--penn-state-blue);
         }
         
         .step-number {
             display: inline-block;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
             background-color: var(--penn-state-blue);
             color: var(--white);
             border-radius: 50%;
             font-weight: bold;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
         
@@ -142,41 +229,78 @@
         
         .step-description {
             font-size: 0.9rem;
-            color: var(--text-gray);
+            color: #666;
         }
         
-        /* Important Notes */
-        .important-note {
-            background-color: #FFF3CD;
-            border-left: 4px solid #FFC107;
-            padding: 1rem;
-            margin: 1.5rem 0;
+        /* Badges */
+        .success-badge {
+            background-color: var(--success-green);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
             border-radius: 4px;
-        }
-        
-        .important-note strong {
-            color: var(--penn-state-navy);
-        }
-        
-        /* FAQ Section */
-        .faq-item {
-            background-color: var(--white);
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .faq-question {
             font-weight: bold;
-            color: var(--penn-state-navy);
-            margin-bottom: 0.75rem;
-            font-size: 1.1rem;
+            display: inline-block;
+            margin-right: 0.5rem;
         }
         
-        .faq-answer {
-            color: var(--text-gray);
-            line-height: 1.6;
+        .not-yet-badge {
+            background-color: #FFA500;
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        
+        .foundational-badge {
+            background-color: #17A2B8;
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        
+        .advanced-badge {
+            background-color: #6610F2;
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        
+        .one-time-badge {
+            background-color: #9B59B6;
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        
+        .complete-badge {
+            background-color: #2ECC71;
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        
+        .proficient-badge {
+            background-color: #27AE60;
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 0.5rem;
         }
         
         /* Document Link Button */
@@ -185,12 +309,13 @@
             background-color: var(--penn-state-blue);
             color: var(--white);
             padding: 1rem 2rem;
-            border-radius: 8px;
             text-decoration: none;
+            border-radius: 8px;
             font-weight: bold;
             font-size: 1.1rem;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            margin: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 0.5rem;
         }
         
         .doc-link-button:hover {
@@ -203,21 +328,37 @@
             margin-right: 0.5rem;
         }
         
-        /* Essential Targets Box */
-        .essential-targets-box {
-            background-color: #E8F4FD;
-            border: 2px solid var(--penn-state-blue);
+        /* Important Note */
+        .important-note {
+            background-color: var(--warning-yellow);
+            border-left: 4px solid var(--warning-border);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        
+        /* FAQ Styles */
+        .faq-item {
+            background-color: var(--light-gray);
             border-radius: 8px;
             padding: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .essential-targets-box h4 {
-            color: var(--penn-state-navy);
-            margin-top: 0;
             margin-bottom: 1rem;
+            border-left: 3px solid var(--penn-state-blue);
         }
         
+        .faq-question {
+            font-weight: bold;
+            color: var(--penn-state-navy);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .faq-answer {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Target List */
         .target-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
@@ -233,8 +374,128 @@
             font-weight: bold;
         }
         
+        /* Quick Links */
+        .quick-links {
+            width: 280px;
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+        
+        .quick-links h2 {
+            color: var(--penn-state-navy);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--penn-state-blue);
+        }
+        
+        .quick-links ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .quick-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .quick-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--penn-state-navy);
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .quick-links a:hover {
+            background-color: var(--white);
+        }
+        
+        .quick-links .icon {
+            font-size: 1.2rem;
+        }
+        
+        .important-dates-box {
+            background-color: var(--white);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+        
+        .important-dates-box h3 {
+            color: var(--penn-state-navy);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .important-dates-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .important-dates-box li {
+            padding: 0.25rem 0;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--penn-state-navy);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        footer a {
+            color: var(--white);
+            text-decoration: underline;
+        }
+        
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .quick-links {
+                width: 100%;
+                position: static;
+            }
+        }
+        
         @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                display: none;
+            }
+            
+            .nav-item:hover .dropdown-menu {
+                display: none;
+            }
+            
             .process-timeline {
                 flex-direction: column;
                 gap: 2rem;
@@ -251,120 +512,21 @@
         }
     </style>
 </head>
-
-<body class="sidebar-nav-layout">
+<body>
+    <header>
+        <h1>Math 140B: Calculus with Applications to Biology - Fall 2025</h1>
+        <div class="subtitle">Learning Targets</div>
+    </header>
+    
+    <!-- Top Navigation will be inserted here by JavaScript -->
+    <div id="top-navigation"></div>
+    
     <div class="page-wrapper">
-        <header>
-            <div class="container">
-                <h1><a href="index.html">Math 140B: Calculus and Biology I</a></h1>
-                <div class="subtitle">Fall 2025 - Learning Targets</div>
-            </div>
-        </header>
-        
-        <div class="content-wrapper">
-            <!-- Sidebar Navigation -->
-            <nav class="sidebar-navigation" role="navigation" aria-label="Syllabus sections">
-                <h2>Syllabus Sections</h2>
-                <ul>
-                    <li class="nav-item">
-                        <a href="index.html">Overview <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="index.html#welcome">Welcome</a>
-                            <a href="index.html#course-overview">Course Overview</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="instructors.html">Instructors <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="instructors.html#russ-deforest">Russ deForest</a>
-                            <a href="instructors.html#sam-fuller">Sam Fuller</a>
-                            <a href="instructors.html#ashley-pallone">Ashley Pallone</a>
-                            <a href="instructors.html#jan-reimann">Jan Reimann</a>
-                            <a href="instructors.html#michael-steward">Michael Steward</a>
-                            <a href="instructors.html#sam-vancini">Sam Vancini</a>
-                            <a href="instructors.html#office-hours">Office Hours</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="class-times.html">Class Times and Locations <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="class-times.html#mwf-classes">MWF Classes</a>
-                            <a href="class-times.html#tuesday-recitations">Tuesday Recitations</a>
-                            <a href="class-times.html#la-office-hours">LA Office Hours</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="materials.html">Course Materials <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="materials.html#textbooks">Textbooks</a>
-                            <a href="materials.html#online-resources">Online Resources</a>
-                            <a href="materials.html#canvas">Canvas Materials</a>
-                        </div>
-                    </li>
-                    <li class="nav-item current-page">
-                        <a href="learning-targets.html">Learning Targets <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="#overview">Overview</a>
-                            <a href="https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=drive_link" target="_blank" rel="noopener noreferrer">List of Learning Targets</a>
-                            <a href="#quiz-sessions">Quiz Sessions</a>
-                            <a href="#faq">FAQ</a>
-                        </div>
-                    </li>
-<li class="nav-item">
-    <a href="writing-projects.html">Writing Projects <span class="dropdown-arrow">▼</span></a>
-    <div class="dropdown-menu">
-        <a href="writing-projects.html#overview">Overview</a>
-        <a href="writing-projects.html#schedule">Schedule</a>
-        <a href="writing-projects.html#grading">Grading Criteria</a>
-        <a href="writing-projects.html#revisions">Revisions</a>
-    </div>
-</li>                    <li class="nav-item">
-                        <a href="grading.html">How Your Grade is Determined <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="grading.html#overview">Grading Overview</a>
-                            <a href="grading.html#final-grades">Final Grade Table</a>
-                            <a href="grading.html#xp">Experience Points</a>
-                            <a href="grading.html#modifications">XP Modifications</a>
-                            <a href="grading.html#math197">Math 197 Option</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="policies.html">Course Policies <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="policies.html#academic-integrity">Academic Integrity</a>
-                            <a href="policies.html#attendance">Attendance</a>
-                            <a href="policies.html#makeup">Make-up Policy</a>
-                            <a href="policies.html#disability">Disability Accommodation</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="help.html">Getting Help! <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="help.html#office-hours">Instructor Office Hours</a>
-                            <a href="help.html#la-hours">LA Office Hours</a>
-                            <a href="help.html#tutoring">Free Tutoring</a>
-                            <a href="help.html#study-tips">Study Tips</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="resources.html">Student Resources <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="resources.html#counseling">Counseling Services</a>
-                            <a href="resources.html#academic-support">Academic Support</a>
-                            <a href="resources.html#technology">Technology Resources</a>
-                            <a href="resources.html#wellness">Health & Wellness</a>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
+        <div class="container">
+            <!-- Sidebar Navigation will be inserted here by JavaScript -->
+            <div id="sidebar-navigation"></div>
             
             <main>
-                <nav class="breadcrumb" aria-label="Breadcrumb">
-                    <a href="index.html">Home</a>
-                    <span>›</span>
-                    <span aria-current="page">Learning Targets</span>
-                </nav>
-                
                 <h2 id="overview">Learning Targets Overview</h2>
                 
                 <p>There are <strong>25 Learning Targets</strong> in Math 140B. You are assessed on these learning targets through weekly "Learning Target Quiz Sessions" every Tuesday beginning in Week 2. This page provides a comprehensive overview of the Learning Target system and how it works.</p>
@@ -373,6 +535,10 @@
                     <a href="https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=drive_link" target="_blank" rel="noopener noreferrer" class="doc-link-button">
                         <span class="icon">📋</span>
                         View List of Learning Targets with Descriptions of each Learning Objective
+                    </a>
+                    <a href="quizschedule.html" class="doc-link-button">
+                        <span class="icon">📅</span>
+                        View Learning Target Quiz Schedule
                     </a>
                 </div>
                 
@@ -409,10 +575,15 @@
                                 Cover advanced concepts and skills, often requiring application of foundational skills to problems.
                             </div>
                             <div>
-                                <span class="one-time-badge">One-Time Proficiency (OT)</span>
+                                <span class="one-time-badge" style="margin-bottom: 1rem;">One-Time Proficiency (OT)</span>
                                 Counted as both Complete and Proficient after one success. May involve both foundational and advanced skills.
                             </div>
-                        </div>
+			                            </div>
+			    <div style="margin-bottom: 1rem;">
+    <span class="group-badge" style="background-color: #E74C3C; color: #ffffff; padding: 0.25rem 0.75rem; border-radius: 4px; font-weight: bold; display: inline-block; margin-right: 0.5rem;">Group (Grp)</span>
+    LT25 only - A collaborative quiz completed with your group during the last week of the semester, covering Optimization. Assesses problem-solving skills difficult to evaluate in individual exam formats.
+</div>
+
                     </div>
                     
                     <div class="process-timeline">
@@ -570,55 +741,15 @@
                         <span class="icon">📋</span>
                         View List of Learning Targets with Descriptions of each Learning Objective
                     </a>
+                    <a href="quizschedule.html" class="doc-link-button">
+                        <span class="icon">📅</span>
+                        View Learning Target Quiz Schedule
+                    </a>
                 </div>
             </main>
             
-            <!-- Quick Links Sidebar -->
-            <aside class="quick-links" role="complementary" aria-label="Quick Links">
-                <h2>Quick Links</h2>
-                <ul>
-                    <li>
-                        <a href="grading.html">
-                            <span class="icon">📊</span>
-                            How Your Grade is Determined
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=drive_link" target="_blank" rel="noopener noreferrer">
-                            <span class="icon">📋</span>
-                            Learning Target List
-                        </a>
-                    </li>
-                    <li>
-                        <a href="policies.html#makeup">
-                            <span class="icon">📝</span>
-                            Make-up Quiz Policy
-                        </a>
-                    </li>
-                    <li>
-                        <a href="instructors.html#office-hours">
-                            <span class="icon">🕐</span>
-                            Shared Office Hours
-                        </a>
-                    </li>
-                    <li>
-                        <a href="help.html#la-hours">
-                            <span class="icon">👥</span>
-                            LA Community Learning Sessions
-                        </a>
-                    </li>
-                </ul>
-                
-                <div class="important-dates-box">
-                    <h3>Important Dates</h3>
-                    <ul>
-                        <li>First Day: Aug 25</li>
-                        <li>Drop Deadline: Aug 30</li>
-                        <li>Late Drop: Nov 14</li>
-                        <li>Finals Week: Dec 15-19</li>
-                    </ul>
-                </div>
-            </aside>
+            <!-- Quick Links Sidebar will be inserted here by JavaScript -->
+            <div id="quick-links-sidebar"></div>
         </div>
     </div>
     
@@ -629,13 +760,12 @@
     <!-- External JavaScript for navigation -->
     <script src="navigation.js"></script>
     
-    <!-- Initialize navigation functionality -->
+    <!-- Initialize navigation with current page highlighted -->
     <script>
-        // Since we're using static HTML navigation, we just need the dropdown functionality
-        // The navigation.js file's initializeNavigation() function will handle this
-        if (typeof initializeNavigation === 'function') {
-            initializeNavigation();
-        }
+        // Call the initialization function when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeNavigation('learning-targets.html');
+        });
     </script>
 </body>
 </html>
