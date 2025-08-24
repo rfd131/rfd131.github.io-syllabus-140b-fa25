@@ -113,7 +113,7 @@ const navigationData = {
 	{ 
             icon: "📋", 
             title: "LT Quiz Schedule", 
-            href: "grading.html" 
+            href: "quizschedule.html" 
         },
         { 
             icon: "📝", 
