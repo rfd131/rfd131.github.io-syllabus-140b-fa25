@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Help - Math 140B Fall 2025</title>
+    
+    <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --penn-state-blue: #001e44;
+            --penn-state-navy: #041e42;
+            --light-blue: #1e407c;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --gray: #666;
+            --border-gray: #ddd;
+            --success-green: #4CAF50;
+            --warning-yellow: #FFF9C4;
+            --warning-border: #FFC107;
+        }
+        
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-gray);
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--penn-state-blue) 0%, var(--light-blue) 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--penn-state-navy);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-item > a {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-item:hover > a,
+        .nav-item.current-page > a {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .dropdown-arrow {
+            font-size: 0.8em;
+            margin-left: 0.3rem;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            min-width: 250px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+        }
+        
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--penn-state-navy);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+        }
+        
+        /* Main Content Area */
+        .page-wrapper {
+            min-height: calc(100vh - 200px);
+            background-color: var(--white);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 250px;
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+        
+        .sidebar-navigation h2 {
+            color: var(--penn-state-navy);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--penn-state-blue);
+        }
+        
+        .sidebar-navigation ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .sidebar-navigation .nav-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar-navigation a {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            color: var(--penn-state-navy);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar-navigation a:hover {
+            background-color: var(--white);
+            padding-left: 1rem;
+        }
+        
+        .sidebar-navigation .current-page a {
+            background-color: var(--penn-state-blue);
+            color: var(--white);
+        }
+        
+        main {
+            flex: 1;
+            background-color: var(--white);
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 0;
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--penn-state-blue);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Help Section Styles */
+        .help-section {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .help-section h2 {
+            color: var(--penn-state-navy);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--penn-state-blue);
+        }
+        
+        .help-section h3 {
+            color: var(--light-blue);
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Alert Box */
+        .alert {
+            background-color: var(--warning-yellow);
+            border-left: 4px solid var(--warning-border);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        
+        /* Office Hours Card */
+        .office-hours-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .office-hours-card h4 {
+            color: var(--penn-state-navy);
+            margin-bottom: 1rem;
+        }
+        
+        /* LA Sessions Card */
+        .la-sessions-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 1px solid #90caf9;
+        }
+        
+        .la-sessions-card h4 {
+            color: var(--penn-state-navy);
+            margin-bottom: 1rem;
+        }
+        
+        /* GSG Sessions Card */
+        .gsg-card {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 1px solid #ce93d8;
+        }
+        
+        .gsg-card h4 {
+            color: var(--penn-state-navy);
+            margin-bottom: 1rem;
+        }
+        
+        /* Tutoring Card */
+        .tutoring-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 1px solid #a5d6a7;
+        }
+        
+        .tutoring-card h4 {
+            color: var(--penn-state-navy);
+            margin-bottom: 1rem;
+        }
+        
+        /* Lists */
+        ul {
+            margin: 1rem 0 1rem 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Links */
+        a {
+            color: var(--penn-state-blue);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Schedule iframe */
+        .schedule-iframe {
+            width: 100%;
+            height: 400px;
+            border: 1px solid var(--border-gray);
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        
+        /* Quick Links Sidebar */
+        .quick-links {
+            width: 300px;
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+        
+        .quick-links h2 {
+            color: var(--penn-state-navy);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--penn-state-blue);
+        }
+        
+        .quick-links ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .quick-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .quick-links a {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            background-color: var(--white);
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--penn-state-navy);
+        }
+        
+        .quick-links a:hover {
+            background-color: var(--penn-state-blue);
+            color: var(--white);
+            transform: translateX(5px);
+        }
+        
+        .quick-links .icon {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Important Dates Box */
+        .important-dates-box {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 2rem;
+            border: 2px solid var(--penn-state-blue);
+        }
+        
+        .important-dates-box h3 {
+            color: var(--penn-state-navy);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .important-dates-box ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .important-dates-box li {
+            padding: 0.25rem 0;
+            border-bottom: 1px solid var(--light-gray);
+            font-size: 0.9rem;
+        }
+        
+        .important-dates-box li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--penn-state-navy);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        footer a {
+            color: var(--white);
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar,
+            .quick-links {
+                width: 100%;
+                position: static;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                display: none;
+            }
+            
+            .nav-item:hover .dropdown-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Math 140B: Calculus with Applications to Biology - Fall 2025</h1>
+    </header>
+    
+    <!-- Top Navigation will be inserted here by JavaScript -->
+    <div id="top-navigation"></div>
+    
+    <div class="page-wrapper">
+        <div class="container">
+            <!-- Sidebar Navigation will be inserted here by JavaScript -->
+            <div id="sidebar-navigation"></div>
+            
+            <main>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>›</span>
+                    <span aria-current="page">Getting Help</span>
+                </nav>
+                
+                <h2>Getting Help in Math 140B</h2>
+                
+                <p>Success in Math 140B comes from actively engaging with the material and seeking help when needed. We offer multiple resources to support your learning throughout the semester. Don't wait until you're struggling - use these resources early and often!</p>
+                
+                <div class="alert">
+                    <strong>Remember:</strong> For the first 10 learning targets (LT1-LT10), if you don't earn "Demonstrated" during the first two attempts, you'll need to visit an LA or instructor office hour before attempting again. This requirement helps ensure you get the support needed to succeed.
+                </div>
+                
+                <!-- Instructor Office Hours Section -->
+                <section class="help-section" id="instructor-office-hours">
+                    <h3>📍 Instructor Office Hours</h3>
+                    
+                    <p>Each instructor holds regular office hours where you can get one-on-one help with course material, review quiz feedback, or discuss any concerns about the course. No appointment is needed during scheduled hours.</p>
+                    
+                    <div class="office-hours-card">
+                        <h4>Individual Instructor Office Hours:</h4>
+                        <ul>
+                            <li><strong>Russ deForest</strong> (Course Coordinator, Section 4): 
+                                <ul>
+                                    <li>Monday: 10:10 AM - 11:00 AM</li>
+                                    <li>Wednesday: 1:25 PM - 2:15 PM</li>
+                                    <li>Friday: 10:10 AM - 11:00 AM</li>
+                                    <li>Location: 005 McAllister</li>
+                                    <li>Email: <a href="mailto:rfd131@psu.edu">rfd131@psu.edu</a></li>
+                                </ul>
+                            </li>
+                            <li><strong>Sam Fuller</strong> (Sections 6 & 11): Times and location TBD</li>
+                            <li><strong>Ashley Pallone</strong> (Sections 2 & 9): Times and location TBD</li>
+                            <li><strong>Michael Steward</strong> (Sections 7 & 10): Times and location TBD</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><em>Complete office hours schedule will be posted on Canvas at the start of the semester.</em></p>
+                    </div>
+                </section>
+                
+                <!-- Common Office Hours Section -->
+                <section class="help-section" id="common-office-hours">
+                    <h3>🤝 Common Office Hours (Including LA Office Hours)</h3>
+                    
+                    <p>Common office hours are open to students from all sections, regardless of who teaches your section. This includes office hours held by Learning Assistants (LAs) and Teaching Assistants (TAs).</p>
+                    
+                    <div class="office-hours-card">
+                        <h4>Benefits of Common Office Hours:</h4>
+                        <ul>
+                            <li>More flexible scheduling options throughout the week</li>
+                            <li>Different perspectives on the same material</li>
+                            <li>Opportunity to work with peers from other sections</li>
+                            <li>Both instructor and LA/TA support available</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Schedule:</strong></p>
+                        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSq2debJEzDtfhBesTfX9Uf5VCL97-3EDPANE1HMO5DJZP75mgsu1xjE5Uhvd8_sCYTYHchE0eQDQen/pubhtml?gid=256070434&amp;single=true&amp;widget=true&amp;headers=false" 
+                                class="schedule-iframe"></iframe>
+                        
+                        <p style="margin-top: 1rem;"><em>The full schedule of common office hours will be available on Canvas.</em></p>
+                    </div>
+                </section>
+                
+                <!-- LA Community Learning Sessions Section -->
+                <section class="help-section" id="la-sessions">
+                    <h3>👥 LA Community Learning Sessions</h3>
+                    
+                    <div class="la-sessions-card">
+                        <h4>Structured Group Learning with Learning Assistants</h4>
+                        
+                        <p>Learning Assistants run community learning sessions most weeks during the semester. These are structured problem-solving sessions where students work in groups reviewing recently covered class material.</p>
+                        
+                        <h4>What to Expect:</h4>
+                        <ul>
+                            <li>Work in small groups with guidance and support from Course LAs</li>
+                            <li>Practice and review concepts and skills from recent classes</li>
+                            <li>Form peer study groups that extend beyond the classroom and LA Sessions</li>
+                            <li>Earn 20 XP per week for attending!</li>
+                        </ul>
+                        
+                        <h4>Schedule:</h4>
+                        <p><strong>Times and Locations: TBD</strong></p>
+                        <p>Complete schedule and room locations will be posted on Canvas at the beginning of the semester.</p>
+                        
+                        <div class="alert" style="margin-top: 1rem;">
+                            <strong>Earn XP:</strong> Attending LA Community Learning Sessions earns you 20 Experience Points per week, contributing to potential grade modifications!
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Guided Study Groups Section -->
+                <section class="help-section" id="gsg">
+                    <h3>📚 Guided Study Groups (GSG Sessions)</h3>
+                    
+                    <div class="gsg-card">
+                        <h4>Peer-Led Study Sessions</h4>
+                        
+                        <p>Guided Study Groups are peer-facilitated study sessions designed to help you master course content through collaborative learning. These sessions are led by undergraduate students who have previously excelled in Math 140B.</p>
+                        
+                        <h4>What GSG Sessions Offer:</h4>
+                        <ul>
+                            <li>Review of key concepts from recent lectures</li>
+                            <li>Practice problems similar to Learning Target Quizzes</li>
+                            <li>Study strategies specific to Math 140B</li>
+                            <li>A supportive environment to ask questions</li>
+                            <li>Opportunity to learn from peers who recently succeeded in the course</li>
+                        </ul>
+                        
+                        <h4>Schedule Information:</h4>
+                        <p>GSG sessions typically meet 2-3 times per week. The complete schedule, including times and locations, will be announced on Canvas during the first week of classes.</p>
+                        
+                        <p style="margin-top: 1rem;"><em>GSG sessions are free and open to all Math 140B students. No registration required - just show up!</em></p>
+                    </div>
+                </section>
+                
+                <!-- Penn State Learning Section -->
+                <section class="help-section" id="tutoring">
+                    <h3>🎓 Penn State Learning (Free Tutoring)</h3>
+                    
+                    <div class="tutoring-card">
+                        <h4>Professional Tutoring Services</h4>
+                        
+                        <p>Penn State Learning offers free tutoring for Math 140B and many other courses. This is an excellent resource for additional support beyond office hours and study groups.</p>
+                        
+                        <h4>Tutoring Options:</h4>
+                        <ul>
+                            <li><strong>Drop-In Tutoring:</strong> No appointment needed - walk in during scheduled hours</li>
+                            <li><strong>Appointment Tutoring:</strong> Schedule regular weekly sessions with the same tutor</li>
+                            <li><strong>Online Tutoring:</strong> Virtual sessions available for remote learning</li>
+                            <li><strong>Exam Reviews:</strong> Special review sessions before midterms and finals</li>
+                        </ul>
+                        
+                        <h4>How to Access:</h4>
+                        <ol>
+                            <li>Visit the Penn State Learning website: <a href="https://pennstatelearning.psu.edu/tutoring/mathematics" target="_blank" rel="noopener noreferrer">pennstatelearning.psu.edu/tutoring/mathematics</a></li>
+                            <li>Check the current semester's tutoring schedule</li>
+                            <li>Drop in during scheduled hours or make an appointment online</li>
+                            <li>Bring your course materials, notes, and specific questions</li>
+                        </ol>
+                        
+                        <h4>Location:</h4>
+                        <p>220 Boucke Building (Main Tutoring Center)</p>
+                        
+                        <div class="alert" style="margin-top: 1rem;">
+                            <strong>Pro Tip:</strong> Don't wait until you're struggling! Regular tutoring sessions can help you stay on track and deepen your understanding of the material.
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Additional Tips Section -->
+                <section class="help-section">
+                    <h3>💡 Tips for Getting the Most Out of Help Resources</h3>
+                    
+                    <ul>
+                        <li><strong>Come prepared:</strong> Bring specific questions, attempted problems, and your notes</li>
+                        <li><strong>Start early:</strong> Don't wait until the night before a quiz to seek help</li>
+                        <li><strong>Be consistent:</strong> Regular attendance at office hours or study groups is more effective than cramming</li>
+                        <li><strong>Form study groups:</strong> Connect with classmates during LA sessions or GSG meetings</li>
+                        <li><strong>Use multiple resources:</strong> Different explanations can help concepts click</li>
+                        <li><strong>Review quiz feedback:</strong> Bring graded quizzes to office hours to understand your mistakes</li>
+                        <li><strong>Ask questions in class:</strong> Your instructors want to help - don't be shy about asking for clarification</li>
+                    </ul>
+                </section>
+            </main>
+            
+            <!-- Quick Links Sidebar will be inserted here by JavaScript -->
+            <div id="quick-links-sidebar"></div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Math 140B Fall 2025 | Penn State University | <a href="index.html">Return to Syllabus Home</a></p>
+    </footer>
+    
+    <!-- External JavaScript for navigation -->
+    <script src="navigation.js"></script>
+    
+    <!-- Initialize navigation with current page highlighted -->
+    <script>
+        // Call the initialization function when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeNavigation('help.html');
+        });
+    </script>
+</body>
+</html>

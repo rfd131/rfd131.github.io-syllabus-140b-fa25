@@ -1,20 +1,14 @@
-<!-- navigation.js -->
-<script>
 /**
- * Math 140B Navigation Components
- * This file contains the shared navigation HTML and functionality
+ * Navigation Components for Math 140B Syllabus
+ * This file contains functions to generate consistent navigation across all pages
  */
 
 // Navigation data structure
 const navigationData = {
-    mainNav: [
+    topNav: [
         {
-            title: "Overview",
-            href: "index.html",
-            dropdown: [
-                { title: "Welcome", href: "index.html#welcome" },
-                { title: "Course Overview", href: "index.html#course-overview" }
-            ]
+            title: "Home",
+            href: "index.html"
         },
         {
             title: "Instructors",
@@ -22,20 +16,18 @@ const navigationData = {
             dropdown: [
                 { title: "Russ deForest", href: "instructors.html#russ-deforest" },
                 { title: "Sam Fuller", href: "instructors.html#sam-fuller" },
+		{ title: "Sam Vancini", href: "instructors.html#sam-vancini" },
+		{ title: "Jan Reimann", href: "instructors.html#jan-reimann" },
                 { title: "Ashley Pallone", href: "instructors.html#ashley-pallone" },
-                { title: "Jan Reimann", href: "instructors.html#jan-reimann" },
-                { title: "Michael Steward", href: "instructors.html#michael-steward" },
-                { title: "Sam Vancini", href: "instructors.html#sam-vancini" },
-                { title: "Office Hours", href: "instructors.html#office-hours" }
+                { title: "Michael Steward", href: "instructors.html#michael-steward" }
             ]
         },
         {
-            title: "Class Times and Locations",
+            title: "Class Schedule",
             href: "class-times.html",
             dropdown: [
                 { title: "MWF Classes", href: "class-times.html#mwf-classes" },
-                { title: "Tuesday Recitations", href: "class-times.html#tuesday-recitations" },
-                { title: "LA Office Hours", href: "class-times.html#la-office-hours" }
+                { title: "Tuesday Recitations", href: "class-times.html#tuesday-recitations" }
             ]
         },
         {
@@ -43,58 +35,45 @@ const navigationData = {
             href: "materials.html",
             dropdown: [
                 { title: "Textbooks", href: "materials.html#textbooks" },
-                { title: "Online Resources", href: "materials.html#online-resources" },
-                { title: "Canvas Materials", href: "materials.html#canvas" }
+                { title: "Canvas Resources", href: "materials.html#canvas" }
             ]
         },
         {
             title: "Learning Targets",
             href: "learning-targets.html",
             dropdown: [
-                { title: "Learning Targets and Quiz Sessions", href: "learning-targets.html" },
-                { title: "List of Learning Targets", href: "https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=sharing", external: true },
-                { title: "Learning Target FAQ", href: "learning-targets.html#faq" }
+                { title: "Overview", href: "learning-targets.html#overview" },
+                { title: "How It Works", href: "learning-targets.html#how-it-works" },
+                { title: "FAQ", href: "learning-targets.html#faq" }
             ]
         },
         {
-            title: "Writing Projects",
-            href: "writing-projects.html",
-            dropdown: [
-                { title: "Overview", href: "writing-projects.html#overview" },
-                { title: "Schedule", href: "writing-projects.html#schedule" },
-                { title: "Grading Criteria", href: "writing-projects.html#grading" },
-                { title: "Revisions", href: "writing-projects.html#revisions" }
-            ]
-        },
-        {
-            title: "How Your Grade is Determined",
+            title: "Grading",
             href: "grading.html",
             dropdown: [
-                { title: "Grading Overview", href: "grading.html#overview" },
-                { title: "Final Grade Table", href: "grading.html#final-grades" },
-                { title: "Experience Points", href: "grading.html#xp" },
-                { title: "XP Modifications", href: "grading.html#modifications" },
-                { title: "Math 197 Option", href: "grading.html#math197" }
+                { title: "Base Grade", href: "grading.html#base-grade" },
+                { title: "Grade Modifiers", href: "grading.html#modifiers" },
+                { title: "Experience Points", href: "grading.html#xp" }
             ]
         },
         {
             title: "Course Policies",
             href: "policies.html",
             dropdown: [
-                { title: "Academic Integrity", href: "policies.html#academic-integrity" },
                 { title: "Attendance", href: "policies.html#attendance" },
-                { title: "Make-up Policy", href: "policies.html#makeup" },
-                { title: "Disability Accommodation", href: "policies.html#disability" }
+                { title: "Make-up Quizzes", href: "policies.html#makeup" },
+                { title: "Academic Integrity", href: "policies.html#integrity" }
             ]
         },
         {
-            title: "Getting Help!",
+            title: "Getting Help",
             href: "help.html",
             dropdown: [
-                { title: "Instructor Office Hours", href: "help.html#office-hours" },
-                { title: "LA Office Hours", href: "help.html#la-hours" },
-                { title: "Free Tutoring", href: "help.html#tutoring" },
-                { title: "Study Tips", href: "help.html#study-tips" }
+                { title: "Instructor Office Hours", href: "help.html#instructor-office-hours" },
+                { title: "Common Office Hours", href: "help.html#common-office-hours" },
+                { title: "LA Sessions", href: "help.html#la-sessions" },
+                { title: "Guided Study Groups", href: "help.html#gsg" },
+                { title: "Penn State Learning", href: "help.html#tutoring" }
             ]
         },
         {
@@ -107,6 +86,17 @@ const navigationData = {
                 { title: "Health & Wellness", href: "resources.html#wellness" }
             ]
         }
+    ],
+    sidebarNav: [
+        { title: "Welcome & Overview", href: "index.html" },
+        { title: "Instructors", href: "instructors.html" },
+        { title: "Class Times & Locations", href: "class-times.html" },
+        { title: "Course Materials", href: "materials.html" },
+        { title: "Learning Targets", href: "learning-targets.html" },
+        { title: "Grading", href: "grading.html" },
+        { title: "Course Policies", href: "policies.html" },
+        { title: "Getting Help", href: "help.html" },
+        { title: "Student Resources", href: "resources.html" }
     ],
     quickLinks: [
         { 
@@ -133,44 +123,201 @@ const navigationData = {
         { 
             icon: "👥", 
             title: "LA Community Learning Sessions", 
-            href: "help.html#la-hours" 
+            href: "help.html#la-sessions" 
         }
     ],
     importantDates: [
         "First Day: Aug 25",
-        "Midterm 1: Oct 2",
-        "Midterm 2: Nov 6",
-        "Final Exam: TBD"
+        "Regular Drop Deadline: Aug 30",
+	"Midterm One: Tues, Sept 23 (6:15 - 7:30 PM)",
+	"Midterm Two: Wed, Oct 29 (6:15 - 7:30 PM)",
+        "Late Drop: Nov 8",
+        "Withdraw Deadline: Dec 12",
+        "Finals Week: Dec 15-19"
     ]
 };
+
+/**
+ * Generate the top navigation bar HTML
+ * @param {string} currentPage - The current page filename to highlight
+ */
+function generateTopNav(currentPage = '') {
+    let html = `
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">`;
+    
+    navigationData.topNav.forEach(item => {
+        const isCurrentPage = item.href === currentPage;
+        html += `
+                <li class="nav-item${isCurrentPage ? ' current-page' : ''}">
+                    <a href="${item.href}">${item.title}`;
+        
+        if (item.dropdown && item.dropdown.length > 0) {
+            html += ` <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown-menu">`;
+            item.dropdown.forEach(subItem => {
+                html += `
+                        <a href="${subItem.href}">${subItem.title}</a>`;
+            });
+            html += `
+                    </div>`;
+        } else {
+            html += `</a>`;
+        }
+        html += `
+                </li>`;
+    });
+    
+    html += `
+            </ul>
+        </div>
+    </nav>`;
+    
+    return html;
+}
 
 /**
  * Generate the sidebar navigation HTML
  * @param {string} currentPage - The current page filename to highlight
  */
 function generateSidebarNav(currentPage = '') {
+    // Add the CSS styles inline to ensure they're applied
     let html = `
+        <style>
+            /* CSS Variables */
+            :root {
+                --penn-state-blue: #001e44;
+                --penn-state-navy: #041e42;
+                --light-gray: #f5f5f5;
+                --white: #ffffff;
+            }
+            
+            /* Sidebar Navigation Styles */
+            .sidebar-navigation {
+                width: 280px;
+                background-color: var(--light-gray);
+                padding: 2rem 1rem;
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                overflow-y: auto;
+                border-right: 2px solid var(--penn-state-blue);
+            }
+            
+            .sidebar-navigation h2 {
+                font-size: 1.1rem;
+                color: var(--penn-state-navy);
+                margin-bottom: 1rem;
+                padding-bottom: 0.5rem;
+                border-bottom: 2px solid var(--penn-state-blue);
+            }
+            
+            .sidebar-navigation ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            
+            /* Navigation Items */
+            .sidebar-navigation .nav-item {
+                position: relative;
+                margin-bottom: 0.25rem;
+            }
+            
+            .sidebar-navigation .nav-item > a {
+                color: var(--penn-state-blue);
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.5rem;
+                border-radius: 4px;
+                transition: background-color 0.3s ease;
+                font-weight: 500;
+                font-size: 0.95rem;
+            }
+            
+            .sidebar-navigation .nav-item > a:hover, 
+            .sidebar-navigation .nav-item > a:focus {
+                background-color: var(--white);
+                text-decoration: underline;
+                outline: 2px solid var(--penn-state-blue);
+                outline-offset: 2px;
+            }
+            
+            .sidebar-navigation .nav-item.current-page > a {
+                background-color: var(--penn-state-blue);
+                color: var(--white);
+            }
+            
+            .sidebar-navigation .dropdown-arrow {
+                font-size: 0.8em;
+                transition: transform 0.3s ease;
+            }
+            
+            .sidebar-navigation .nav-item.active .dropdown-arrow {
+                transform: rotate(180deg);
+            }
+            
+            /* Dropdown Menus */
+            .sidebar-navigation .dropdown-menu {
+                display: none;
+                background-color: var(--white);
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                margin-top: 4px;
+                position: static;
+                margin-left: 0.5rem;
+                margin-top: 0.25rem;
+                box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+            }
+            
+            .sidebar-navigation .nav-item.active .dropdown-menu {
+                display: block;
+            }
+            
+            .sidebar-navigation .dropdown-menu a {
+                display: block;
+                padding: 0.5rem 1rem;
+                color: #666;
+                text-decoration: none;
+                font-size: 0.9rem;
+                transition: background-color 0.3s ease;
+            }
+            
+            .sidebar-navigation .dropdown-menu a:hover {
+                background-color: var(--light-gray);
+            }
+        </style>
         <nav class="sidebar-navigation" role="navigation" aria-label="Syllabus sections">
             <h2>Syllabus Sections</h2>
             <ul>`;
     
-    navigationData.mainNav.forEach(item => {
+    navigationData.sidebarNav.forEach(item => {
         const isCurrentPage = item.href === currentPage;
+        // Check if this item has dropdown content
+        const hasDropdown = navigationData.topNav.find(navItem => navItem.href === item.href)?.dropdown;
+        
         html += `
                 <li class="nav-item${isCurrentPage ? ' current-page' : ''}">
-                    <a href="${item.href}">${item.title} <span class="dropdown-arrow">▼</span></a>`;
+                    <a href="${item.href}">${item.title}${hasDropdown ? ' <span class="dropdown-arrow">▼</span>' : ''}</a>`;
         
-        if (item.dropdown && item.dropdown.length > 0) {
-            html += `
-                    <div class="dropdown-menu">`;
-            item.dropdown.forEach(subItem => {
-                const external = subItem.external ? ' target="_blank" rel="noopener noreferrer"' : '';
+        // Add dropdown menu if exists
+        if (hasDropdown) {
+            const topNavItem = navigationData.topNav.find(navItem => navItem.href === item.href);
+            if (topNavItem && topNavItem.dropdown) {
                 html += `
-                        <a href="${subItem.href}"${external}>${subItem.title}</a>`;
-            });
-            html += `
+                    <div class="dropdown-menu">`;
+                topNavItem.dropdown.forEach(subItem => {
+                    html += `
+                        <a href="${subItem.href}">${subItem.title}</a>`;
+                });
+                html += `
                     </div>`;
+            }
         }
+        
         html += `
                 </li>`;
     });
@@ -182,129 +329,84 @@ function generateSidebarNav(currentPage = '') {
     return html;
 }
 
+
 /**
  * Generate the quick links sidebar HTML
  */
 function generateQuickLinks() {
     let html = `
-        <aside class="quick-links" role="complementary" aria-label="Quick Links">
-            <h2>Quick Links</h2>
-            <ul>`;
+    <aside class="quick-links" role="complementary" aria-label="Quick Links">
+        <h2>Quick Links</h2>
+        <ul>`;
     
     navigationData.quickLinks.forEach(link => {
         const external = link.external ? ' target="_blank" rel="noopener noreferrer"' : '';
         html += `
-                <li>
-                    <a href="${link.href}"${external}>
-                        <span class="icon">${link.icon}</span>
-                        ${link.title}
-                    </a>
-                </li>`;
+            <li>
+                <a href="${link.href}"${external}>
+                    <span class="icon">${link.icon}</span>
+                    ${link.title}
+                </a>
+            </li>`;
+    });
+    
+    html += `
+        </ul>
+        
+        <div class="important-dates-box">
+            <h3>Important Dates</h3>
+            <ul>`;
+    
+    navigationData.importantDates.forEach(date => {
+        html += `
+                <li>${date}</li>`;
     });
     
     html += `
             </ul>
-            
-            <div class="important-dates-box">
-                <h3>Important Dates</h3>
-                <ul>`;
-    
-    navigationData.importantDates.forEach(date => {
-        html += `
-                    <li>${date}</li>`;
-    });
-    
-    html += `
-                </ul>
-            </div>
-        </aside>`;
+        </div>
+    </aside>`;
     
     return html;
 }
 
 /**
- * Initialize navigation functionality
+ * Initialize navigation on page load
+ * Call this function with the current page filename
  */
-function initializeNavigation() {
-    // Add dropdown functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const navItems = document.querySelectorAll('.nav-item');
-        
-        navItems.forEach(item => {
-            const link = item.querySelector('a');
-            
-            link.addEventListener('click', function(e) {
-                const dropdown = item.querySelector('.dropdown-menu');
-                if (dropdown) {
-                    if (e.target === link || e.target.parentElement === link) {
-                        e.preventDefault();
-                        
-                        // Close other dropdowns
-                        navItems.forEach(otherItem => {
-                            if (otherItem !== item) {
-                                otherItem.classList.remove('active');
-                            }
-                        });
-                        
-                        // Toggle current dropdown
-                        item.classList.toggle('active');
-                    }
-                }
-            });
-        });
-        
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.nav-item')) {
-                navItems.forEach(item => {
-                    item.classList.remove('active');
-                });
-            }
-        });
-        
-        // Handle keyboard navigation
-        navItems.forEach(item => {
-            const link = item.querySelector('a');
-            link.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    const dropdown = item.querySelector('.dropdown-menu');
-                    if (dropdown) {
-                        e.preventDefault();
-                        item.classList.toggle('active');
-                    }
-                }
-            });
-        });
-    });
-}
-
-/**
- * Insert navigation into the page
- * Call this function in each page to add the navigation
- * @param {string} currentPage - The current page filename
- */
-function insertNavigation(currentPage) {
-    // Find the content-wrapper element
-    const contentWrapper = document.querySelector('.content-wrapper');
-    if (contentWrapper) {
-        // Insert sidebar nav at the beginning
-        contentWrapper.insertAdjacentHTML('afterbegin', generateSidebarNav(currentPage));
-        
-        // Insert quick links at the end
-        contentWrapper.insertAdjacentHTML('beforeend', generateQuickLinks());
-        
-        // Initialize functionality
-        initializeNavigation();
+function initializeNavigation(currentPage = '') {
+    // Get the current page from URL if not provided
+    if (!currentPage) {
+        const path = window.location.pathname;
+        currentPage = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
+    }
+    
+    // Insert top navigation if container exists
+    const topNavContainer = document.getElementById('top-navigation');
+    if (topNavContainer) {
+        topNavContainer.innerHTML = generateTopNav(currentPage);
+    }
+    
+    // Insert sidebar navigation if container exists
+    const sidebarContainer = document.getElementById('sidebar-navigation');
+    if (sidebarContainer) {
+        sidebarContainer.innerHTML = generateSidebarNav(currentPage);
+    }
+    
+    // Insert quick links if container exists
+    const quickLinksContainer = document.getElementById('quick-links-sidebar');
+    if (quickLinksContainer) {
+        quickLinksContainer.innerHTML = generateQuickLinks();
     }
 }
 
-// Export for use in other files
+// Export functions for use in other scripts if needed
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
+        generateTopNav,
         generateSidebarNav,
         generateQuickLinks,
-        insertNavigation,
+        initializeNavigation,
         navigationData
     };
 }
-</script>
