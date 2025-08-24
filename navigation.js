@@ -48,7 +48,7 @@ const navigationData = {
             ]
         },
         {
-            title: "Grading",
+            title: "How Your Grade is Determined",
             href: "grading.html",
             dropdown: [
                 { title: "Base Grade", href: "grading.html#base-grade" },
@@ -106,9 +106,14 @@ const navigationData = {
         },
         { 
             icon: "📋", 
-            title: "Learning Target List", 
+            title: "Learning Targets Detailed List", 
             href: "https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=sharing",
             external: true
+        },
+	{ 
+            icon: "📋", 
+            title: "LT Quiz Schedule", 
+            href: "grading.html" 
         },
         { 
             icon: "📝", 
@@ -117,7 +122,7 @@ const navigationData = {
         },
         { 
             icon: "🕐", 
-            title: "Shared Office Hours", 
+            title: "Common Office Hours", 
             href: "instructors.html#office-hours" 
         },
         { 

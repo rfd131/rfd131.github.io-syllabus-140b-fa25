@@ -99,6 +99,10 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
         
+        .week-card.exam-week {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+        }
+        
         .week-header {
             display: flex;
             justify-content: space-between;
@@ -125,6 +129,16 @@
         
         .week-type.exam {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .exam-info {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #f5576c;
+            font-style: italic;
+            color: #555;
         }
         
         .day-section {
@@ -169,12 +183,24 @@
             border-color: #48bb78;
         }
         
+        .lt-tag.foundational:hover {
+            background: #48bb78;
+        }
+        
         .lt-tag.advanced {
             border-color: #ed8936;
         }
         
+        .lt-tag.advanced:hover {
+            background: #ed8936;
+        }
+        
         .lt-tag.one-time {
             border-color: #9f7aea;
+        }
+        
+        .lt-tag.one-time:hover {
+            background: #9f7aea;
         }
         
         .lt-grid {
@@ -220,27 +246,9 @@
             border-left: 3px solid #667eea;
         }
         
-        .stats-section {
-            margin-top: 30px;
-            padding: 20px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 15px;
-        }
-        
-        .stats-title {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        
-        .stat-item {
-            display: inline-block;
-            margin: 5px 10px;
-            padding: 8px 15px;
-            background: white;
-            border-radius: 10px;
-            font-size: 0.95em;
+        .no-quiz {
+            color: #6c757d;
+            font-style: italic;
         }
         
         .legend {
@@ -266,15 +274,19 @@
             border: 2px solid;
         }
         
-        .improved-badge {
-            display: inline-block;
-            margin-left: 10px;
-            padding: 3px 10px;
-            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-            color: white;
-            border-radius: 12px;
-            font-size: 0.8em;
-            font-weight: 600;
+        .legend-dot.foundational {
+            border-color: #48bb78;
+            background: #48bb78;
+        }
+        
+        .legend-dot.advanced {
+            border-color: #ed8936;
+            background: #ed8936;
+        }
+        
+        .legend-dot.one-time {
+            border-color: #9f7aea;
+            background: #9f7aea;
         }
     </style>
     <script>
@@ -305,16 +317,16 @@
         
         <div class="legend">
             <div class="legend-item">
-                <div class="legend-dot" style="border-color: #48bb78;"></div>
+                <div class="legend-dot foundational"></div>
                 <span>Foundational (F)</span>
             </div>
             <div class="legend-item">
-                <div class="legend-dot" style="border-color: #ed8936;"></div>
+                <div class="legend-dot advanced"></div>
                 <span>Advanced (Adv)</span>
             </div>
             <div class="legend-item">
-                <div class="legend-dot" style="border-color: #9f7aea;"></div>
-                <span>One-Time Proficiency (OT)</span>
+                <div class="legend-dot one-time"></div>
+                <span>One-Time Proficiency</span>
             </div>
         </div>
         
@@ -338,6 +350,10 @@
                         <span class="lt-tag foundational">LT3F</span>
                     </div>
                 </div>
+                <div class="day-section">
+                    <div class="day-label">Thursday</div>
+                    <div class="no-quiz">No Thursday Quiz Hours this week</div>
+                </div>
             </div>
             
             <div class="week-card">
@@ -353,6 +369,10 @@
                         <span class="lt-tag foundational">LT3F</span>
                         <span class="lt-tag foundational">LT4F</span>
                     </div>
+                </div>
+                <div class="day-section">
+                    <div class="day-label">Thursday</div>
+                    <div class="no-quiz">No Thursday Quiz Hours this week</div>
                 </div>
             </div>
             
@@ -372,7 +392,7 @@
                     </div>
                 </div>
                 <div class="day-section">
-                    <div class="day-label">Thursday Quiz Hours</div>
+                    <div class="day-label">Thursday</div>
                     <div class="lt-list">
                         <span class="lt-tag foundational">LT1F</span>
                         <span class="lt-tag foundational">LT2F</span>
@@ -381,10 +401,14 @@
                 </div>
             </div>
             
-            <div class="week-card">
+            <div class="week-card exam-week">
                 <div class="week-header">
                     <span class="week-title">Week 5</span>
                     <span class="week-type exam">Midterm 1</span>
+                </div>
+                <div class="exam-info">
+                    <strong>Midterm 1:</strong> Tuesday, 6:15 - 7:30 PM (evening exam)<br>
+                    Tuesday Quiz Session times are used for exam review
                 </div>
                 <div class="day-section">
                     <div class="day-label">Exam Coverage (LT1-LT7)</div>
@@ -403,6 +427,10 @@
                         <span class="lt-tag advanced">LT6Adv</span>
                         <span class="lt-tag foundational">LT7F</span>
                     </div>
+                </div>
+                <div class="day-section">
+                    <div class="day-label">Thursday</div>
+                    <div class="no-quiz">No Thursday Quiz Hour sessions during exam weeks</div>
                 </div>
             </div>
             
@@ -424,7 +452,7 @@
                     </div>
                 </div>
                 <div class="day-section">
-                    <div class="day-label">Thursday Quiz Hours</div>
+                    <div class="day-label">Thursday</div>
                     <div class="lt-list">
                         <span class="lt-tag advanced">LT1Adv</span>
                         <span class="lt-tag advanced">LT2Adv</span>
@@ -444,22 +472,24 @@
                 <div class="day-section">
                     <div class="day-label">Tuesday</div>
                     <div class="lt-list">
+                        <span class="lt-tag foundational">LT1F</span>
                         <span class="lt-tag advanced">LT7Adv</span>
                         <span class="lt-tag foundational">LT8F</span>
                         <span class="lt-tag foundational">LT9F</span>
-                        <span class="lt-tag one-time">LT10OT</span>
-                        <span class="lt-tag one-time">LT11OT</span>
+                        <span class="lt-tag one-time">LT10</span>
+                        <span class="lt-tag one-time">LT11</span>
                     </div>
                 </div>
                 <div class="day-section">
-                    <div class="day-label">Thursday Quiz Hours</div>
+                    <div class="day-label">Thursday</div>
                     <div class="lt-list">
+                        <span class="lt-tag foundational">LT2F</span>
+                        <span class="lt-tag foundational">LT3F</span>
                         <span class="lt-tag foundational">LT5F</span>
                         <span class="lt-tag advanced">LT5Adv</span>
                         <span class="lt-tag foundational">LT6F</span>
                         <span class="lt-tag advanced">LT6Adv</span>
                         <span class="lt-tag foundational">LT7F</span>
-                        <span class="lt-tag foundational">LT3F</span>
                     </div>
                 </div>
             </div>
@@ -473,24 +503,24 @@
                     <div class="day-label">Tuesday</div>
                     <div class="lt-list">
                         <span class="lt-tag foundational">LT9F</span>
-                        <span class="lt-tag one-time">LT10OT</span>
-                        <span class="lt-tag one-time">LT11OT</span>
+                        <span class="lt-tag one-time">LT10</span>
+                        <span class="lt-tag one-time">LT11</span>
                         <span class="lt-tag foundational">LT12F</span>
                         <span class="lt-tag foundational">LT13F</span>
-                        <span class="lt-tag one-time">LT14OT</span>
+                        <span class="lt-tag one-time">LT14</span>
                     </div>
                 </div>
                 <div class="day-section">
-                    <div class="day-label">Thursday Quiz Hours</div>
+                    <div class="day-label">Thursday</div>
                     <div class="lt-list">
+                        <span class="lt-tag advanced">LT1Adv</span>
                         <span class="lt-tag advanced">LT3Adv</span>
                         <span class="lt-tag advanced">LT4Adv</span>
-                        <span class="lt-tag foundational">LT8F</span>
-                        <span class="lt-tag advanced">LT7Adv</span>
-                        <span class="lt-tag foundational">LT7F</span>
-                        <span class="lt-tag advanced">LT6Adv</span>
                         <span class="lt-tag advanced">LT5Adv</span>
-                        <span class="lt-tag advanced">LT1Adv</span>
+                        <span class="lt-tag advanced">LT6Adv</span>
+                        <span class="lt-tag foundational">LT7F</span>
+                        <span class="lt-tag advanced">LT7Adv</span>
+                        <span class="lt-tag foundational">LT8F</span>
                     </div>
                 </div>
             </div>
@@ -499,37 +529,37 @@
                 <div class="week-header">
                     <span class="week-title">Week 9</span>
                     <span class="week-type">Tuesday/Thursday Quizzes</span>
-                    <span class="improved-badge">Improved</span>
                 </div>
                 <div class="day-section">
                     <div class="day-label">Tuesday</div>
                     <div class="lt-list">
-                        <span class="lt-tag advanced">LT12Adv</span>
-                        <span class="lt-tag advanced">LT13Adv</span>
+                        <span class="lt-tag advanced">LT9Adv</span>
+                        <span class="lt-tag foundational">LT12F</span>
+                        <span class="lt-tag foundational">LT13F</span>
+                        <span class="lt-tag one-time">LT14</span>
                         <span class="lt-tag foundational">LT15F</span>
                         <span class="lt-tag foundational">LT16F</span>
-                        <span class="lt-tag foundational">LT17F</span>
                     </div>
                 </div>
                 <div class="day-section">
-                    <div class="day-label">Thursday Quiz Hours</div>
+                    <div class="day-label">Thursday</div>
                     <div class="lt-list">
+                        <span class="lt-tag foundational">LT1F</span>
                         <span class="lt-tag foundational">LT9F</span>
-                        <span class="lt-tag advanced">LT9Adv</span>
-                        <span class="lt-tag one-time">LT10OT</span>
-                        <span class="lt-tag one-time">LT11OT</span>
-                        <span class="lt-tag foundational">LT12F</span>
-                        <span class="lt-tag foundational">LT13F</span>
-                        <span class="lt-tag one-time">LT14OT</span>
+                        <span class="lt-tag advanced">LT2Adv</span>
+                        <span class="lt-tag advanced">LT3Adv</span>
                     </div>
                 </div>
             </div>
             
-            <div class="week-card">
+            <div class="week-card exam-week">
                 <div class="week-header">
                     <span class="week-title">Week 10</span>
                     <span class="week-type exam">Midterm 2</span>
-                    <span class="improved-badge">Improved</span>
+                </div>
+                <div class="exam-info">
+                    <strong>Midterm 2:</strong> Wednesday, 6:15 - 7:30 PM (evening exam)<br>
+                    Tuesday Quiz Session times are used for exam review
                 </div>
                 <div class="day-section">
                     <div class="day-label">Exam Coverage (LT8-LT18)</div>
@@ -538,18 +568,25 @@
                         <span class="lt-tag advanced">LT8Adv</span>
                         <span class="lt-tag foundational">LT9F</span>
                         <span class="lt-tag advanced">LT9Adv</span>
-                        <span class="lt-tag one-time">LT10OT</span>
-                        <span class="lt-tag one-time">LT11OT</span>
+                        <span class="lt-tag one-time">LT10</span>
+                        <span class="lt-tag one-time">LT11</span>
                         <span class="lt-tag foundational">LT12F</span>
                         <span class="lt-tag advanced">LT12Adv</span>
                         <span class="lt-tag foundational">LT13F</span>
                         <span class="lt-tag advanced">LT13Adv</span>
-                        <span class="lt-tag one-time">LT14OT</span>
+                        <span class="lt-tag one-time">LT14</span>
                         <span class="lt-tag foundational">LT15F</span>
+                        <span class="lt-tag advanced">LT15Adv</span>
                         <span class="lt-tag foundational">LT16F</span>
+                        <span class="lt-tag advanced">LT16Adv</span>
                         <span class="lt-tag foundational">LT17F</span>
-                        <span class="lt-tag one-time">LT18OT</span>
+                        <span class="lt-tag advanced">LT17Adv</span>
+                        <span class="lt-tag one-time">LT18</span>
                     </div>
+                </div>
+                <div class="day-section">
+                    <div class="day-label">Thursday</div>
+                    <div class="no-quiz">No Thursday Quiz Hour sessions during exam weeks</div>
                 </div>
             </div>
             
@@ -557,27 +594,28 @@
                 <div class="week-header">
                     <span class="week-title">Week 11</span>
                     <span class="week-type">Tuesday/Thursday Quizzes</span>
-                    <span class="improved-badge">Improved</span>
                 </div>
                 <div class="day-section">
                     <div class="day-label">Tuesday</div>
                     <div class="lt-list">
+                        <span class="lt-tag advanced">LT8Adv</span>
+                        <span class="lt-tag advanced">LT13Adv</span>
                         <span class="lt-tag advanced">LT15Adv</span>
                         <span class="lt-tag advanced">LT16Adv</span>
-                        <span class="lt-tag advanced">LT17Adv</span>
-                        <span class="lt-tag one-time">LT18OT</span>
-                        <span class="lt-tag foundational">LT19F</span>
+                        <span class="lt-tag foundational">LT17F</span>
+                        <span class="lt-tag one-time">LT18</span>
                     </div>
                 </div>
                 <div class="day-section">
-                    <div class="day-label">Thursday Quiz Hours</div>
+                    <div class="day-label">Thursday</div>
                     <div class="lt-list">
+                        <span class="lt-tag foundational">LT4F</span>
+                        <span class="lt-tag foundational">LT9F</span>
+                        <span class="lt-tag advanced">LT9Adv</span>
+                        <span class="lt-tag foundational">LT12F</span>
                         <span class="lt-tag advanced">LT12Adv</span>
-                        <span class="lt-tag advanced">LT13Adv</span>
-                        <span class="lt-tag one-time">LT14OT</span>
+                        <span class="lt-tag one-time">LT14</span>
                         <span class="lt-tag foundational">LT15F</span>
-                        <span class="lt-tag foundational">LT16F</span>
-                        <span class="lt-tag foundational">LT17F</span>
                     </div>
                 </div>
             </div>
@@ -586,26 +624,28 @@
                 <div class="week-header">
                     <span class="week-title">Week 12</span>
                     <span class="week-type">Tuesday/Thursday Quizzes</span>
-                    <span class="improved-badge">Improved</span>
                 </div>
                 <div class="day-section">
                     <div class="day-label">Tuesday</div>
                     <div class="lt-list">
-                        <span class="lt-tag advanced">LT19Adv</span>
-                        <span class="lt-tag foundational">LT20F</span>
-                        <span class="lt-tag one-time">LT21OT</span>
-                        <span class="lt-tag one-time">LT18OT</span>
+                        <span class="lt-tag advanced">LT8Adv</span>
+                        <span class="lt-tag advanced">LT17Adv</span>
+                        <span class="lt-tag one-time">LT18</span>
+                        <span class="lt-tag foundational">LT19F</span>
                     </div>
                 </div>
                 <div class="day-section">
-                    <div class="day-label">Thursday Quiz Hours</div>
+                    <div class="day-label">Thursday</div>
                     <div class="lt-list">
-                        <span class="lt-tag advanced">LT15Adv</span>
+                        <span class="lt-tag foundational">LT1F</span>
+                        <span class="lt-tag advanced">LT2Adv</span>
+                        <span class="lt-tag advanced">LT4Adv</span>
+                        <span class="lt-tag advanced">LT12Adv</span>
+                        <span class="lt-tag advanced">LT13Adv</span>
+                        <span class="lt-tag foundational">LT15F</span>
+                        <span class="lt-tag foundational">LT16F</span>
                         <span class="lt-tag advanced">LT16Adv</span>
-                        <span class="lt-tag advanced">LT17Adv</span>
-                        <span class="lt-tag advanced">LT8Adv</span>
-                        <span class="lt-tag advanced">LT9Adv</span>
-                        <span class="lt-tag foundational">LT19F</span>
+                        <span class="lt-tag foundational">LT17F</span>
                     </div>
                 </div>
             </div>
@@ -614,28 +654,28 @@
                 <div class="week-header">
                     <span class="week-title">Week 13</span>
                     <span class="week-type">Tuesday/Thursday Quizzes</span>
-                    <span class="improved-badge">Improved</span>
                 </div>
                 <div class="day-section">
                     <div class="day-label">Tuesday</div>
                     <div class="lt-list">
-                        <span class="lt-tag advanced">LT20Adv</span>
-                        <span class="lt-tag one-time">LT21OT</span>
-                        <span class="lt-tag one-time">LT22OT</span>
-                        <span class="lt-tag one-time">LT23OT</span>
-                        <span class="lt-tag one-time">LT24OT</span>
-                    </div>
-                </div>
-                <div class="day-section">
-                    <div class="day-label">Thursday Quiz Hours</div>
-                    <div class="lt-list">
                         <span class="lt-tag advanced">LT17Adv</span>
-                        <span class="lt-tag one-time">LT18OT</span>
                         <span class="lt-tag foundational">LT19F</span>
                         <span class="lt-tag advanced">LT19Adv</span>
                         <span class="lt-tag foundational">LT20F</span>
+                        <span class="lt-tag one-time">LT21</span>
+                    </div>
+                </div>
+                <div class="day-section">
+                    <div class="day-label">Thursday</div>
+                    <div class="lt-list">
+                        <span class="lt-tag advanced">LT1Adv</span>
+                        <span class="lt-tag foundational">LT2F</span>
+                        <span class="lt-tag advanced">LT3Adv</span>
+                        <span class="lt-tag advanced">LT9Adv</span>
                         <span class="lt-tag advanced">LT15Adv</span>
                         <span class="lt-tag advanced">LT16Adv</span>
+                        <span class="lt-tag foundational">LT17F</span>
+                        <span class="lt-tag one-time">LT18</span>
                     </div>
                 </div>
             </div>
@@ -648,24 +688,24 @@
                 <div class="day-section">
                     <div class="day-label">Tuesday</div>
                     <div class="lt-list">
-                        <span class="lt-tag advanced">LT20Adv</span>
-                        <span class="lt-tag one-time">LT22OT</span>
-                        <span class="lt-tag one-time">LT23OT</span>
-                        <span class="lt-tag one-time">LT24OT</span>
                         <span class="lt-tag advanced">LT19Adv</span>
-                        <span class="lt-tag one-time">LT21OT</span>
+                        <span class="lt-tag advanced">LT20Adv</span>
+                        <span class="lt-tag one-time">LT21</span>
+                        <span class="lt-tag one-time">LT22</span>
+                        <span class="lt-tag one-time">LT23</span>
+                        <span class="lt-tag one-time">LT24</span>
                     </div>
                 </div>
                 <div class="day-section">
-                    <div class="day-label">Thursday Quiz Hours</div>
+                    <div class="day-label">Thursday</div>
                     <div class="lt-list">
-                        <span class="lt-tag foundational">LT20F</span>
-                        <span class="lt-tag advanced">LT8Adv</span>
-                        <span class="lt-tag foundational">LT19F</span>
-                        <span class="lt-tag one-time">LT18OT</span>
-                        <span class="lt-tag advanced">LT17Adv</span>
-                        <span class="lt-tag advanced">LT15Adv</span>
                         <span class="lt-tag advanced">LT7Adv</span>
+                        <span class="lt-tag advanced">LT8Adv</span>
+                        <span class="lt-tag advanced">LT15Adv</span>
+                        <span class="lt-tag advanced">LT17Adv</span>
+                        <span class="lt-tag one-time">LT18</span>
+                        <span class="lt-tag foundational">LT19F</span>
+                        <span class="lt-tag foundational">LT20F</span>
                     </div>
                 </div>
             </div>
@@ -676,29 +716,29 @@
                     <span class="week-type">Tuesday/Thursday Quizzes</span>
                 </div>
                 <div class="day-section">
-                    <div class="day-label">Tuesday (Including LT25 Group Quiz in Class)</div>
+                    <div class="day-label">Tuesday</div>
                     <div class="lt-list">
-                        <span class="lt-tag one-time">LT22OT</span>
-                        <span class="lt-tag one-time">LT23OT</span>
-                        <span class="lt-tag one-time">LT24OT</span>
                         <span class="lt-tag advanced">LT20Adv</span>
-                        <span class="lt-tag one-time">LT21OT</span>
+                        <span class="lt-tag one-time">LT21</span>
+                        <span class="lt-tag one-time">LT22</span>
+                        <span class="lt-tag one-time">LT23</span>
+                        <span class="lt-tag one-time">LT24</span>
                     </div>
                 </div>
                 <div class="day-section">
-                    <div class="day-label">Thursday Quiz Hours</div>
+                    <div class="day-label">Thursday</div>
                     <div class="lt-list">
-                        <span class="lt-tag advanced">LT8Adv</span>
-                        <span class="lt-tag foundational">LT20F</span>
-                        <span class="lt-tag advanced">LT19Adv</span>
-                        <span class="lt-tag foundational">LT19F</span>
-                        <span class="lt-tag advanced">LT17Adv</span>
                         <span class="lt-tag advanced">LT3Adv</span>
+                        <span class="lt-tag advanced">LT8Adv</span>
+                        <span class="lt-tag advanced">LT17Adv</span>
+                        <span class="lt-tag foundational">LT19F</span>
+                        <span class="lt-tag advanced">LT19Adv</span>
+                        <span class="lt-tag foundational">LT20F</span>
                     </div>
                 </div>
             </div>
             
-            <div class="week-card">
+            <div class="week-card exam-week">
                 <div class="week-header">
                     <span class="week-title">Finals Week</span>
                     <span class="week-type exam">Final Exam</span>
@@ -715,6 +755,7 @@
         <!-- Learning Target View -->
         <div id="target-view" class="schedule-view">
             <div class="lt-grid">
+                <!-- LT1 -->
                 <div class="lt-card">
                     <div class="lt-card-header">LT1F</div>
                     <div class="lt-appearances">
@@ -722,6 +763,9 @@
                         <div class="appearance">Week 3 - Tuesday</div>
                         <div class="appearance">Week 4 - Thursday</div>
                         <div class="appearance">Week 5 - Exam</div>
+                        <div class="appearance">Week 7 - Tuesday</div>
+                        <div class="appearance">Week 9 - Thursday</div>
+                        <div class="appearance">Week 12 - Thursday</div>
                         <div class="appearance">Finals - Exam</div>
                     </div>
                 </div>
@@ -733,17 +777,20 @@
                         <div class="appearance">Week 5 - Exam</div>
                         <div class="appearance">Week 6 - Thursday</div>
                         <div class="appearance">Week 8 - Thursday</div>
+                        <div class="appearance">Week 13 - Thursday</div>
                         <div class="appearance">Finals - Exam</div>
                     </div>
                 </div>
                 
+                <!-- LT2 -->
                 <div class="lt-card">
                     <div class="lt-card-header">LT2F</div>
                     <div class="lt-appearances">
                         <div class="appearance">Week 2 - Tuesday</div>
                         <div class="appearance">Week 3 - Tuesday</div>
                         <div class="appearance">Week 4 - Thursday</div>
-                        <div class="appearance">Week 5 - Exam</div>
+                        <div class="appearance">Week 7 - Thursday</div>
+                        <div class="appearance">Week 13 - Thursday</div>
                         <div class="appearance">Finals - Exam</div>
                     </div>
                 </div>
@@ -754,10 +801,13 @@
                         <div class="appearance">Week 4 - Tuesday</div>
                         <div class="appearance">Week 5 - Exam</div>
                         <div class="appearance">Week 6 - Thursday</div>
+                        <div class="appearance">Week 9 - Thursday</div>
+                        <div class="appearance">Week 12 - Thursday</div>
                         <div class="appearance">Finals - Exam</div>
                     </div>
                 </div>
                 
+                <!-- LT3 -->
                 <div class="lt-card">
                     <div class="lt-card-header">LT3F</div>
                     <div class="lt-appearances">
@@ -777,11 +827,107 @@
                         <div class="appearance">Week 5 - Exam</div>
                         <div class="appearance">Week 6 - Tuesday</div>
                         <div class="appearance">Week 8 - Thursday</div>
+                        <div class="appearance">Week 9 - Thursday</div>
+                        <div class="appearance">Week 13 - Thursday</div>
                         <div class="appearance">Week 15 - Thursday</div>
                         <div class="appearance">Finals - Exam</div>
                     </div>
                 </div>
                 
+                <!-- LT4 -->
+                <div class="lt-card">
+                    <div class="lt-card-header">LT4F</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 3 - Tuesday</div>
+                        <div class="appearance">Week 4 - Tuesday</div>
+                        <div class="appearance">Week 5 - Exam</div>
+                        <div class="appearance">Week 6 - Thursday</div>
+                        <div class="appearance">Week 11 - Thursday</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+                
+                <div class="lt-card">
+                    <div class="lt-card-header">LT4Adv</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 5 - Exam</div>
+                        <div class="appearance">Week 6 - Tuesday</div>
+                        <div class="appearance">Week 8 - Thursday</div>
+                        <div class="appearance">Week 12 - Thursday</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+                
+                <!-- LT5 -->
+                <div class="lt-card">
+                    <div class="lt-card-header">LT5F</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 4 - Tuesday</div>
+                        <div class="appearance">Week 5 - Exam</div>
+                        <div class="appearance">Week 6 - Thursday</div>
+                        <div class="appearance">Week 7 - Thursday</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+                
+                <div class="lt-card">
+                    <div class="lt-card-header">LT5Adv</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 5 - Exam</div>
+                        <div class="appearance">Week 6 - Tuesday</div>
+                        <div class="appearance">Week 7 - Thursday</div>
+                        <div class="appearance">Week 8 - Thursday</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+                
+                <!-- LT6 -->
+                <div class="lt-card">
+                    <div class="lt-card-header">LT6F</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 4 - Tuesday</div>
+                        <div class="appearance">Week 5 - Exam</div>
+                        <div class="appearance">Week 6 - Thursday</div>
+                        <div class="appearance">Week 7 - Thursday</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+                
+                <div class="lt-card">
+                    <div class="lt-card-header">LT6Adv</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 5 - Exam</div>
+                        <div class="appearance">Week 6 - Tuesday</div>
+                        <div class="appearance">Week 7 - Thursday</div>
+                        <div class="appearance">Week 8 - Thursday</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+                
+                <!-- LT7 -->
+                <div class="lt-card">
+                    <div class="lt-card-header">LT7F</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 5 - Exam</div>
+                        <div class="appearance">Week 6 - Tuesday</div>
+                        <div class="appearance">Week 7 - Thursday</div>
+                        <div class="appearance">Week 8 - Thursday</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+                
+                <div class="lt-card">
+                    <div class="lt-card-header">LT7Adv</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 6 - Tuesday</div>
+                        <div class="appearance">Week 7 - Tuesday</div>
+                        <div class="appearance">Week 8 - Thursday</div>
+                        <div class="appearance">Week 14 - Thursday</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+                
+                <!-- LT8 -->
                 <div class="lt-card">
                     <div class="lt-card-header">LT8F</div>
                     <div class="lt-appearances">
@@ -797,19 +943,121 @@
                     <div class="lt-card-header">LT8Adv</div>
                     <div class="lt-appearances">
                         <div class="appearance">Week 10 - Exam</div>
-                        <div class="appearance">Week 12 - Thursday</div>
+                        <div class="appearance">Week 11 - Tuesday</div>
+                        <div class="appearance">Week 12 - Tuesday</div>
                         <div class="appearance">Week 14 - Thursday</div>
                         <div class="appearance">Week 15 - Thursday</div>
                         <div class="appearance">Finals - Exam</div>
                     </div>
                 </div>
                 
+                <!-- LT9 -->
+                <div class="lt-card">
+                    <div class="lt-card-header">LT9F</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 7 - Tuesday</div>
+                        <div class="appearance">Week 8 - Tuesday</div>
+                        <div class="appearance">Week 9 - Thursday</div>
+                        <div class="appearance">Week 10 - Exam</div>
+                        <div class="appearance">Week 11 - Thursday</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+                
+                <div class="lt-card">
+                    <div class="lt-card-header">LT9Adv</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 9 - Tuesday</div>
+                        <div class="appearance">Week 10 - Exam</div>
+                        <div class="appearance">Week 11 - Thursday</div>
+                        <div class="appearance">Week 13 - Thursday</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+                
+                <!-- One-Time Proficiency LTs -->
+                <div class="lt-card">
+                    <div class="lt-card-header">LT10</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 7 - Tuesday</div>
+                        <div class="appearance">Week 8 - Tuesday</div>
+                        <div class="appearance">Week 10 - Exam</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+                
+                <div class="lt-card">
+                    <div class="lt-card-header">LT11</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 7 - Tuesday</div>
+                        <div class="appearance">Week 8 - Tuesday</div>
+                        <div class="appearance">Week 10 - Exam</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+                
+                <!-- LT12 -->
+                <div class="lt-card">
+                    <div class="lt-card-header">LT12F</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 8 - Tuesday</div>
+                        <div class="appearance">Week 9 - Tuesday</div>
+                        <div class="appearance">Week 10 - Exam</div>
+                        <div class="appearance">Week 11 - Thursday</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+                
+                <div class="lt-card">
+                    <div class="lt-card-header">LT12Adv</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 10 - Exam</div>
+                        <div class="appearance">Week 11 - Thursday</div>
+                        <div class="appearance">Week 12 - Thursday</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+                
+                <!-- LT13 -->
+                <div class="lt-card">
+                    <div class="lt-card-header">LT13F</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 8 - Tuesday</div>
+                        <div class="appearance">Week 9 - Tuesday</div>
+                        <div class="appearance">Week 10 - Exam</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+                
+                <div class="lt-card">
+                    <div class="lt-card-header">LT13Adv</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 10 - Exam</div>
+                        <div class="appearance">Week 11 - Tuesday</div>
+                        <div class="appearance">Week 12 - Thursday</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+                
+                <div class="lt-card">
+                    <div class="lt-card-header">LT14</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 8 - Tuesday</div>
+                        <div class="appearance">Week 9 - Tuesday</div>
+                        <div class="appearance">Week 10 - Exam</div>
+                        <div class="appearance">Week 11 - Thursday</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+                
+                <!-- LT15 -->
                 <div class="lt-card">
                     <div class="lt-card-header">LT15F</div>
                     <div class="lt-appearances">
                         <div class="appearance">Week 9 - Tuesday</div>
                         <div class="appearance">Week 10 - Exam</div>
                         <div class="appearance">Week 11 - Thursday</div>
+                        <div class="appearance">Week 12 - Thursday</div>
                         <div class="appearance">Finals - Exam</div>
                     </div>
                 </div>
@@ -817,20 +1065,21 @@
                 <div class="lt-card">
                     <div class="lt-card-header">LT15Adv</div>
                     <div class="lt-appearances">
+                        <div class="appearance">Week 10 - Exam</div>
                         <div class="appearance">Week 11 - Tuesday</div>
-                        <div class="appearance">Week 12 - Thursday</div>
                         <div class="appearance">Week 13 - Thursday</div>
                         <div class="appearance">Week 14 - Thursday</div>
                         <div class="appearance">Finals - Exam</div>
                     </div>
                 </div>
                 
+                <!-- LT16 -->
                 <div class="lt-card">
                     <div class="lt-card-header">LT16F</div>
                     <div class="lt-appearances">
                         <div class="appearance">Week 9 - Tuesday</div>
                         <div class="appearance">Week 10 - Exam</div>
-                        <div class="appearance">Week 11 - Thursday</div>
+                        <div class="appearance">Week 12 - Thursday</div>
                         <div class="appearance">Finals - Exam</div>
                     </div>
                 </div>
@@ -838,6 +1087,7 @@
                 <div class="lt-card">
                     <div class="lt-card-header">LT16Adv</div>
                     <div class="lt-appearances">
+                        <div class="appearance">Week 10 - Exam</div>
                         <div class="appearance">Week 11 - Tuesday</div>
                         <div class="appearance">Week 12 - Thursday</div>
                         <div class="appearance">Week 13 - Thursday</div>
@@ -845,12 +1095,14 @@
                     </div>
                 </div>
                 
+                <!-- LT17 -->
                 <div class="lt-card">
                     <div class="lt-card-header">LT17F</div>
                     <div class="lt-appearances">
-                        <div class="appearance">Week 9 - Tuesday</div>
                         <div class="appearance">Week 10 - Exam</div>
-                        <div class="appearance">Week 11 - Thursday</div>
+                        <div class="appearance">Week 11 - Tuesday</div>
+                        <div class="appearance">Week 12 - Thursday</div>
+                        <div class="appearance">Week 13 - Thursday</div>
                         <div class="appearance">Finals - Exam</div>
                     </div>
                 </div>
@@ -858,9 +1110,9 @@
                 <div class="lt-card">
                     <div class="lt-card-header">LT17Adv</div>
                     <div class="lt-appearances">
-                        <div class="appearance">Week 11 - Tuesday</div>
-                        <div class="appearance">Week 12 - Thursday</div>
-                        <div class="appearance">Week 13 - Thursday</div>
+                        <div class="appearance">Week 10 - Exam</div>
+                        <div class="appearance">Week 12 - Tuesday</div>
+                        <div class="appearance">Week 13 - Tuesday</div>
                         <div class="appearance">Week 14 - Thursday</div>
                         <div class="appearance">Week 15 - Thursday</div>
                         <div class="appearance">Finals - Exam</div>
@@ -868,7 +1120,7 @@
                 </div>
                 
                 <div class="lt-card">
-                    <div class="lt-card-header">LT18OT</div>
+                    <div class="lt-card-header">LT18</div>
                     <div class="lt-appearances">
                         <div class="appearance">Week 10 - Exam</div>
                         <div class="appearance">Week 11 - Tuesday</div>
@@ -879,12 +1131,12 @@
                     </div>
                 </div>
                 
+                <!-- LT19 -->
                 <div class="lt-card">
                     <div class="lt-card-header">LT19F</div>
                     <div class="lt-appearances">
-                        <div class="appearance">Week 11 - Tuesday</div>
-                        <div class="appearance">Week 12 - Thursday</div>
-                        <div class="appearance">Week 13 - Thursday</div>
+                        <div class="appearance">Week 12 - Tuesday</div>
+                        <div class="appearance">Week 13 - Tuesday</div>
                         <div class="appearance">Week 14 - Thursday</div>
                         <div class="appearance">Week 15 - Thursday</div>
                         <div class="appearance">Finals - Exam</div>
@@ -894,19 +1146,18 @@
                 <div class="lt-card">
                     <div class="lt-card-header">LT19Adv</div>
                     <div class="lt-appearances">
-                        <div class="appearance">Week 12 - Tuesday</div>
-                        <div class="appearance">Week 13 - Thursday</div>
+                        <div class="appearance">Week 13 - Tuesday</div>
                         <div class="appearance">Week 14 - Tuesday</div>
                         <div class="appearance">Week 15 - Thursday</div>
                         <div class="appearance">Finals - Exam</div>
                     </div>
                 </div>
                 
+                <!-- LT20 -->
                 <div class="lt-card">
                     <div class="lt-card-header">LT20F</div>
                     <div class="lt-appearances">
-                        <div class="appearance">Week 12 - Tuesday</div>
-                        <div class="appearance">Week 13 - Thursday</div>
+                        <div class="appearance">Week 13 - Tuesday</div>
                         <div class="appearance">Week 14 - Thursday</div>
                         <div class="appearance">Week 15 - Thursday</div>
                         <div class="appearance">Finals - Exam</div>
@@ -916,26 +1167,15 @@
                 <div class="lt-card">
                     <div class="lt-card-header">LT20Adv</div>
                     <div class="lt-appearances">
-                        <div class="appearance">Week 13 - Tuesday</div>
                         <div class="appearance">Week 14 - Tuesday</div>
                         <div class="appearance">Week 15 - Tuesday</div>
                         <div class="appearance">Finals - Exam</div>
                     </div>
                 </div>
                 
+                <!-- Remaining One-Time LTs -->
                 <div class="lt-card">
-                    <div class="lt-card-header">LT21OT</div>
-                    <div class="lt-appearances">
-                        <div class="appearance">Week 12 - Tuesday</div>
-                        <div class="appearance">Week 13 - Tuesday</div>
-                        <div class="appearance">Week 14 - Tuesday</div>
-                        <div class="appearance">Week 15 - Tuesday</div>
-                        <div class="appearance">Finals - Exam</div>
-                    </div>
-                </div>
-                
-                <div class="lt-card">
-                    <div class="lt-card-header">LT22OT</div>
+                    <div class="lt-card-header">LT21</div>
                     <div class="lt-appearances">
                         <div class="appearance">Week 13 - Tuesday</div>
                         <div class="appearance">Week 14 - Tuesday</div>
@@ -945,9 +1185,8 @@
                 </div>
                 
                 <div class="lt-card">
-                    <div class="lt-card-header">LT23OT</div>
+                    <div class="lt-card-header">LT22</div>
                     <div class="lt-appearances">
-                        <div class="appearance">Week 13 - Tuesday</div>
                         <div class="appearance">Week 14 - Tuesday</div>
                         <div class="appearance">Week 15 - Tuesday</div>
                         <div class="appearance">Finals - Exam</div>
@@ -955,23 +1194,22 @@
                 </div>
                 
                 <div class="lt-card">
-                    <div class="lt-card-header">LT24OT</div>
+                    <div class="lt-card-header">LT23</div>
                     <div class="lt-appearances">
-                        <div class="appearance">Week 13 - Tuesday</div>
                         <div class="appearance">Week 14 - Tuesday</div>
                         <div class="appearance">Week 15 - Tuesday</div>
                         <div class="appearance">Finals - Exam</div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="stats-section">
-                <div class="stats-title">Schedule Statistics</div>
-                <div class="stat-item">Total Learning Targets: 41 versions (25 unique targets)</div>
-                <div class="stat-item">Weeks with Tuesday Quizzes: 13</div>
-                <div class="stat-item">Weeks with Thursday Quiz Hours: 10</div>
-                <div class="stat-item">Exam Weeks: 3 (Week 5, Week 10, Finals)</div>
-                <div class="stat-item">Improved Weeks: 9-13</div>
+                
+                <div class="lt-card">
+                    <div class="lt-card-header">LT24</div>
+                    <div class="lt-appearances">
+                        <div class="appearance">Week 14 - Tuesday</div>
+                        <div class="appearance">Week 15 - Tuesday</div>
+                        <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
