@@ -3,13 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Policies - Math 140B: Fall 2025</title>
-    
-    <!-- External CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <title>Course Policies - Math 140B Fall 2025</title>
     
     <!-- Page-specific styles -->
     <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --penn-state-blue: #001e44;
+            --penn-state-navy: #041e42;
+            --light-blue: #1e407c;
+            --penn-state-light-blue: #96BEE6;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --gray: #666;
+            --text-gray: #333333;
+            --border-gray: #ddd;
+            --success-green: #4CAF50;
+            --warning-yellow: #FFF9C4;
+            --warning-border: #FFC107;
+            --info-blue: #E8F4FD;
+        }
+        
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-gray);
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--penn-state-blue) 0%, var(--light-blue) 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        
+        header .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            opacity: 0.95;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--penn-state-navy);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-item > a {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-item:hover > a,
+        .nav-item.current-page > a {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .dropdown-arrow {
+            font-size: 0.8em;
+            margin-left: 0.3rem;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            min-width: 250px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+        }
+        
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--penn-state-navy);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+        }
+        
+        /* Main Content Area */
+        .page-wrapper {
+            min-height: calc(100vh - 200px);
+            background-color: var(--white);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        
+        /* Main content */
+        main {
+            flex: 1;
+            background-color: var(--white);
+        }
+        
+        main h2 {
+            color: var(--penn-state-navy);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--penn-state-blue);
+        }
+        
+        main h3 {
+            color: var(--penn-state-navy);
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        main h4 {
+            color: var(--penn-state-navy);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
         /* Policy Cards */
         .policy-card {
             background-color: var(--white);
@@ -81,7 +248,7 @@
             margin-bottom: 0.5rem;
         }
         
-        /* Thursday Quiz Hours Box - NEW SEPARATE BOX */
+        /* Thursday Quiz Hours Box */
         .thursday-hours-box {
             background-color: #F0F8FF;
             border: 2px solid var(--penn-state-light-blue);
@@ -130,7 +297,7 @@
             font-size: 0.9rem;
         }
         
-        /* Exam Policies Box - NEW SEPARATE BOX */
+        /* Exam Policies Box */
         .exam-policies-box {
             background-color: #FFF5F5;
             border: 2px solid #DC3545;
@@ -231,8 +398,302 @@
             color: var(--white);
         }
         
+        /* AI Policy Grid */
+        .usage-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .permitted-box,
+        .not-permitted-box {
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .permitted-box {
+            background-color: #E8F5E9;
+            border: 2px solid #4CAF50;
+        }
+        
+        .not-permitted-box {
+            background-color: #FFEBEE;
+            border: 2px solid #F44336;
+        }
+        
+        .permitted-box h4,
+        .not-permitted-box h4 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        /* Exam Sections Styling */
+        .midterm-section {
+            background-color: #F0F8FF;
+            border: 1px solid #4A90E2;
+            border-radius: 6px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .midterm-section h5 {
+            color: #1E3A5F;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #4A90E2;
+            padding-bottom: 0.5rem;
+        }
+        
+        .exam-dates-box {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .exam-date-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 1rem;
+        }
+        
+        .exam-title {
+            font-weight: bold;
+            color: #1E3A5F;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        
+        .exam-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .exam-main,
+        .exam-makeup {
+            padding: 0.5rem;
+        }
+        
+        .exam-main {
+            background-color: #E8F4FD;
+            border-radius: 4px;
+        }
+        
+        .exam-makeup {
+            background-color: #FFF9E6;
+            border-radius: 4px;
+        }
+        
+        .midterm-policies {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 4px;
+        }
+        
+        .midterm-policies h6 {
+            color: #1E3A5F;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+        
+        .midterm-policies ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+        
+        .midterm-policies li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .final-exam-section {
+            background-color: #FFF9F0;
+            border: 1px solid #FF8C00;
+            border-radius: 6px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .final-exam-section h5 {
+            color: #1E3A5F;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #FF8C00;
+            padding-bottom: 0.5rem;
+        }
+        
+        .final-exam-content {
+            padding: 0.5rem;
+        }
+        
+        .final-exam-content > p {
+            font-weight: bold;
+            color: #1E3A5F;
+            margin-bottom: 0.75rem;
+        }
+        
+        .final-exam-content ul {
+            margin: 0 0 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .final-exam-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .final-exam-date {
+            background-color: #FFE4B5;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .travel-warning {
+            background-color: #FFF3CD;
+            border: 2px solid #FFC107;
+            border-radius: 4px;
+            padding: 1rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        .travel-warning strong {
+            color: #856404;
+        }
+        
+        /* Quick Links */
+        .quick-links {
+            width: 280px;
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+        
+        .quick-links h2 {
+            color: var(--penn-state-navy);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--penn-state-blue);
+        }
+        
+        .quick-links ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .quick-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .quick-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--penn-state-navy);
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .quick-links a:hover {
+            background-color: var(--white);
+        }
+        
+        .quick-links .icon {
+            font-size: 1.2rem;
+        }
+        
+        .important-dates-box {
+            background-color: var(--white);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+        
+        .important-dates-box h3 {
+            color: var(--penn-state-navy);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .important-dates-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .important-dates-box li {
+            padding: 0.25rem 0;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--penn-state-navy);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        footer a {
+            color: var(--white);
+            text-decoration: underline;
+        }
+        
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .quick-links {
+                width: 100%;
+                position: static;
+            }
+        }
+        
         @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                display: none;
+            }
+            
+            .nav-item:hover .dropdown-menu {
+                display: none;
+            }
+            
             .hours-grid {
                 grid-template-columns: 1fr;
             }
@@ -250,104 +711,37 @@
                 width: 100%;
                 text-align: center;
             }
+            
+            .usage-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .exam-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .exam-main,
+            .exam-makeup {
+                margin-bottom: 0.5rem;
+            }
         }
     </style>
 </head>
-
-<body class="sidebar-nav-layout">
+<body>
+    <header>
+        <h1>Math 140B: Calculus with Applications to Biology - Fall 2025</h1>
+        <div class="subtitle">Course Policies</div>
+    </header>
+    
+    <!-- Top Navigation will be inserted here by JavaScript -->
+    <div id="top-navigation"></div>
+    
     <div class="page-wrapper">
-        <header>
-            <div class="container">
-                <h1><a href="index.html">Math 140B: Calculus and Biology I</a></h1>
-                <div class="subtitle">Fall 2025 - Course Policies</div>
-            </div>
-        </header>
-        
-        <div class="content-wrapper">
-            <!-- Sidebar Navigation -->
-            <nav class="sidebar-navigation" role="navigation" aria-label="Syllabus sections">
-                <h2>Syllabus Sections</h2>
-                <ul>
-                    <li class="nav-item">
-                        <a href="index.html">Overview <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="index.html#welcome">Welcome</a>
-                            <a href="index.html#course-overview">Course Overview</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="instructors.html">Instructors <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="instructors.html#russ-deforest">Russ deForest</a>
-                            <a href="instructors.html#office-hours">Office Hours</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="learning-targets.html">Learning Targets and Quiz Sessions <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="learning-targets.html#overview">LT Overview</a>
-                            <a href="https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">List of Learning Targets</a>
-                            <a href="learning-targets.html#faq">Learning Target FAQ</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="writing-projects.html">Writing Projects <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="writing-projects.html#overview">Overview</a>
-                            <a href="writing-projects.html#schedule">Schedule</a>
-                            <a href="writing-projects.html#grading">Grading Criteria</a>
-                            <a href="writing-projects.html#revisions">Revisions</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="grading.html">How Your Grade is Determined <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="grading.html#overview">Grading Overview</a>
-                            <a href="grading.html#final-grades">Final Grade Table</a>
-                            <a href="grading.html#xp">Experience Points</a>
-                            <a href="grading.html#modifications">XP Modifications</a>
-                            <a href="grading.html#math197">Math 197 Option</a>
-                        </div>
-                    </li>
-                    <li class="nav-item current-page">
-                        <a href="policies.html">Course Policies <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="#quiz-exam-policies">Quiz & Exam Policies</a>
-                            <a href="#academic-integrity">Academic Integrity</a>
-                            <a href="#ai-policy">Generative AI Policy</a>
-                            <a href="#attendance">Attendance</a>
-                            <a href="#late-work">Late Work</a>
-                            <a href="#disability">Disability Accommodation</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="help.html">Getting Help! <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="help.html#office-hours">Instructor Office Hours</a>
-                            <a href="help.html#la-hours">LA Office Hours</a>
-                            <a href="help.html#tutoring">Free Tutoring</a>
-                            <a href="help.html#study-tips">Study Tips</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="resources.html">Student Resources <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="resources.html#counseling">Counseling Services</a>
-                            <a href="resources.html#academic-support">Academic Support</a>
-                            <a href="resources.html#technology">Technology Resources</a>
-                            <a href="resources.html#wellness">Health & Wellness</a>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
+        <div class="container">
+            <!-- Sidebar Navigation will be inserted here by JavaScript -->
+            <div id="sidebar-navigation"></div>
             
             <main>
-                <nav class="breadcrumb" aria-label="Breadcrumb">
-                    <a href="index.html">Home</a>
-                    <span>›</span>
-                    <span aria-current="page">Course Policies</span>
-                </nav>
-                
                 <h2>Course Policies</h2>
                 
                 <!-- Quick Navigation Menu -->
@@ -355,8 +749,8 @@
                     <h3>Quick Navigation</h3>
                     <div class="quick-nav-links">
                         <a href="#quiz-exam-policies">Quiz Policies</a>
-			<a href="#midterm-section">Midterms</a>
-			<a href="#final-section">Final Exam</a>
+                        <a href="#midterm-section">Midterms</a>
+                        <a href="#final-section">Final Exam</a>
                         <a href="#academic-integrity">Academic Integrity</a>
                         <a href="#ai-policy">AI Policy</a>
                         <a href="#attendance">Attendance</a>
@@ -369,57 +763,27 @@
                         <h3>Learning Target Quiz Session Policies</h3>
                         
                         <h4>Tuesday Quiz Sessions (Recitations)</h4>
-                        <p>Learning Target Quizzes are held on <strong>Tuesdays</strong> throughout the semester beginning in Week 2. These sessions are <strong>required</strong> and are the primary way you demonstrate proficiency on Learning Targets.</p>
-
-                        <div class="warning-box">
-                            <strong>Tuesday Quiz Session Policies:</strong>
-                            <ul style="margin: 1rem;">
-                                <li>You will submit a form available through Canvas indicating the LT quizzes you wish to attempt in the session (Due Sunday night before the Tuesday session).</li>
-                                <li>If you do not submit the quiz sign up form you should still attend your Tuesday recitation. A packet will be printed for you, but without signing up, you cannot be certain that it includes the LT Quizzes you wish to attempt that week.</li>
-                                <li>You must attend the Tuesday recitation you are enrolled in.</li>
-                                <li>To facilitate efficient distribution of the quiz packets, you will be seated according to a seating chart that is established in the Week 1 session.</li>
-                                <li>When you arrive at the Tuesday Quiz Session, you will leave bags/backpacks at the front of the room and take your seat according to the seating chart. Phones, calculators, notes, smart watches, electronic devices, or any study aids are not permitted during the quiz session. At your seat, you should need only pencil(s)/pen(s) and your student id. Your phone should be left in your bag.</li>
-                                <li>When you are done with your quiz packet, you will turn the quiz packet in to one of the proctors and show your id.</li>
-                                <li>If you complete your quiz packet with 15 minutes or more remaining in the session, you may request a copy of an LT quiz that was not part of your packet.</li>
-                                <li>Any quizzes or quiz packets distributed during the session must be turned in regardless of the status of completion.</li>
-                                <li>When you have turned in your quiz packet you may retrieve your things and leave the session. If you wish to remain in the session, you will need to sit quietly and retrieve your things at the end of the session.</li>
-                            </ul>
-                        </div>
-
-                        <h4 style="margin-top: 1.5rem;">Make-up Quiz Opportunities</h4>
-                        <p>We understand that sometimes you may need to miss a Tuesday quiz session due to illness or other unavoidable circumstances. LTs that you miss on one particular Tuesday will still be available at a later time. In addition, we offer <strong>two designated make-up quiz sessions during the semester.</strong> This provides a fair opportunity to make-up missed LT quizzes for students who miss up to 2-3 Tuesday quiz sessions during the semester. We cannot accommodate students who routinely and repeatedly miss Tuesday quiz sessions.</p>
+                        <p>Learning Target Quizzes are held on <strong>Tuesdays</strong> throughout the semester beginning in Week 2. These sessions are a critical component of the course where you demonstrate your proficiency on learning targets.</p>
                         
-                        <div class="makeup-days-box">
-                            <h4>Semester Make-up Quiz Sessions</h4>
-                            
-                            <div class="makeup-day">
-                                <div class="makeup-day-title">Mid-Semester Make-up (Week 9)</div>
-                                <p>Date: Week 9, Thursday, October 23.<br>
-                                Time(s), location, and sign up form will be posted on Canvas</p>
-                            </div>
-                            
-                            <div class="makeup-day">
-                                <div class="makeup-day-title">Late-Semester Make-up (Week 13)</div>
-                                <p>Date: Week 13, Thursday, November 20.<br>
-                                Time(s), location, and sign up form will be posted on Canvas</p>
-                            </div>
+                        <div class="process-box">
+                            <h4>Quiz Session Process</h4>
+                            <ul>
+                                <li>Sign up for quizzes by <strong>Monday at 10 PM</strong> each week</li>
+                                <li>Select which Learning Target Quiz versions you want to attempt</li>
+                                <li>Arrive on time to your assigned quiz session</li>
+                                <li>Each quiz takes approximately 15-20 minutes</li>
+                                <li>Receive feedback on Gradescope within 24-48 hours</li>
+                            </ul>
                         </div>
                         
                         <div class="warning-box">
-                            <strong>Important Make-up Quiz Details:</strong>
-                            <ul style="margin: 1rem;">
-                                <li>You can attempt Learning Targets from the Tuesday session(s) you missed (maximum of 6 LTs).</li>
-                                <li>You may not need the make-up session by the time it becomes available. For example, if you miss the Week 2 quiz session, when LT1F, LT2F, and LT3F are available and you succeed on these LTs before Week 9, you will not need the make-up session for Week 2.</li>
-                                <li>These make-ups accommodate students who miss 2-3 Tuesday sessions during the semester. We cannot accommodate students who routinely or repeatedly miss Tuesday quiz sessions.</li>
-                                <li>Sign-up is required. Forms will be posted on Canvas</li>
-                            </ul>
+                            <strong>Important:</strong> Missing quiz sessions will limit your opportunities to demonstrate proficiency. Regular attendance is essential for success in this course.
                         </div>
                     </div>
                     
-                    <!-- Thursday Quiz Hours - NEW SEPARATE BOX -->
                     <div class="thursday-hours-box">
                         <h4>Thursday Quiz Hours</h4>
-                        <p>Thursday Quiz Hours are available beginning in Week 4. These are additional sessions available for Learning targets that you have not yet been successful in during a Tuesday or midterm exam session. Learning targets become available in quiz hours after they have been available at least twice in either a Tuesday session or on a Midterm Exam. LTs remain available during Thursday quiz hours for the rest of the semester according to a schedule.</p>
+                        <p>These are additional sessions available for Learning targets that you have not yet been successful in during a Tuesday or midterm exam session. Learning targets become available in quiz hours after they have been available at least twice in either a Tuesday session or on a Midterm Exam. LTs remain available during Thursday quiz hours for the rest of the semester according to a schedule.</p>
                         
                         <div class="hours-grid">
                             <div class="hour-slot">
@@ -447,265 +811,82 @@
                         
                         <p class="hours-note"><strong>Note:</strong> Sign up for Quiz Hours through the same quiz sign up form you use for Tuesday sessions.</p>
                     </div>
-                    
-<section id="exams">
+                </section>
+                
+                <section id="exams">
                     <div class="policy-card">
-		    
-		    <!-- Exam Policies Section with Separate Midterm and Final Exam Boxes -->
-    <h3>Exams</h3>
-    <p>We have two midterm exams and a final exam in Math 140B. Each exam provides additional opportunities to attempt Learning Targets.</p>
-    
-    <!-- Midterm Exams Section -->
-    <div class="midterm-section" id="midterm-section">
-        <h5>Midterm Exams</h5>
-        <p>Midterm exams are important opportunities to succeed on a larger number of LTs than are available in a typical Tuesday quiz session.</p>
-        
-        <div class="exam-dates-box">
-            <div class="exam-date-item">
-                <div class="exam-title">Midterm One</div>
-                <div class="exam-details">
-                    <div class="exam-main">
-                        <strong>Regular Exam:</strong> Tuesday, September 23, 2025<br>
-                        <strong>Time:</strong> 6:15 - 7:30 PM
+                        <h3>Exams</h3>
+                        <p>We have two midterm exams and a final exam in Math 140B. Each exam provides additional opportunities to attempt Learning Targets.</p>
+                        
+                        <!-- Midterm Exams Section -->
+                        <div class="midterm-section" id="midterm-section">
+                            <h5>Midterm Exams</h5>
+                            <p>Midterm exams are important opportunities to succeed on a larger number of LTs than are available in a typical Tuesday quiz session.</p>
+                            
+                            <div class="exam-dates-box">
+                                <div class="exam-date-item">
+                                    <div class="exam-title">Midterm One</div>
+                                    <div class="exam-details">
+                                        <div class="exam-main">
+                                            <strong>Regular Exam:</strong> Tuesday, September 23, 2025<br>
+                                            <strong>Time:</strong> 6:15 - 7:30 PM
+                                        </div>
+                                        <div class="exam-makeup">
+                                            <strong>Conflict/Make-up:</strong> Thursday, September 25, 2025<br>
+                                            <strong>Time:</strong> 75-minute exam scheduled to begin between 3:00 PM and 7:15 PM
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="exam-date-item">
+                                    <div class="exam-title">Midterm Two</div>
+                                    <div class="exam-details">
+                                        <div class="exam-main">
+                                            <strong>Regular Exam:</strong> Wednesday, October 29, 2025<br>
+                                            <strong>Time:</strong> 6:15 - 7:30 PM
+                                        </div>
+                                        <div class="exam-makeup">
+                                            <strong>Conflict/Make-up:</strong> Thursday, October 30, 2025<br>
+                                            <strong>Time:</strong> 75-minute exam scheduled to begin between 3:00 PM and 7:15 PM
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="midterm-policies">
+                                <h6>Midterm Conflict and Make-up Policy</h6>
+                                <ul>
+                                    <li>If you have an academic conflict during the scheduled evening midterm or need to make up the midterm due to a valid reason, we will schedule a make-up exam.</li>
+                                    <li>The scheduled conflict/make-up opportunity takes place on Thursday during the same week as the regularly scheduled exam.</li>
+                                    <li>Students who are not able to use this scheduled make-up opportunity will be scheduled for a make-up individually. This make-up opportunity must be completed within two weeks of the regularly scheduled exam.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Final Exam Section -->
+                        <div class="final-exam-section" id="final-section">
+                            <h5>Final Exam</h5>
+                            <div class="final-exam-content">
+                                <p><strong>Important Final Exam Information:</strong></p>
+                                <ul>
+                                    <li>Your final exam will consist of any learning targets that you have not yet earned a Success on.</li>
+                                    <li>Prior to finals week, your Progress Report will indicate your course letter grade without the final exam.</li>
+                                    <li>If you meet the requirements for an A in the course prior to the final, no final exam will be printed for you.</li>
+                                    <li>The final exam is your last opportunity to demonstrate proficiency on any remaining Learning Targets.</li>
+                                </ul>
+                                
+                                <div class="final-exam-date">
+                                    <strong>Final Exam Date:</strong> To be announced (Check the Penn State Final Exam Schedule)
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="travel-warning">
+                            <strong>⚠️ Important Travel Policy:</strong> Personal travel plans (including early departure for breaks) are NOT considered excused absences for quizzes or exams. Please plan your travel accordingly.
+                        </div>
                     </div>
-                    <div class="exam-makeup">
-                        <strong>Conflict/Make-up:</strong> Thursday, September 25, 2025<br>
-                        <strong>Time:</strong> 75-minute exam scheduled to begin between 3:00 PM and 7:15 PM
-                    </div>
-                </div>
-            </div>
-            
-            <div class="exam-date-item">
-                <div class="exam-title">Midterm Two</div>
-                <div class="exam-details">
-                    <div class="exam-main">
-                        <strong>Regular Exam:</strong> Wednesday, October 29, 2025<br>
-                        <strong>Time:</strong> 6:15 - 7:30 PM
-                    </div>
-                    <div class="exam-makeup">
-                        <strong>Conflict/Make-up:</strong> Thursday, October 30, 2025<br>
-                        <strong>Time:</strong> 75-minute exam scheduled to begin between 3:00 PM and 7:15 PM
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="midterm-policies">
-            <h6>Midterm Conflict and Make-up Policy</h6>
-            <ul>
-                <li>If you have an academic conflict during the scheduled evening midterm or need to make up the midterm due to a valid reason, we will schedule a make-up exam.</li>
-                <li>The scheduled conflict/make-up opportunity takes place on Thursday during the same week as the regularly scheduled exam.</li>
-                <li>Students who are not able to use this scheduled make-up opportunity will be scheduled for a make-up individually. This make-up opportunity must be completed within two weeks of the regularly scheduled exam.</li>
-            </ul>
-        </div>
-    </div>
-    
-    <!-- Final Exam Section -->
-    <div class="final-exam-section" id="final-section">
-        <h5>Final Exam</h5>
-        <div class="final-exam-content">
-            <p><strong>Important Final Exam Information:</strong></p>
-            <ul>
-                <li>Your final exam will consist of any learning targets that you have not yet earned a Success on.</li>
-                <li>Prior to finals week, your Progress Report will indicate your course letter grade without the final exam.</li>
-                <li>If you meet the requirements for an A in the course prior to the final, no final exam will be printed for you.</li>
-                <li>The final exam is your last opportunity to demonstrate proficiency on any remaining Learning Targets.</li>
-            </ul>
-            
-            <div class="final-exam-date">
-                <strong>Final Exam Date:</strong> To be announced (Check the Penn State Final Exam Schedule)
-            </div>
-        </div>
-    </div>
-    
-    <div class="travel-warning">
-        <strong>⚠️ Important Travel Policy:</strong> Personal travel plans (including early departure for breaks) are NOT considered excused absences for quizzes or exams. Please plan your travel accordingly.
-    </div>
-</div>
-</section>
-
-<!-- CSS Styles for the Exam Sections -->
-<style>
-    /* Main Exam Policies Box */
-    .exam-policies-box {
-        background-color: #FFF5F5;
-        border: 0px solid #DC3545;
-        border-radius: 8px;
-        padding: 1.5rem;
-        margin: 1.5rem 0;
-    }
-    
-    .exam-policies-box h4 {
-        color: var(--penn-state-navy);
-        margin-top: 0;
-        margin-bottom: 1rem;
-        font-size: 1.4rem;
-    }
-    
-    .exam-policies-box > p {
-        margin-bottom: 1.5rem;
-    }
-    
-    /* Midterm Section */
-    .midterm-section {
-        background-color: #F0F8FF;
-        border: 1px solid #4A90E2;
-        border-radius: 6px;
-        padding: 1.25rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .midterm-section h5 {
-        color: #1E3A5F;
-        margin-top: 0;
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
-        border-bottom: 2px solid #4A90E2;
-        padding-bottom: 0.5rem;
-    }
-    
-    /* Exam Dates Box */
-    .exam-dates-box {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        margin: 1rem 0;
-    }
-    
-    .exam-date-item {
-        background-color: white;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        padding: 1rem;
-    }
-    
-    .exam-title {
-        font-weight: bold;
-        color: #1E3A5F;
-        font-size: 1.1rem;
-        margin-bottom: 0.75rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 1px solid #E0E0E0;
-    }
-    
-    .exam-details {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-    }
-    
-    .exam-main,
-    .exam-makeup {
-        padding: 0.5rem;
-    }
-    
-    .exam-main {
-        background-color: #E8F4FD;
-        border-radius: 4px;
-    }
-    
-    .exam-makeup {
-        background-color: #FFF9E6;
-        border-radius: 4px;
-    }
-    
-    /* Midterm Policies */
-    .midterm-policies {
-        margin-top: 1.5rem;
-        padding: 1rem;
-        background-color: white;
-        border-radius: 4px;
-    }
-    
-    .midterm-policies h6 {
-        color: #1E3A5F;
-        margin-top: 0;
-        margin-bottom: 0.75rem;
-        font-size: 1rem;
-    }
-    
-    .midterm-policies ul {
-        margin: 0;
-        padding-left: 1.5rem;
-    }
-    
-    .midterm-policies li {
-        margin-bottom: 0.5rem;
-        line-height: 1.6;
-    }
-    
-    /* Final Exam Section */
-    .final-exam-section {
-        background-color: #FFF9F0;
-        border: 1px solid #FF8C00;
-        border-radius: 6px;
-        padding: 1.25rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .final-exam-section h5 {
-        color: #1E3A5F;
-        margin-top: 0;
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
-        border-bottom: 2px solid #FF8C00;
-        padding-bottom: 0.5rem;
-    }
-    
-    .final-exam-content {
-        padding: 0.5rem;
-    }
-    
-    .final-exam-content > p {
-        font-weight: bold;
-        color: #1E3A5F;
-        margin-bottom: 0.75rem;
-    }
-    
-    .final-exam-content ul {
-        margin: 0 0 1rem 0;
-        padding-left: 1.5rem;
-    }
-    
-    .final-exam-content li {
-        margin-bottom: 0.5rem;
-        line-height: 1.6;
-    }
-    
-    .final-exam-date {
-        background-color: #FFE4B5;
-        padding: 1rem;
-        border-radius: 4px;
-        text-align: center;
-        margin-top: 1rem;
-    }
-    
-    /* Travel Warning */
-    .travel-warning {
-        background-color: #FFF3CD;
-        border: 2px solid #FFC107;
-        border-radius: 4px;
-        padding: 1rem;
-        margin-top: 1rem;
-        text-align: center;
-    }
-    
-    .travel-warning strong {
-        color: #856404;
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .exam-details {
-            grid-template-columns: 1fr;
-        }
-        
-        .exam-main,
-        .exam-makeup {
-            margin-bottom: 0.5rem;
-        }
-    }
-</style>                
+                </section>
+                
                 <section id="academic-integrity">
                     <div class="important-policy">
                         <h4>Academic Integrity</h4>
@@ -733,7 +914,7 @@
                     <div class="policy-card">
                         <h3>Generative AI Policy</h3>
                         
-                                <p><strong>AI as a Learning Tool:</strong> When used appropriately, generative AI tools (such as ChatGPT, Claude, Copilot, etc.) can be powerful resources to enhance your learning experience. We encourage you to explore these tools in ways that support genuine understanding and skill development. Instructors may periodically discuss effective strategies for using AI to strengthen your mathematical understanding.</p>
+                        <p><strong>AI as a Learning Tool:</strong> When used appropriately, generative AI tools (such as ChatGPT, Claude, Copilot, etc.) can be powerful resources to enhance your learning experience. We encourage you to explore these tools in ways that support genuine understanding and skill development. Instructors may periodically discuss effective strategies for using AI to strengthen your mathematical understanding.</p>
                         
                         <p style="margin-top: 1rem;">To maintain academic integrity while leveraging AI's benefits, please follow these guidelines:</p>
                         
@@ -752,10 +933,10 @@
                             <div class="not-permitted-box">
                                 <h4>✗ Not Permitted</h4>
                                 <ul>
-                                    <li>Using AI to complete graded assignments and as a substitute for authentic demontrations of your understanding. </li>
+                                    <li>Using AI to complete graded assignments and as a substitute for authentic demontrations of your understanding.</li>
                                     <li>Generating solutions for homework or writing projects</li>
                                     <li>Having AI write any portion of writing projects</li>
-                                    <li>Accessing AI during any in-person assesments. </li>
+                                    <li>Accessing AI during any in-person assesments.</li>
                                 </ul>
                             </div>
                         </div>
@@ -768,8 +949,7 @@
                         
                         <p style="margin-top: 1rem;"><strong>If you're unsure:</strong> Please ask your instructor before using AI tools for any course-related work. We're happy to clarify what is and isn't appropriate.</p>
                     </div>
-
-                </section>              
+                </section>
                 
                 <section id="attendance">
                     <div class="policy-card">
@@ -778,17 +958,51 @@
                         <p><strong>In-Person Classes (MWF):</strong> While attendance is strongly encouraged and contributes to your success, it is not directly graded. However, active participation and engagement during class will help you become proficient in the material.</p>
                         
                         <p style="margin-top: 1rem;"><strong>Tuesday Learning Target Quiz Sessions:</strong> Attendance is <strong>REQUIRED</strong>. These sessions are the primary way you demonstrate proficiency on Learning Targets, which directly determines your grade. Missing more than 2-3 sessions will likely be detrimental to your grade.</p>
-                        
-                      
                     </div>
                 </section>
                 
                 <section id="late-work">
                     <div class="important-policy">
-                        <h4>Late Work Policy</h4>                       
+                        <h4>Late Work Policy</h4>
                         <p style="margin-top: 1rem;"><strong>Online Homeworks and PLAs:</strong> At the start of the semester you have 15 Late Passes. Using a late pass grants an automatic 1 week extension on the PLA or the Online Homework. After this one week extension (if used) these assignments remain available for ungraded practice but will count toward XP. Late passes are used only for these online assignments and are automatically tracked by our online homework platform (MyOpenMath).</p>
                         
                         <p style="margin-top: 1rem;"><strong>Writing Projects:</strong> These be revised and resubmitted according to the revision schedule. Initial submissions must meet the original deadline.</p>
                     </div>
                 </section>
                 
+                <section id="disability">
+                    <div class="policy-card">
+                        <h3>Disability Accommodation</h3>
+                        
+                        <p>Penn State welcomes students with disabilities into the University's educational programs. Every Penn State campus has an office for students with disabilities. The Office for Disability Services (ODS) Web site provides contact information for every Penn State campus.</p>
+                        
+                        <p style="margin-top: 1rem;">For further information, please visit the Office for Disability Services Web site: <a href="http://equity.psu.edu/ods" target="_blank" rel="noopener noreferrer">http://equity.psu.edu/ods</a></p>
+                        
+                        <p style="margin-top: 1rem;">In order to receive consideration for reasonable accommodations, you must contact the appropriate disability services office at the campus where you are officially enrolled, participate in an intake interview, and provide documentation: <a href="http://equity.psu.edu/ods/doc-guidelines" target="_blank" rel="noopener noreferrer">http://equity.psu.edu/ods/doc-guidelines</a></p>
+                        
+                        <p style="margin-top: 1rem;">If the documentation supports your request for reasonable accommodations, your campus's disability services office will provide you with an accommodation letter. Please share this letter with your instructors and discuss the accommodations with them as early as possible. You must follow this process for every semester that you request accommodations.</p>
+                    </div>
+                </section>
+            </main>
+            
+            <!-- Quick Links Sidebar will be inserted here by JavaScript -->
+            <div id="quick-links-sidebar"></div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Math 140B Fall 2025 | Penn State University | <a href="index.html">Return to Syllabus Home</a></p>
+    </footer>
+    
+    <!-- External JavaScript for navigation -->
+    <script src="navigation.js"></script>
+    
+    <!-- Initialize navigation with current page highlighted -->
+    <script>
+        // Call the initialization function when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeNavigation('policies.html');
+        });
+    </script>
+</body>
+</html>
