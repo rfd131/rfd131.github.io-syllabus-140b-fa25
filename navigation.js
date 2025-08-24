@@ -127,12 +127,10 @@ const navigationData = {
         }
     ],
     importantDates: [
-        "First Day: Aug 25",
         "Regular Drop Deadline: Aug 30",
-	"Midterm One: Tues, Sept 23 (6:15 - 7:30 PM)",
-	"Midterm Two: Wed, Oct 29 (6:15 - 7:30 PM)",
+	"Midterm One: Tues, Sept 23",
+	"Midterm Two: Wed, Oct 29",
         "Late Drop: Nov 8",
-        "Withdraw Deadline: Dec 12",
         "Finals Week: Dec 15-19"
     ]
 };
