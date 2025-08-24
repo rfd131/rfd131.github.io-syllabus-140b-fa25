@@ -273,7 +273,72 @@
             color: var(--penn-state-navy);
             margin-bottom: 0.5rem;
         }
-        
+
+
+.thursday-hours-box {
+        background-color: #F0F8FF;
+        border: 2px solid var(--penn-state-blue);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .thursday-hours-box h4 {
+        color: var(--penn-state-navy);
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        font-size: 1.2rem;
+    }
+    
+    .hours-description {
+        margin-bottom: 1.25rem;
+        color: #555;
+        font-style: italic;
+    }
+    
+    .hours-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 1.25rem 0;
+    }
+    
+    .hour-slot {
+        background-color: var(--white);
+        border-left: 3px solid var(--penn-state-blue);
+        padding: 1rem;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .hour-slot:hover {
+        transform: translateX(3px);
+        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+    
+    .hour-time {
+        font-weight: bold;
+        color: var(--penn-state-navy);
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hour-location {
+        color: var(--penn-state-blue);
+        font-size: 0.95rem;
+    }
+    
+    .hours-note {
+        margin-top: 1.25rem;
+        margin-bottom: 0;
+        padding: 0.75rem;
+        background-color: var(--warning-yellow);
+        border-radius: 4px;
+        font-size: 0.9rem;
+    }
+    
+ 
         /* Responsive Design */
         @media (max-width: 768px) {
             .usage-grid {
@@ -384,11 +449,11 @@
                     <li class="nav-item current-page">
                         <a href="policies.html">Course Policies <span class="dropdown-arrow">▼</span></a>
                         <div class="dropdown-menu">
+                            <a href="#quiz-exam-policies">Quiz & Exam Policies</a>
                             <a href="#academic-integrity">Academic Integrity</a>
                             <a href="#ai-policy">Generative AI Policy</a>
                             <a href="#attendance">Attendance</a>
-                            <a href="#makeup-quiz">Make-up Quiz Policy</a>
-                            <a href="#makeup-exam">Make-up Exam Policy</a>
+                            <a href="#late-work">Late Work</a>
                             <a href="#disability">Disability Accommodation</a>
                         </div>
                     </li>
@@ -426,11 +491,10 @@
                 <div class="quick-nav">
                     <h3>Quick Navigation</h3>
                     <div class="quick-nav-links">
+                        <a href="#quiz-exam-policies">Quiz & Exam Policies</a>
                         <a href="#academic-integrity">Academic Integrity</a>
                         <a href="#ai-policy">AI Policy</a>
                         <a href="#attendance">Attendance</a>
-                        <a href="#makeup-quiz">Make-up Quizzes</a>
-                        <a href="#makeup-exam">Make-up Exams</a>
                         <a href="#late-work">Late Work</a>
                         <a href="#disability">Disability</a>
                         <a href="#nondiscrimination">Nondiscrimination</a>
@@ -438,6 +502,128 @@
                         <a href="#counseling">Counseling Services</a>
                     </div>
                 </div>
+                
+                <section id="quiz-exam-policies">
+                    <div class="policy-card">
+                        <h3>Learning Target Quiz Session Policies</h3>
+                        
+                        <h4>Tuesday Quiz Sessions (Recitations)</h4>
+                        <p>Learning Target Quizzes are held on <strong>Tuesdays</strong> throughout the semester beginning in Week 2. These sessions are <strong>required</strong> and are the primary way you demonstrate proficiency on Learning Targets. </p>
+
+                        <div class="warning-box">
+                            <strong>Tuesday Quiz Session Policies:</strong>
+			    <ul style="margin: 1rem;">
+			      <li>You will submit a form available through Canvas indicating the LT quizzes you wish to attempt in the session (Due Sunday night before the Tuesday session).</li>
+
+			      <li>If you do not submit the quiz sign up form you should still attend your Tuesday recitation. A packet will be printed for you, but without signing up, you cannot be certain that it includes the LT Quizzes you wish to attempt that week.</li>
+                                <li> You must attend the Tuesday recitation you are enrolled in. </li>
+                                <li>To facilitate efficient distribution of the quiz packets, you will be seated according to a seating chart that is established in the Week 1 session.</li>
+			      <li>When you arrive at the Tuesday Quiz Session, you will leave bags/backpacks at the front of the room and take your seat according to the seating chart. Phones, calculators, notes, smart watches, electronic devices, or any study aids are not permitted during the quiz session. At your seat, you should need only pencil(s)/pen(s) and your student id. Your phone should be left in your bag. </li>
+
+			      			      <li>When you are done with your quiz packet, you will turn the quiz packet in to one of the proctors and show your id. </li>
+						      			      			    
+												            <li>If you complete your quiz packet with 15 minutes or more remaining in the session, you may request a copy of an LT quiz that was not part of your packet.  </li>
+			      <li>Any quizzes or quiz packets distributed during the session must be turned in regardless of the status of completion. </li>
+			      <li>When you have turned in your quiz packet you may retreive your things and leave the session. If you wish to remain in the session, you will need to sit quietly and retreive your things at the end of the session. </li>
+
+
+                            </ul>
+                        </div>
+
+			
+                        <h4 style="margin-top: 1.5rem;">Make-up Quiz Opportunities</h4>
+                        <p>We understand that sometimes you may need to miss a Tuesday quiz session due to illness or other unavoidable circumstances. LTs that you miss on one particularTuesday will still be available at a later time. In, addition, we offer <strong>two designated make-up quiz sessions during the semester.</strong> This provides a fair opportunity to make-up missed LT quizzes for students who miss up to 2--3 Tuesday quiz sessions during the semester. We cannot accommodate students who routinely and repeatedly miss Tuesday quiz sessions. </p>
+                        
+                        <div class="makeup-days-box">
+                            <h4>Semester Make-up Quiz Sessions</h4>
+                            
+                            <div class="makeup-day">
+                                <div class="makeup-day-title">Mid-Semester Make-up (Week 9)</div>
+                                <p>Date: Week 9, Thursday, October 23.<br>
+                                Time(s), location, and sign up form will be posted on Canvas<br>
+                            </div>
+                            
+                            <div class="makeup-day">
+                                <div class="makeup-day-title">Late-Semester Make-up (Week 13)</div>
+                                <p>Date: Week 13, Thursday, October 20th. <br>
+                                Time(s), location, and sign up form will be posted on Canvas<br
+                              </div>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <strong>Important Make-up Quiz Details:</strong>
+                            <ul style="margin: 1rem;">
+			      <li>You can attempt Learning Targets from the Tuesday session(s) you missed (maximum of 6 LTs).</li>
+                                <li>You may not need the make-up session by the time it becomes available.  For example, if you miss the Week 2 quiz session, when LT1F, LT2F, and LT3F are available and you succeed on these LTs before Week 9, you will not need the make-up session for Week 2. </li>
+                              <li>These make-ups accommodate students who miss 2-3 Tuesday sessions during the semester. We cannot accommodate students who routinely or repeatedly miss Tuesday quiz sessions. </li>
+                              <li>Sign-up is required.  Forms will be posted on Canvas</li>
+                            </ul>
+                        </div>
+                        
+			
+<h4>Thursday Quiz Hours</h4>
+
+ <p>Thursday Quiz Hours are available beginning in Week 4. These are additional sessions available for Learning targets that you have not yet been successful in during a Tuesday or midterm exam session.    Learning targets become available in quiz hours after they have been available at least twice in either a Tuesday session or on a Midterm Exam. LTs remain available during Thursday quiz hours for the rest of the semester according to a schedule.  </p>
+
+
+<!-- Thursday Quiz Hours Schedule Block -->
+<div class="thursday-hours-box">
+    <h4>Thursday Quiz Hours Schedule</h4>
+    
+    <div class="hours-grid">
+        <div class="hour-slot">
+            <div class="hour-time">12:15 - 1:15 PM</div>
+            <div class="hour-location">108 Henderson</div>
+        </div>
+        
+        <div class="hour-slot">
+            <div class="hour-time">1:15 - 2:15 PM</div>
+            <div class="hour-location">262 Willard</div>
+        </div>
+        
+        <div class="hour-slot">
+            <div class="hour-time">4:30 - 5:30 PM</div>
+            <div class="hour-location">117 Henderson</div>
+        </div>
+        
+        <div class="hour-slot">
+            <div class="hour-time">7:30 - 8:30 PM</div>
+            <div class="hour-location">358 Willard</div>
+        </div>
+    </div>
+
+        <p class="hours-note"><strong>Note:</strong> It is not required that you attend Thursday Quiz Hours, but most students will use quiz hours at least a few times during the semester and you should plan space in your schedule. </p>
+    
+    <p class="hours-note"><strong>Note:</strong> Sign up for Quiz Hours through the same quiz sign up form you use for Tuesday sessions. </p>
+</div>                  
+			    
+                    
+
+                        <h4 style="margin-top: 2rem;">Exam Policies</h4>
+                        <p>We have two midterm exams and a final exam in Math 140B. Each exam provides additional opportunities to attempt Learning Targets.</p>
+                        
+                        <div class="process-box" style="margin-top: 1rem;">
+                            <h4>Midterm Exam Conflict and Make-up Policy</h4>
+                            <p>Midterm exams are important opportunities to succeed on a larger number of LTs than are available in a typical Tuesday quiz session. If you have an academic conflict during the scheduled evening midterm or need to make up the midterm due to a valid reason we will schedule a make-up exam. </p>
+                            <ul style="margin-top: 0.5rem;">
+                                <li>The scheduled conflict/make-up opportunity takes place on Thursday during the same week as the regularly scheduled exam. </li>
+                                <li>Students who are not able to use this scheduled make-up opportunity will be scheduled for a make-up individually. This make-up opportunity must be completed within two weeks of the regularly scheduled exam. </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="important-policy" style="background-color: var(--warning-yellow); border-left-color: var(--warning-border); margin-top: 1rem;">
+                            <h4>Final Exam Policies</h4>
+                            <ul style="margin: 0;">
+                                <li>Your final exam will consist of any learning targets that you have not yet earned a Success on. </li>
+                                <li>Prior to finals week your Progress Report will indicate your a course letter grade without the final exam. If you meet the requirements for an A in the course prior to the final, no final exam will be printed for you. </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box" style="margin-top: 1rem;">
+                            <strong>Travel Plans:</strong> Personal travel plans (including early departure for breaks) are not considered excused absences for quizzes or exams. 
+                        </div>
+                    </div>
+                </section>
                 
                 <section id="academic-integrity">
                     <div class="important-policy">
@@ -548,87 +734,6 @@
                         <div class="warning-box" style="margin-top: 1rem;">
                             <strong>Critical:</strong> Since your grade is based on successfully completing Learning Targets through Tuesday quiz sessions, missing these sessions directly impacts your ability to pass the course. Missing more than 2-3 Tuesday sessions will likely result in an inability to earn enough Learning Target completions for a passing grade.
                         </div>
-                    </div>
-                </section>
-                
-                <section id="makeup-quiz">
-                    <div class="policy-card">
-                        <h3>Make-up Quiz Policy</h3>
-                        
-                        <p>Tuesday Learning Target Quiz sessions are essential to your success in the course. If you must miss a Tuesday session, we have two designated make-up opportunities each week.</p>
-                        
-                        <div class="makeup-days-box">
-                            <h4>Weekly Make-up Quiz Sessions</h4>
-                            
-                            <div class="makeup-day">
-                                <div class="makeup-day-title">Thursday Quiz Hours</div>
-                                <p>Time: Various times throughout the day<br>
-                                Location: Posted on Canvas<br>
-                                <strong>For:</strong> Students who missed Tuesday's quiz session or need additional attempts</p>
-                            </div>
-                            
-                            <div class="makeup-day">
-                                <div class="makeup-day-title">Friday Practice Quiz Time</div>
-                                <p>Time: During regular class period<br>
-                                Location: Your regular classroom<br>
-                                <strong>For:</strong> Additional Learning Target attempts if you missed Tuesday</p>
-                            </div>
-                        </div>
-                        
-                        <h4 style="margin-top: 1.5rem;">How to Request a Make-up</h4>
-                        <ol class="process-steps">
-                            <li><strong>Notify your instructor</strong> as soon as you know you'll miss Tuesday's session</li>
-                            <li><strong>Sign up</strong> for Thursday Quiz Hours or indicate you'll use Friday's session</li>
-                            <li><strong>Attend</strong> the make-up session you signed up for</li>
-                        </ol>
-                        
-                        <div class="warning-box">
-                            <strong>Important Notes:</strong>
-                            <ul style="margin: 0.5rem 0 0 0;">
-                                <li>Make-up sessions may not offer all the same Learning Targets as the regular Tuesday session</li>
-                                <li>Space in Thursday Quiz Hours is limited - sign up early</li>
-                                <li>Friday make-up time reduces your in-class instruction time</li>
-                                <li>Documentation may be required for repeated absences</li>
-                            </ul>
-                        </div>
-                        
-                        <p style="margin-top: 1rem;"><strong>Best Practice:</strong> Attend every Tuesday session if possible. The make-up opportunities are designed as a safety net, not a regular alternative.</p>
-                    </div>
-                </section>
-                
-                <section id="makeup-exam">
-                    <div class="policy-card">
-                        <h3>Make-up Exam Policy</h3>
-                        
-                        <p>We have two midterm exams and a final exam in Math 140B. Each exam provides additional opportunities to complete Learning Targets.</p>
-                        
-                        <h4 style="margin-top: 1.5rem;">Midterm Exams</h4>
-                        <div class="process-box">
-                            <h4>Midterm Make-up Process</h4>
-                            <p>If you miss a midterm exam:</p>
-                            <ul style="margin-top: 0.5rem;">
-                                <li><strong>The make-up is integrated into the next exam.</strong> Learning Targets from the missed midterm will be available on the subsequent exam (either the next midterm or the final exam).</li>
-                                <li>You don't take a separate make-up exam - you simply have those Learning Targets available at the next testing opportunity.</li>
-                                <li>Documentation is required for the absence (illness, emergency, university-sanctioned activity).</li>
-                            </ul>
-                        </div>
-                        
-                        <h4 style="margin-top: 1.5rem;">Final Exam</h4>
-                        <div class="important-policy" style="background-color: var(--warning-yellow); border-left-color: var(--warning-border);">
-                            <h4>Final Exam Policy</h4>
-                            <ul style="margin: 0;">
-                                <li>The final exam is <strong>comprehensive</strong> - all Learning Targets are available</li>
-                                <li>If you miss the final exam, you must follow University policies for incomplete grades</li>
-                                <li>Make-up final exams are only given in extreme circumstances with extensive documentation</li>
-                                <li>Conflicts with other finals should be resolved through the University's final exam conflict resolution process</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="warning-box" style="margin-top: 1rem;">
-                            <strong>Travel Plans:</strong> Personal travel plans (including early departure for breaks) are NOT considered excused absences for exams. The final exam schedule is published at the beginning of the semester - please plan accordingly.
-                        </div>
-                        
-                        <p style="margin-top: 1rem;"><strong>Documentation Required:</strong> All exam absences require documentation (medical note, emergency documentation, or advance approval for university activities).</p>
                     </div>
                 </section>
                 
