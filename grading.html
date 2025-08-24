@@ -3,25 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How Your Grade is Determined - Math 140B: Fall 2025</title>
-    
-    <!-- External CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <title>How Your Grade is Determined - Math 140B Fall 2025</title>
     
     <!-- Page-specific styles -->
     <style>
-        /* Grade Tables */
-        .grade-table-container {
+        /* CSS Variables for consistent theming */
+        :root {
+            --penn-state-blue: #001e44;
+            --penn-state-navy: #041e42;
+            --light-blue: #1e407c;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --gray: #666;
+            --border-gray: #ddd;
+            --success-green: #4CAF50;
+            --warning-yellow: #FFF9C4;
+            --warning-border: #FFC107;
+            --info-blue: #E8F4FD;
+        }
+        
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-gray);
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--penn-state-blue) 0%, var(--light-blue) 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        
+        header .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            opacity: 0.95;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--penn-state-navy);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-item > a {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-item:hover > a,
+        .nav-item.current-page > a {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .dropdown-arrow {
+            font-size: 0.8em;
+            margin-left: 0.3rem;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
             background-color: var(--white);
-            border-radius: 8px;
+            min-width: 250px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 0 0 8px 8px;
             overflow: hidden;
-            margin: 2rem 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--penn-state-navy);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+        }
+        
+        /* Main Content Area */
+        .page-wrapper {
+            min-height: calc(100vh - 200px);
+            background-color: var(--white);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        
+        /* Main content */
+        main {
+            flex: 1;
+            background-color: var(--white);
+        }
+        
+        main h2 {
+            color: var(--penn-state-navy);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--penn-state-blue);
+        }
+        
+        main h3 {
+            color: var(--penn-state-navy);
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        main h4 {
+            color: var(--penn-state-navy);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Overview Card */
+        .overview-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--penn-state-blue);
+        }
+        
+        .overview-card h3 {
+            margin-top: 0;
+            color: var(--penn-state-navy);
+        }
+        
+        /* Grade Table */
+        .grade-table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
         }
         
         .grade-table {
             width: 100%;
-            border-collapse: collapse;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .grade-table th {
@@ -30,22 +209,12 @@
             padding: 1rem;
             text-align: center;
             font-weight: 600;
-            border-right: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        .grade-table th:last-child {
-            border-right: none;
         }
         
         .grade-table td {
-            padding: 0.875rem 1rem;
+            padding: 0.75rem;
             text-align: center;
             border-bottom: 1px solid #eee;
-            border-right: 1px solid #eee;
-        }
-        
-        .grade-table td:last-child {
-            border-right: none;
         }
         
         .grade-table tr:last-child td {
@@ -58,27 +227,13 @@
         
         .letter-grade {
             font-weight: bold;
+            color: var(--penn-state-navy);
             font-size: 1.1rem;
-            color: var(--penn-state-navy);
-        }
-        
-        /* Overview Cards */
-        .overview-card {
-            background-color: var(--light-gray);
-            border-left: 4px solid var(--penn-state-blue);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        
-        .overview-card h3 {
-            margin-top: 0;
-            color: var(--penn-state-navy);
         }
         
         /* Important Box */
         .important-box {
-            background-color: #F8D7DA;
+            background-color: #FFE5E5;
             border-left: 4px solid #DC3545;
             border-radius: 8px;
             padding: 1.5rem;
@@ -191,8 +346,128 @@
             margin-bottom: 1rem;
         }
         
+        /* Quick Links */
+        .quick-links {
+            width: 280px;
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+        
+        .quick-links h2 {
+            color: var(--penn-state-navy);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--penn-state-blue);
+        }
+        
+        .quick-links ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .quick-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .quick-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--penn-state-navy);
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .quick-links a:hover {
+            background-color: var(--white);
+        }
+        
+        .quick-links .icon {
+            font-size: 1.2rem;
+        }
+        
+        .important-dates-box {
+            background-color: var(--white);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+        
+        .important-dates-box h3 {
+            color: var(--penn-state-navy);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .important-dates-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .important-dates-box li {
+            padding: 0.25rem 0;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--penn-state-navy);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        footer a {
+            color: var(--white);
+            text-decoration: underline;
+        }
+        
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .quick-links {
+                width: 100%;
+                position: static;
+            }
+        }
+        
         @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                display: none;
+            }
+            
+            .nav-item:hover .dropdown-menu {
+                display: none;
+            }
+            
             .grade-table-container {
                 overflow-x: auto;
             }
@@ -208,120 +483,21 @@
         }
     </style>
 </head>
-
-<body class="sidebar-nav-layout">
+<body>
+    <header>
+        <h1>Math 140B: Calculus with Applications to Biology - Fall 2025</h1>
+        <div class="subtitle">How Your Grade is Determined</div>
+    </header>
+    
+    <!-- Top Navigation will be inserted here by JavaScript -->
+    <div id="top-navigation"></div>
+    
     <div class="page-wrapper">
-        <header>
-            <div class="container">
-                <h1><a href="index.html">Math 140B: Calculus and Biology I</a></h1>
-                <div class="subtitle">Fall 2025 - How Your Grade is Determined</div>
-            </div>
-        </header>
-        
-        <div class="content-wrapper">
-            <!-- Sidebar Navigation -->
-            <nav class="sidebar-navigation" role="navigation" aria-label="Syllabus sections">
-                <h2>Syllabus Sections</h2>
-                <ul>
-                    <li class="nav-item">
-                        <a href="index.html">Overview <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="index.html#welcome">Welcome</a>
-                            <a href="index.html#course-overview">Course Overview</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="instructors.html">Instructors <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="instructors.html#russ-deforest">Russ deForest</a>
-                            <a href="instructors.html#sam-fuller">Sam Fuller</a>
-                            <a href="instructors.html#ashley-pallone">Ashley Pallone</a>
-                            <a href="instructors.html#jan-reimann">Jan Reimann</a>
-                            <a href="instructors.html#michael-steward">Michael Steward</a>
-                            <a href="instructors.html#sam-vancini">Sam Vancini</a>
-                            <a href="instructors.html#office-hours">Office Hours</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="class-times.html">Class Times and Locations <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="class-times.html#mwf-classes">MWF Classes</a>
-                            <a href="class-times.html#tuesday-recitations">Tuesday Recitations</a>
-                            <a href="class-times.html#la-office-hours">LA Office Hours</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="materials.html">Course Materials <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="materials.html#textbooks">Textbooks</a>
-                            <a href="materials.html#online-resources">Online Resources</a>
-                            <a href="materials.html#canvas">Canvas Materials</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="learning-targets.html">Learning Targets <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="learning-targets.html">Learning Targets and Quiz Sessions</a>
-                            <a href="https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">List of Learning Targets</a>
-                            <a href="learning-targets.html#faq">Learning Target FAQ</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="writing-projects.html">Writing Projects <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="writing-projects.html#overview">Overview</a>
-                            <a href="writing-projects.html#schedule">Schedule</a>
-                            <a href="writing-projects.html#grading">Grading Criteria</a>
-                            <a href="writing-projects.html#revisions">Revisions</a>
-                        </div>
-                    </li>
-                    <li class="nav-item current-page">
-                        <a href="grading.html">How Your Grade is Determined <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="#overview">Grading Overview</a>
-                            <a href="#final-grades">Final Grade Table</a>
-                            <a href="#xp">Experience Points</a>
-                            <a href="#modifications">XP Modifications</a>
-                            <a href="#math197">Math 197 Option</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="policies.html">Course Policies <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="policies.html#academic-integrity">Academic Integrity</a>
-                            <a href="policies.html#attendance">Attendance</a>
-                            <a href="policies.html#makeup">Make-up Policy</a>
-                            <a href="policies.html#disability">Disability Accommodation</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="help.html">Getting Help! <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="help.html#office-hours">Instructor Office Hours</a>
-                            <a href="help.html#la-hours">LA Office Hours</a>
-                            <a href="help.html#tutoring">Free Tutoring</a>
-                            <a href="help.html#study-tips">Study Tips</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="resources.html">Student Resources <span class="dropdown-arrow">▼</span></a>
-                        <div class="dropdown-menu">
-                            <a href="resources.html#counseling">Counseling Services</a>
-                            <a href="resources.html#academic-support">Academic Support</a>
-                            <a href="resources.html#technology">Technology Resources</a>
-                            <a href="resources.html#wellness">Health & Wellness</a>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
+        <div class="container">
+            <!-- Sidebar Navigation will be inserted here by JavaScript -->
+            <div id="sidebar-navigation"></div>
             
             <main>
-                <nav class="breadcrumb" aria-label="Breadcrumb">
-                    <a href="index.html">Home</a>
-                    <span>›</span>
-                    <span aria-current="page">How Your Grade is Determined</span>
-                </nav>
-                
                 <h2 id="overview">Grading Overview</h2>
                 
                 <div class="alert alert-success">
@@ -426,41 +602,39 @@
                 <section id="xp">
                     <h3>Experience Points (XP)</h3>
                     
- <div class="xp-section">
+                    <div class="xp-section">
                         <h3>Earning Experience Points</h3>
                         
-                        <p>There are approximately <strong>870 XP</strong> available throughout the semester. You earn XP through:</p>
+                        <p>There are approximately <strong>870 XP</strong> available throughout the semester. Course engagement at a satisfactory level typically corresponds to earning about 500-600 XP (enough for 2 modifications).</p>
                         
-                        <table class="xp-table">
+                        <table class="xp-table" style="margin-top: 1rem;">
                             <thead>
                                 <tr>
                                     <th>Activity</th>
-                                    <th>XP Earned</th>
+                                    <th>XP Value</th>
                                     <th>Details</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><strong>LA Community Learning Sessions</strong></td>
-                                    <td>20 XP</td>
-                                    <td>Per week attended</td>
+                                    <td>20 XP per week</td>
+                                    <td>Attend and participate in weekly LA sessions</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Pre-lecture Assignments (PLAs)</strong></td>
-                                    <td>5 XP</td>
-                                    <td>80% correct before class (multiple attempts allowed)<br>
-                                        <em style="font-size: 0.9em;">Lower scores are scaled</em></td>
+                                    <td><strong>Online Homework</strong></td>
+                                    <td>10 XP per assignment</td>
+                                    <td>Due weekly on Mondays. Score at least 80% for full XP. Partial credit for lower scores.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Online Homework</strong> (Weekly)</td>
-                                    <td>10 XP</td>
-                                    <td>Percentage of available points (multiple attempts allowed)<br>
-                                        <em style="font-size: 0.9em;">Example: 50% of available points earns 5 XP</em></td>
+                                    <td><strong>Pre-Lecture Assignments (PLAs)</strong></td>
+                                    <td>5 XP per PLA</td>
+                                    <td>Complete before each MWF class. Score at least 80% for full XP.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Target Practice</strong></td>
-                                    <td>10 XP</td>
-                                    <td>Practice problems for each Learning Target. Percentage of available points.</td>
+                                    <td><strong>Online Practice Problems</strong></td>
+                                    <td>5-10 XP each</td>
+                                    <td>Available for each Learning Target. Percentage of available points.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Weekly Surveys</strong></td>
@@ -471,7 +645,8 @@
                         </table>
                         
                         <p style="margin-top: 1rem;"><strong>Note:</strong> Course engagement at a satisfactory level typically corresponds to earning about 500-600 XP (enough for 2 modifications).</p>
-                    </div>               </section>
+                    </div>
+                </section>
                 
                 <section id="modifications">
                     <h3>XP Modifications</h3>
@@ -484,7 +659,7 @@
                         <p style="margin-top: 1rem;"><strong>Each modification</strong> earned will:</p>
                         <ul>
                             <li>Increase the number of Complete targets by one, <strong>OR</strong></li>
-                            <li>Increase the number of Proficient targets by one.
+                            <li>Increase the number of Proficient targets by one.</li>
                         </ul>
                         
                         <table class="xp-table" style="margin-top: 1.5rem;">
@@ -664,69 +839,24 @@
                 </section>
             </main>
             
-            <!-- Quick Links Sidebar -->
-            <aside class="quick-links" role="complementary" aria-label="Quick Links">
-                <h2>Quick Links</h2>
-                <ul>
-                    <li>
-                        <a href="grading.html">
-                            <span class="icon">📊</span>
-                            How Your Grade is Determined
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
-                            <span class="icon">📋</span>
-                            Learning Target List
-                        </a>
-                    </li>
-                    <li>
-                        <a href="policies.html#makeup">
-                            <span class="icon">📝</span>
-                            Make-up Quiz Policy
-                        </a>
-                    </li>
-                    <li>
-                        <a href="instructors.html#office-hours">
-                            <span class="icon">🕐</span>
-                            Shared Office Hours
-                        </a>
-                    </li>
-                    <li>
-                        <a href="help.html#la-hours">
-                            <span class="icon">👥</span>
-                            LA Community Learning Sessions
-                        </a>
-                    </li>
-                </ul>
-                
-                <div class="important-dates-box">
-                    <h3>Important Dates</h3>
-                    <ul>
-                        <li>First Day: Aug 25</li>
-                        <li>Drop Deadline: Aug 30</li>
-                        <li>Late Drop: Nov 14</li>
-                        <li>Finals Week: Dec 15-19</li>
-                    </ul>
-                </div>
-            </aside>
+            <!-- Quick Links Sidebar will be inserted here by JavaScript -->
+            <div id="quick-links-sidebar"></div>
         </div>
     </div>
     
     <footer>
         <p>Math 140B Fall 2025 | Penn State University | <a href="index.html">Return to Syllabus Home</a></p>
     </footer>
-
+    
     <!-- External JavaScript for navigation -->
     <script src="navigation.js"></script>
     
-    <!-- Initialize navigation functionality -->
+    <!-- Initialize navigation with current page highlighted -->
     <script>
-        // Since we're using static HTML navigation, we just need the dropdown functionality
-        // The navigation.js file's initializeNavigation() function will handle this
-        if (typeof initializeNavigation === 'function') {
-            initializeNavigation();
-        }
+        // Call the initialization function when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeNavigation('grading.html');
+        });
     </script>
 </body>
 </html>

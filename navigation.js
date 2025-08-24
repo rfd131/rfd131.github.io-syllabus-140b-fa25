@@ -47,22 +47,37 @@ const navigationData = {
                 { title: "FAQ", href: "learning-targets.html#faq" }
             ]
         },
+	{
+            title: "Writing Projects",
+            href: "writing-projects.html",
+            dropdown: [
+                { title: "Overview", href: "writing-projects.html#overview" },
+                { title: "Schedule", href: "writing-projects.html#schedule" },
+                { title: "Revisions", href: "writing-projects.html#revisions" }
+            ]
+        },
         {
             title: "How Your Grade is Determined",
             href: "grading.html",
             dropdown: [
-                { title: "Base Grade", href: "grading.html#base-grade" },
-                { title: "Grade Modifiers", href: "grading.html#modifiers" },
-                { title: "Experience Points", href: "grading.html#xp" }
+                { title: "Overview", href: "grading.html#overview" },
+		{ title: "Final Course Grades", href: "grading.html#final-grades" },
+		{ title: "Experience Points", href: "grading.html#xp" },
+                { title: "XP Modifications", href: "grading.html#modifiers" },
+                { title: "Math 197", href: "grading.html#math197" }
             ]
         },
         {
             title: "Course Policies",
             href: "policies.html",
             dropdown: [
-                { title: "Attendance", href: "policies.html#attendance" },
-                { title: "Make-up Quizzes", href: "policies.html#makeup" },
-                { title: "Academic Integrity", href: "policies.html#integrity" }
+                { title: "Quiz Session Policies", href: "policies.html#quiz-exam-policies" },
+                { title: "Midterms", href: "policies.html#midterm-section" },
+		{ title: "Final Exam", href: "policies.html#final-section" },
+                { title: "Academic Integrity", href: "policies.html#academic-integrity" },
+		{ title: "Generative AI", href: "policies.html#ai-policy" },
+		{ title: "Attendance", href: "policies.html#attendance" },
+		{ title: "Late Work", href: "policies.html#late-work" },	
             ]
         },
         {
@@ -93,6 +108,7 @@ const navigationData = {
         { title: "Class Times & Locations", href: "class-times.html" },
         { title: "Course Materials", href: "materials.html" },
         { title: "Learning Targets", href: "learning-targets.html" },
+	{ title: "Writing Projects", href: "writing-projects.html" },
         { title: "How Your Grade is Determined", href: "grading.html" },
         { title: "Course Policies", href: "policies.html" },
         { title: "Getting Help", href: "help.html" },
