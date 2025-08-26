@@ -98,7 +98,6 @@ const navigationData = {
                 { title: "Counseling Services", href: "resources.html#counseling" },
                 { title: "Academic Support", href: "resources.html#academic-support" },
                 { title: "Technology Resources", href: "resources.html#technology" },
-                { title: "Health & Wellness", href: "resources.html#wellness" }
             ]
         }
     ],
