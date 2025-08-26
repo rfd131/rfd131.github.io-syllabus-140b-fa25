@@ -71,6 +71,7 @@ const navigationData = {
             title: "Course Policies",
             href: "policies.html",
             dropdown: [
+		{ title: "Quiz Session Summary", href: "quiz-session-summary.html" },
                 { title: "Quiz Session Policies", href: "policies.html#quiz-exam-policies" },
                 { title: "Midterms", href: "policies.html#midterm-section" },
 		{ title: "Final Exam", href: "policies.html#final-section" },
