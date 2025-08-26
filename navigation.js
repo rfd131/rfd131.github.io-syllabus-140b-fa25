@@ -95,6 +95,7 @@ const navigationData = {
             title: "Student Resources",
             href: "resources.html",
             dropdown: [
+		{ title: "Disability Accommodation", href: "resources.html#disability" },
                 { title: "Counseling Services", href: "resources.html#counseling" },
                 { title: "Academic Support", href: "resources.html#academic-support" },
                 { title: "Technology Resources", href: "resources.html#technology" },
