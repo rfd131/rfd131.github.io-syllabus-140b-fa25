@@ -133,8 +133,8 @@ const navigationData = {
         },
         { 
             icon: "📝", 
-            title: "Make-up Quiz Policy", 
-            href: "policies.html#makeup" 
+            title: "Quiz Session Policies", 
+            href: "policies.html#quiz-exam-policies" 
         },
         { 
             icon: "🕐", 
