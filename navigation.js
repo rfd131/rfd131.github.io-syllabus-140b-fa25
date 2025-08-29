@@ -140,7 +140,7 @@ const navigationData = {
 	{ 
             icon: "📋", 
             title: "Sign Up For Weekly Quizzes", 
-            href: "https://bit.ly/QuizSelection140B" 
+            href: "https://rfd131.github.io/links/quizSelection140B/index.html" 
         },
         { 
             icon: "📝", 
