@@ -135,7 +135,7 @@ const navigationData = {
 	{ 
             icon: "📋", 
             title: "Progress Report", 
-            href: "https://bit.ly/ProgressReport140B" 
+            href: "https://rfd131.github.io/links/progressReport140B/index.html" 
         },
 	{ 
             icon: "📋", 
