@@ -132,6 +132,16 @@ const navigationData = {
             title: "LT Quiz Schedule", 
             href: "quizschedule.html" 
         },
+	{ 
+            icon: "📋", 
+            title: "Progress Report", 
+            href: "https://bit.ly/ProgressReport140B" 
+        },
+	{ 
+            icon: "📋", 
+            title: "Sign Up For Weekly Quizzes", 
+            href: "https://bit.ly/QuizSelection140B" 
+        },
         { 
             icon: "📝", 
             title: "Quiz Session Policies", 
