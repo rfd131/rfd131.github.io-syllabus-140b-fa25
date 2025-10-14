@@ -233,6 +233,7 @@ function generateSidebarNav(currentPage = '') {
                 height: 100vh;
                 overflow-y: auto;
                 border-right: 2px solid var(--penn-state-blue);
+                z-index: 1;
             }
             
             .sidebar-navigation h2 {

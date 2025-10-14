@@ -109,6 +109,7 @@ body.sidebar-nav-layout .content-wrapper {
     height: 100vh;
     overflow-y: auto;
     border-right: 2px solid var(--penn-state-blue);
+    z-index: 1;
 }
 
 .sidebar-navigation h2 {
@@ -176,6 +177,7 @@ body.sidebar-nav-layout .content-wrapper {
     margin-left: 0.5rem;
     margin-top: 0.25rem;
     box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+    z-index: 1000;
 }
 
 .nav-item.active .dropdown-menu {
@@ -215,6 +217,7 @@ body.sidebar-nav-layout .content-wrapper {
     height: 100vh;
     overflow-y: auto;
     border-left: 2px solid var(--penn-state-blue);
+    z-index: 1;
 }
 
 .quick-links h2 {
