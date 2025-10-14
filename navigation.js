@@ -229,8 +229,8 @@ function generateSidebarNav(currentPage = '') {
                 background-color: var(--light-gray);
                 padding: 2rem 1rem;
                 position: sticky;
-                top: 0;
-                height: 100vh;
+                top: 80px;
+                height: calc(100vh - 80px);
                 overflow-y: auto;
                 border-right: 2px solid var(--penn-state-blue);
                 z-index: 1;
@@ -302,6 +302,7 @@ function generateSidebarNav(currentPage = '') {
                 margin-left: 0.5rem;
                 margin-top: 0.25rem;
                 box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+                z-index: 1000;
             }
             
             .sidebar-navigation .nav-item.active .dropdown-menu {

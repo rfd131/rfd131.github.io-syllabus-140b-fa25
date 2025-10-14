@@ -105,8 +105,8 @@ body.sidebar-nav-layout .content-wrapper {
     background-color: var(--light-gray);
     padding: 2rem 1rem;
     position: sticky;
-    top: 0;
-    height: 100vh;
+    top: 80px;
+    height: calc(100vh - 80px);
     overflow-y: auto;
     border-right: 2px solid var(--penn-state-blue);
     z-index: 1;
