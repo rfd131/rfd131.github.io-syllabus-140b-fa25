@@ -116,46 +116,51 @@ const navigationData = {
         { title: "Student Resources", href: "resources.html" }
     ],
     quickLinks: [
-        { 
-            icon: "📊", 
-            title: "How Your Grade is Determined", 
-            href: "grading.html" 
+        {
+            icon: "📊",
+            title: "How Your Grade is Determined",
+            href: "grading.html"
         },
-        { 
-            icon: "📋", 
-            title: "Learning Targets Detailed List", 
+        {
+            icon: "📋",
+            title: "Learning Targets Detailed List",
             href: "https://docs.google.com/document/d/1xH-NffeL-NXhjz-lYjF5E8q2tQYvWcCNPKukSQMfelY/edit?usp=sharing",
             external: true
         },
-	{ 
-            icon: "📋", 
-            title: "LT Quiz Schedule", 
-            href: "quizschedule.html" 
+	{
+            icon: "📋",
+            title: "LT Quiz Schedule",
+            href: "quizschedule.html"
         },
-	{ 
-            icon: "📋", 
-            title: "Progress Report", 
-            href: "https://rfd131.github.io/links/progressReport140B/index.html" 
+	{
+            icon: "📋",
+            title: "Progress Report",
+            href: "https://rfd131.github.io/links/progressReport140B/index.html"
         },
-	{ 
-            icon: "📋", 
-            title: "Sign Up For Weekly Quizzes", 
-            href: "https://rfd131.github.io/links/quizSelection140B/index.html" 
+	{
+            icon: "📋",
+            title: "Sign Up For Weekly Quizzes",
+            href: "https://rfd131.github.io/links/quizSelection140B/index.html"
         },
-        { 
-            icon: "📝", 
-            title: "Quiz Session Policies", 
-            href: "policies.html#quiz-exam-policies" 
+        {
+            icon: "📝",
+            title: "Quiz Session Policies",
+            href: "policies.html#quiz-exam-policies"
         },
-        { 
-            icon: "🕐", 
-            title: "Common Office Hours", 
-            href: "instructors.html#office-hours" 
+        {
+            icon: "🕐",
+            title: "Common Office Hours",
+            href: "instructors.html#office-hours"
         },
-        { 
-            icon: "👥", 
-            title: "LA Community Learning Sessions", 
-            href: "help.html#la-sessions" 
+        {
+            icon: "👥",
+            title: "LA Community Learning Sessions",
+            href: "help.html#la-sessions"
+        },
+        {
+            icon: "📚",
+            title: "Student Resources",
+            href: "resources.html"
         }
     ],
     importantDates: [
