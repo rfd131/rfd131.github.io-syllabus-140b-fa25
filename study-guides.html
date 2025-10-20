@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Guides - Math 140B Fall 2025</title>
+
+    <!-- Page-specific styles -->
+    <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --penn-state-blue: #001e44;
+            --penn-state-navy: #041e42;
+            --light-blue: #1e407c;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --gray: #666;
+            --border-gray: #ddd;
+            --success-green: #4CAF50;
+            --warning-yellow: #FFF9C4;
+            --warning-border: #FFC107;
+            --info-blue: #E8F4FD;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-gray);
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--penn-state-blue) 0%, var(--light-blue) 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        header .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            opacity: 0.95;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--penn-state-navy);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item > a {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            transition: background-color 0.3s;
+        }
+
+        .nav-item:hover > a,
+        .nav-item.current-page > a {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .dropdown-arrow {
+            font-size: 0.8em;
+            margin-left: 0.3rem;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            min-width: 250px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--penn-state-navy);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+        }
+
+        /* Main Content Area */
+        .page-wrapper {
+            min-height: calc(100vh - 200px);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        /* Main content */
+        main {
+            flex: 1;
+            background-color: var(--white);
+        }
+
+        main h2 {
+            color: var(--penn-state-navy);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--penn-state-blue);
+        }
+
+        main h3 {
+            color: var(--penn-state-navy);
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        main h4 {
+            color: var(--penn-state-navy);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Resource Cards */
+        .resource-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .resource-card h3 {
+            color: var(--penn-state-navy);
+            border-bottom: 2px solid var(--penn-state-blue);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .resource-card h4 {
+            color: var(--penn-state-navy);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            width: 280px;
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+
+        .quick-links h2 {
+            color: var(--penn-state-navy);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--penn-state-blue);
+        }
+
+        .quick-links ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .quick-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .quick-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--penn-state-navy);
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .quick-links a:hover {
+            background-color: var(--white);
+        }
+
+        .quick-links .icon {
+            font-size: 1.2rem;
+        }
+
+        .important-dates-box {
+            background-color: var(--white);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .important-dates-box h3 {
+            color: var(--penn-state-navy);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .important-dates-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .important-dates-box li {
+            padding: 0.25rem 0;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--penn-state-navy);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .quick-links {
+                width: 100%;
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: none;
+            }
+
+            .nav-item:hover .dropdown-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Math 140B: Calculus with Applications to Biology - Fall 2025</h1>
+        <div class="subtitle">Study Guides</div>
+    </header>
+
+    <!-- Top Navigation will be inserted here by JavaScript -->
+    <div id="top-navigation"></div>
+
+    <div class="page-wrapper">
+        <div class="container">
+            <!-- Sidebar Navigation will be inserted here by JavaScript -->
+            <div id="sidebar-navigation"></div>
+
+            <main>
+                <h2>Study Guides</h2>
+
+                <p>This page provides study resources to help you prepare for Learning Target Quizzes and exams. Access sample materials and additional resources to support your learning throughout the semester.</p>
+
+                <section id="sample-quizzes">
+                    <div class="resource-card">
+                        <h3>Sample Quizzes</h3>
+
+                        <p>Access sample quizzes to help you prepare for Learning Target assessments. These PDFs provide examples of quiz formats and question types you'll encounter throughout the semester.</p>
+
+                        <p style="margin-top: 1rem;">
+                            <a href="https://drive.google.com/drive/folders/1nGPpPxN42Rw3GTNx5Xtm1qRwq_cGDR-G?usp=sharing" target="_blank" rel="noopener noreferrer" style="display: inline-block; background-color: var(--penn-state-blue); color: var(--white); padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold;">
+                                View Sample Quizzes on Google Drive
+                            </a>
+                        </p>
+                    </div>
+                </section>
+
+            </main>
+
+            <!-- Quick Links Sidebar will be inserted here by JavaScript -->
+            <div id="quick-links-sidebar"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Math 140B Fall 2025 | Penn State University | <a href="index.html">Return to Syllabus Home</a></p>
+    </footer>
+
+    <!-- External JavaScript for navigation -->
+    <script src="navigation.js"></script>
+
+    <!-- Initialize navigation with current page highlighted -->
+    <script>
+        // Call the initialization function when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeNavigation('study-guides.html');
+        });
+    </script>
+</body>
+</html>

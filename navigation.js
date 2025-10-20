@@ -93,6 +93,13 @@ const navigationData = {
             ]
         },
         {
+            title: "Study Guides",
+            href: "study-guides.html",
+            dropdown: [
+                { title: "Sample Quizzes", href: "study-guides.html#sample-quizzes" }
+            ]
+        },
+        {
             title: "Student Resources",
             href: "resources.html",
             dropdown: [
@@ -113,6 +120,7 @@ const navigationData = {
         { title: "How Your Grade is Determined", href: "grading.html" },
         { title: "Course Policies", href: "policies.html" },
         { title: "Getting Help", href: "help.html" },
+        { title: "Study Guides", href: "study-guides.html" },
         { title: "Student Resources", href: "resources.html" }
     ],
     quickLinks: [
@@ -159,8 +167,8 @@ const navigationData = {
         },
         {
             icon: "📚",
-            title: "Student Resources",
-            href: "resources.html"
+            title: "Study Guides",
+            href: "study-guides.html"
         }
     ],
     importantDates: [
