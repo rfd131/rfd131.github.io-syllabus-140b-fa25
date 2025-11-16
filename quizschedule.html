@@ -294,11 +294,11 @@
             // Remove active class from all buttons
             const buttons = document.querySelectorAll('.view-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
-            
+
             // Remove active class from all views
             const views = document.querySelectorAll('.schedule-view');
             views.forEach(view => view.classList.remove('active'));
-            
+
             // Add active class to selected button and view
             if (viewType === 'weekly') {
                 document.getElementById('weekly-view').classList.add('active');
@@ -306,6 +306,9 @@
             } else if (viewType === 'target') {
                 document.getElementById('target-view').classList.add('active');
                 buttons[1].classList.add('active');
+            } else if (viewType === 'math197') {
+                document.getElementById('math197-view').classList.add('active');
+                buttons[2].classList.add('active');
             }
         }
     </script>
@@ -331,8 +334,9 @@
         </div>
         
         <div class="view-toggle">
-            <button class="view-btn active" onclick="showView('weekly')">View by Week</button>
-            <button class="view-btn" onclick="showView('target')">View by Learning Target</button>
+            <button class="view-btn active" onclick="showView('weekly')">Math 140B - View by Week</button>
+            <button class="view-btn" onclick="showView('target')">Math 140B - View by LT</button>
+            <button class="view-btn" onclick="showView('math197')">Math 197 Schedule</button>
         </div>
         
         <!-- Weekly View -->
@@ -668,6 +672,10 @@
                 <div class="day-section">
                     <div class="day-label">Tuesday</div>
                     <div class="lt-list">
+                        <span class="lt-tag foundational">LT3F</span>
+                        <span class="lt-tag foundational">LT9F</span>
+                        <span class="lt-tag one-time">LT11</span>
+                        <span class="lt-tag foundational">LT16F</span>
                         <span class="lt-tag advanced">LT17Adv</span>
                         <span class="lt-tag foundational">LT19F</span>
                         <span class="lt-tag advanced">LT19Adv</span>
@@ -681,8 +689,9 @@
                         <span class="lt-tag advanced">LT1Adv</span>
                         <span class="lt-tag foundational">LT2F</span>
                         <span class="lt-tag advanced">LT3Adv</span>
+                        <span class="lt-tag foundational">LT4F</span>
+                        <span class="lt-tag advanced">LT5Adv</span>
                         <span class="lt-tag advanced">LT9Adv</span>
-                        <span class="lt-tag advanced">LT15Adv</span>
                         <span class="lt-tag advanced">LT16Adv</span>
                         <span class="lt-tag foundational">LT17F</span>
                         <span class="lt-tag one-time">LT18</span>
@@ -698,6 +707,10 @@
                 <div class="day-section">
                     <div class="day-label">Tuesday</div>
                     <div class="lt-list">
+                        <span class="lt-tag foundational">LT12F</span>
+                        <span class="lt-tag advanced">LT12Adv</span>
+                        <span class="lt-tag foundational">LT13F</span>
+                        <span class="lt-tag foundational">LT17F</span>
                         <span class="lt-tag advanced">LT19Adv</span>
                         <span class="lt-tag advanced">LT20Adv</span>
                         <span class="lt-tag one-time">LT21</span>
@@ -709,7 +722,11 @@
                 <div class="day-section">
                     <div class="day-label">Thursday</div>
                     <div class="lt-list">
+                        <span class="lt-tag advanced">LT2Adv</span>
+                        <span class="lt-tag advanced">LT4Adv</span>
+                        <span class="lt-tag foundational">LT6F</span>
                         <span class="lt-tag advanced">LT7Adv</span>
+                        <span class="lt-tag foundational">LT8F</span>
                         <span class="lt-tag advanced">LT8Adv</span>
                         <span class="lt-tag advanced">LT15Adv</span>
                         <span class="lt-tag advanced">LT17Adv</span>
@@ -728,6 +745,11 @@
                 <div class="day-section">
                     <div class="day-label">Tuesday</div>
                     <div class="lt-list">
+                        <span class="lt-tag foundational">LT1F</span>
+                        <span class="lt-tag one-time">LT10</span>
+                        <span class="lt-tag advanced">LT13Adv</span>
+                        <span class="lt-tag one-time">LT14</span>
+                        <span class="lt-tag foundational">LT15F</span>
                         <span class="lt-tag advanced">LT20Adv</span>
                         <span class="lt-tag one-time">LT21</span>
                         <span class="lt-tag one-time">LT22</span>
@@ -739,7 +761,11 @@
                     <div class="day-label">Thursday</div>
                     <div class="lt-list">
                         <span class="lt-tag advanced">LT3Adv</span>
+                        <span class="lt-tag foundational">LT5F</span>
+                        <span class="lt-tag advanced">LT6Adv</span>
                         <span class="lt-tag advanced">LT8Adv</span>
+                        <span class="lt-tag advanced">LT9Adv</span>
+                        <span class="lt-tag foundational">LT17F</span>
                         <span class="lt-tag advanced">LT17Adv</span>
                         <span class="lt-tag foundational">LT19F</span>
                         <span class="lt-tag advanced">LT19Adv</span>
@@ -1228,6 +1254,117 @@
                         <div class="appearance">Week 14 - Tuesday</div>
                         <div class="appearance">Week 15 - Tuesday</div>
                         <div class="appearance">Finals - Exam</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Math 197 View -->
+        <div id="math197-view" class="schedule-view">
+            <div style="background: #FFF3CD; padding: 20px; border-radius: 10px; margin-bottom: 30px; border-left: 4px solid #FFC107;">
+                <h2 style="margin: 0 0 10px 0; color: #856404;">Math 197: Differential Calculus with Applications to Biology (2 Credits)</h2>
+                <p style="margin: 0; color: #856404;">Quiz schedule for remaining weeks (Weeks 13-15). Only LT1-LT17 count toward Math 197 grades.</p>
+                <p style="margin: 10px 0 0 0; color: #856404;"><strong>Essential LTs for C or above:</strong> LT1, LT2, LT3, LT9, LT11, LT12, LT13, LT14 (all 8 must be Complete, at least 6 must be Proficient)</p>
+            </div>
+
+            <div class="week-card">
+                <div class="week-header">
+                    <span class="week-title">Week 13</span>
+                    <span class="week-type">Tuesday/Thursday Quizzes</span>
+                </div>
+                <div class="day-section">
+                    <div class="day-label">Tuesday</div>
+                    <div class="lt-list">
+                        <span class="lt-tag foundational">LT3F</span>
+                        <span class="lt-tag foundational">LT4F</span>
+                        <span class="lt-tag foundational">LT9F</span>
+                        <span class="lt-tag one-time">LT11</span>
+                        <span class="lt-tag foundational">LT16F</span>
+                        <span class="lt-tag advanced">LT17Adv</span>
+                    </div>
+                </div>
+                <div class="day-section">
+                    <div class="day-label">Thursday</div>
+                    <div class="lt-list">
+                        <span class="lt-tag advanced">LT1Adv</span>
+                        <span class="lt-tag foundational">LT2F</span>
+                        <span class="lt-tag advanced">LT3Adv</span>
+                        <span class="lt-tag foundational">LT4F</span>
+                        <span class="lt-tag advanced">LT5Adv</span>
+                        <span class="lt-tag advanced">LT9Adv</span>
+                        <span class="lt-tag advanced">LT15Adv</span>
+                        <span class="lt-tag advanced">LT16Adv</span>
+                        <span class="lt-tag foundational">LT17F</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="week-card">
+                <div class="week-header">
+                    <span class="week-title">Week 14</span>
+                    <span class="week-type">Tuesday/Thursday Quizzes</span>
+                </div>
+                <div class="day-section">
+                    <div class="day-label">Tuesday</div>
+                    <div class="lt-list">
+                        <span class="lt-tag foundational">LT7F</span>
+                        <span class="lt-tag foundational">LT12F</span>
+                        <span class="lt-tag advanced">LT12Adv</span>
+                        <span class="lt-tag foundational">LT13F</span>
+                    </div>
+                </div>
+                <div class="day-section">
+                    <div class="day-label">Thursday</div>
+                    <div class="lt-list">
+                        <span class="lt-tag advanced">LT2Adv</span>
+                        <span class="lt-tag advanced">LT4Adv</span>
+                        <span class="lt-tag foundational">LT6F</span>
+                        <span class="lt-tag advanced">LT7Adv</span>
+                        <span class="lt-tag foundational">LT8F</span>
+                        <span class="lt-tag advanced">LT8Adv</span>
+                        <span class="lt-tag advanced">LT15Adv</span>
+                        <span class="lt-tag advanced">LT17Adv</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="week-card">
+                <div class="week-header">
+                    <span class="week-title">Week 15</span>
+                    <span class="week-type">Tuesday/Thursday Quizzes</span>
+                </div>
+                <div class="day-section">
+                    <div class="day-label">Tuesday</div>
+                    <div class="lt-list">
+                        <span class="lt-tag foundational">LT1F</span>
+                        <span class="lt-tag one-time">LT10</span>
+                        <span class="lt-tag one-time">LT14</span>
+                        <span class="lt-tag advanced">LT13Adv</span>
+                        <span class="lt-tag foundational">LT15F</span>
+                    </div>
+                </div>
+                <div class="day-section">
+                    <div class="day-label">Thursday</div>
+                    <div class="lt-list">
+                        <span class="lt-tag advanced">LT3Adv</span>
+                        <span class="lt-tag foundational">LT5F</span>
+                        <span class="lt-tag advanced">LT6Adv</span>
+                        <span class="lt-tag advanced">LT8Adv</span>
+                        <span class="lt-tag advanced">LT9Adv</span>
+                        <span class="lt-tag foundational">LT17F</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="week-card exam-week">
+                <div class="week-header">
+                    <span class="week-title">Finals Week</span>
+                    <span class="week-type exam">Final Exam</span>
+                </div>
+                <div class="day-section">
+                    <div class="day-label">Math 197: LT1-LT17 Available</div>
+                    <div class="lt-list">
+                        <span class="lt-tag">All LT1-LT17 (F, Adv, and OT versions)</span>
                     </div>
                 </div>
             </div>
